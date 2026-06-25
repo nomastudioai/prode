@@ -5,7 +5,7 @@
     "granularidad": "Valor anual al cierre de cada año (31-dic). 2026 = último valor disponible al 25/06/2026.",
     "generado": "2026-06-25",
     "total_equipos": 48,
-    "equipos_con_indice": 46,
+    "equipos_con_indice": 48,
     "equipos_sin_indice": [
       {
         "iso3": "CUW",
@@ -17,7 +17,8 @@
         "nombre": "Escocia",
         "nota": "No figura en el índice del Atlas (indexado por país ISO3; el RU se agrupa como Inglaterra/GBR y Curaçao no es estado UN)."
       }
-    ]
+    ],
+    "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte)."
   },
   "equipos": [
     {
@@ -885,6 +886,19 @@
       "in_index": true
     },
     {
+      "iso3": "SCO",
+      "name": "Escocia",
+      "en": null,
+      "confed": "UEFA",
+      "host": false,
+      "elo_2026": 1745,
+      "rank_2026": 33,
+      "elo_recent": {},
+      "rank_recent": {},
+      "in_index": false,
+      "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)"
+    },
+    {
       "iso3": "CZE",
       "name": "República Checa",
       "en": "Bohemia",
@@ -1461,6 +1475,19 @@
       "in_index": true
     },
     {
+      "iso3": "CUW",
+      "name": "Curaçao",
+      "en": null,
+      "confed": "CONCACAF",
+      "host": false,
+      "elo_2026": 1438,
+      "rank_2026": 91,
+      "elo_recent": {},
+      "rank_recent": {},
+      "in_index": false,
+      "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)"
+    },
+    {
       "iso3": "QAT",
       "name": "Catar",
       "en": "Qatar",
@@ -1491,30 +1518,6 @@
         "2026": 97
       },
       "in_index": true
-    },
-    {
-      "iso3": "CUW",
-      "name": "Curaçao",
-      "en": null,
-      "confed": "CONCACAF",
-      "host": false,
-      "elo_2026": null,
-      "rank_2026": null,
-      "elo_recent": {},
-      "rank_recent": {},
-      "in_index": false
-    },
-    {
-      "iso3": "SCO",
-      "name": "Escocia",
-      "en": null,
-      "confed": "UEFA",
-      "host": false,
-      "elo_2026": null,
-      "rank_2026": null,
-      "elo_recent": {},
-      "rank_recent": {},
-      "in_index": false
     }
   ]
 }

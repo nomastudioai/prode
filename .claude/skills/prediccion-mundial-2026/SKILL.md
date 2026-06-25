@@ -89,6 +89,26 @@ con `--formA/--formB`, los pondera dándole más peso a los más recientes
   configurables y no están calibrados contra un histórico de apuestas: es una
   estimación **orientativa**, no un pronóstico garantizado.
 
+## Backtest (validación contra resultados reales)
+
+`backtest.mjs` compara el predictor contra los partidos de fase de grupos ya
+jugados (`data/grupos-resultados-2026.json`, datos verificados multi-fuente).
+
+```bash
+node backtest.mjs          # reporte en consola
+node backtest.mjs --md     # además genera analisis-backtest.md (incluye el dry-run de los 72 partidos)
+```
+
+Mide acierto 1X2, marcador exacto, Brier score, log-loss, error de diferencia
+de goles, calibración y baselines. Ver `analisis-backtest.md` para el último
+resultado y los puntos de mejora.
+
+## Arquitectura
+
+- `model.mjs` — lógica del modelo (Elo + forma → Poisson) y `PARAMS`. Editar acá.
+- `predict.mjs` — CLI de predicción de un partido.
+- `backtest.mjs` — validación contra resultados reales + dry-run completo.
+
 ## Actualizar los datos
 
 Para refrescar el índice (p. ej. cuando el Atlas publique nuevos valores),
