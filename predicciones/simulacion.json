@@ -11,7 +11,7 @@
       "completo": true,
       "equipos": [
         {
-          "name": "México",
+          "name": "Mexico",
           "iso": "MEX",
           "pts": 9,
           "gd": 6,
@@ -23,7 +23,7 @@
           "p3": 0
         },
         {
-          "name": "Sudáfrica",
+          "name": "South Africa",
           "iso": "ZAF",
           "pts": 4,
           "gd": -1,
@@ -35,19 +35,19 @@
           "p3": 0
         },
         {
-          "name": "Corea del Sur",
+          "name": "South Korea",
           "iso": "KOR",
           "pts": 3,
           "gd": -1,
           "gf": 2,
           "pj": 3,
-          "advance": 77.44,
+          "advance": 77.472,
           "p1": 0,
           "p2": 0,
           "p3": 100
         },
         {
-          "name": "República Checa",
+          "name": "Czech Republic",
           "iso": "CZE",
           "pts": 1,
           "gd": -4,
@@ -64,7 +64,7 @@
       "completo": true,
       "equipos": [
         {
-          "name": "Suiza",
+          "name": "Switzerland",
           "iso": "CHE",
           "pts": 7,
           "gd": 4,
@@ -76,7 +76,7 @@
           "p3": 0
         },
         {
-          "name": "Canadá",
+          "name": "Canada",
           "iso": "CAN",
           "pts": 4,
           "gd": 5,
@@ -88,7 +88,7 @@
           "p3": 0
         },
         {
-          "name": "Bosnia y Herzegovina",
+          "name": "Bosnia and Herzegovina",
           "iso": "BIH",
           "pts": 4,
           "gd": -1,
@@ -100,7 +100,7 @@
           "p3": 100
         },
         {
-          "name": "Catar",
+          "name": "Qatar",
           "iso": "QAT",
           "pts": 1,
           "gd": -8,
@@ -117,7 +117,7 @@
       "completo": true,
       "equipos": [
         {
-          "name": "Brasil",
+          "name": "Brazil",
           "iso": "BRA",
           "pts": 7,
           "gd": 6,
@@ -129,7 +129,7 @@
           "p3": 0
         },
         {
-          "name": "Marruecos",
+          "name": "Morocco",
           "iso": "MAR",
           "pts": 7,
           "gd": 3,
@@ -141,19 +141,19 @@
           "p3": 0
         },
         {
-          "name": "Escocia",
+          "name": "Scotland",
           "iso": "SCO",
           "pts": 3,
           "gd": -3,
           "gf": 1,
           "pj": 3,
-          "advance": 14.422,
+          "advance": 14.42,
           "p1": 0,
           "p2": 0,
           "p3": 100
         },
         {
-          "name": "Haití",
+          "name": "Haiti",
           "iso": "HTI",
           "pts": 0,
           "gd": -6,
@@ -170,7 +170,7 @@
       "completo": false,
       "equipos": [
         {
-          "name": "Estados Unidos",
+          "name": "United States",
           "iso": "USA",
           "pts": 6,
           "gd": 5,
@@ -188,7 +188,7 @@
           "gd": 0,
           "gf": 2,
           "pj": 2,
-          "advance": 84.962,
+          "advance": 84.942,
           "p1": 0.636,
           "p2": 62.686,
           "p3": 31.948
@@ -206,13 +206,13 @@
           "p3": 53.776
         },
         {
-          "name": "Turquía",
+          "name": "Turkey",
           "iso": "TUR",
           "pts": 0,
           "gd": -3,
           "gf": 0,
           "pj": 2,
-          "advance": 10.218,
+          "advance": 10.232,
           "p1": 0,
           "p2": 0,
           "p3": 14.276
@@ -223,7 +223,7 @@
       "completo": true,
       "equipos": [
         {
-          "name": "Alemania",
+          "name": "Germany",
           "iso": "DEU",
           "pts": 6,
           "gd": 6,
@@ -235,7 +235,7 @@
           "p3": 0
         },
         {
-          "name": "Costa de Marfil",
+          "name": "Ivory Coast",
           "iso": "CIV",
           "pts": 6,
           "gd": 2,
@@ -259,7 +259,7 @@
           "p3": 100
         },
         {
-          "name": "Curaçao",
+          "name": "Curacao",
           "iso": "CUW",
           "pts": 1,
           "gd": -8,
@@ -276,31 +276,31 @@
       "completo": false,
       "equipos": [
         {
-          "name": "Japón",
+          "name": "Japan",
           "iso": "JPN",
           "pts": 5,
           "gd": 4,
           "gf": 7,
           "pj": 3,
           "advance": 100,
-          "p1": 10.776,
-          "p2": 89.224,
+          "p1": 10.05,
+          "p2": 89.95,
           "p3": 0
         },
         {
-          "name": "Países Bajos",
+          "name": "Netherlands",
           "iso": "NLD",
           "pts": 4,
           "gd": 4,
           "gf": 7,
           "pj": 2,
           "advance": 100,
-          "p1": 89.224,
-          "p2": 10.744,
-          "p3": 0.032
+          "p1": 89.95,
+          "p2": 10.04,
+          "p3": 0.01
         },
         {
-          "name": "Suecia",
+          "name": "Sweden",
           "iso": "SWE",
           "pts": 4,
           "gd": 0,
@@ -308,11 +308,11 @@
           "pj": 3,
           "advance": 100,
           "p1": 0,
-          "p2": 0.032,
-          "p3": 99.968
+          "p2": 0.01,
+          "p3": 99.99
         },
         {
-          "name": "Túnez",
+          "name": "Tunisia",
           "iso": "TUN",
           "pts": 0,
           "gd": -8,
@@ -329,52 +329,52 @@
       "completo": false,
       "equipos": [
         {
-          "name": "Egipto",
+          "name": "Egypt",
           "iso": "EGY",
           "pts": 4,
           "gd": 2,
           "gf": 4,
           "pj": 2,
           "advance": 100,
-          "p1": 55.784,
-          "p2": 18.124,
-          "p3": 26.092
+          "p1": 55.786,
+          "p2": 18.106,
+          "p3": 26.108
         },
         {
-          "name": "Bélgica",
+          "name": "Belgium",
           "iso": "BEL",
           "pts": 2,
           "gd": 0,
           "gf": 1,
           "pj": 2,
-          "advance": 88.856,
-          "p1": 18.71,
-          "p2": 56.462,
-          "p3": 15.588
+          "advance": 88.876,
+          "p1": 18.712,
+          "p2": 56.502,
+          "p3": 15.578
         },
         {
-          "name": "Irán",
+          "name": "Iran",
           "iso": "IRN",
           "pts": 2,
           "gd": 0,
           "gf": 2,
           "pj": 2,
-          "advance": 66.118,
-          "p1": 25.506,
-          "p2": 17.688,
-          "p3": 52.022
+          "advance": 66.11,
+          "p1": 25.502,
+          "p2": 17.676,
+          "p3": 52.02
         },
         {
-          "name": "Nueva Zelanda",
+          "name": "New Zealand",
           "iso": "NZL",
           "pts": 1,
           "gd": -2,
           "gf": 3,
           "pj": 2,
-          "advance": 10.802,
+          "advance": 10.78,
           "p1": 0,
-          "p2": 7.726,
-          "p3": 6.298
+          "p2": 7.716,
+          "p3": 6.294
         }
       ]
     },
@@ -382,28 +382,28 @@
       "completo": false,
       "equipos": [
         {
-          "name": "España",
+          "name": "Spain",
           "iso": "ESP",
           "pts": 4,
           "gd": 4,
           "gf": 4,
           "pj": 2,
           "advance": 100,
-          "p1": 86.576,
-          "p2": 8.498,
-          "p3": 4.926
+          "p1": 86.568,
+          "p2": 8.504,
+          "p3": 4.928
         },
         {
-          "name": "Cabo Verde",
+          "name": "Cape Verde",
           "iso": "CPV",
           "pts": 2,
           "gd": 0,
           "gf": 2,
           "pj": 2,
-          "advance": 67.536,
-          "p1": 2.704,
+          "advance": 67.558,
+          "p1": 2.706,
           "p2": 55.648,
-          "p3": 19.552
+          "p3": 19.542
         },
         {
           "name": "Uruguay",
@@ -412,22 +412,22 @@
           "gd": 0,
           "gf": 3,
           "pj": 2,
-          "advance": 36.688,
-          "p1": 10.72,
-          "p2": 7.81,
-          "p3": 70.44
+          "advance": 36.696,
+          "p1": 10.726,
+          "p2": 7.824,
+          "p3": 70.444
         },
         {
-          "name": "Arabia Saudí",
+          "name": "Saudi Arabia",
           "iso": "SAU",
           "pts": 1,
           "gd": -4,
           "gf": 1,
           "pj": 2,
-          "advance": 32.182,
+          "advance": 32.164,
           "p1": 0,
-          "p2": 28.044,
-          "p3": 5.082
+          "p2": 28.024,
+          "p3": 5.086
         }
       ]
     },
@@ -435,27 +435,27 @@
       "completo": false,
       "equipos": [
         {
-          "name": "Francia",
+          "name": "France",
           "iso": "FRA",
           "pts": 6,
           "gd": 5,
           "gf": 6,
           "pj": 2,
           "advance": 100,
-          "p1": 76.934,
-          "p2": 23.066,
+          "p1": 76.928,
+          "p2": 23.072,
           "p3": 0
         },
         {
-          "name": "Noruega",
+          "name": "Norway",
           "iso": "NOR",
           "pts": 6,
           "gd": 4,
           "gf": 7,
           "pj": 2,
           "advance": 100,
-          "p1": 23.066,
-          "p2": 76.934,
+          "p1": 23.072,
+          "p2": 76.928,
           "p3": 0
         },
         {
@@ -465,22 +465,22 @@
           "gd": -3,
           "gf": 3,
           "pj": 2,
-          "advance": 46.25,
+          "advance": 46.214,
           "p1": 0,
           "p2": 0,
-          "p3": 83.656
+          "p3": 83.566
         },
         {
-          "name": "Irak",
+          "name": "Iraq",
           "iso": "IRQ",
           "pts": 0,
           "gd": -6,
           "gf": 1,
           "pj": 2,
-          "advance": 0.902,
+          "advance": 0.912,
           "p1": 0,
           "p2": 0,
-          "p3": 16.344
+          "p3": 16.434
         }
       ]
     },
@@ -495,8 +495,8 @@
           "gf": 5,
           "pj": 2,
           "advance": 100,
-          "p1": 99.926,
-          "p2": 0.074,
+          "p1": 99.93,
+          "p2": 0.07,
           "p3": 0
         },
         {
@@ -506,34 +506,34 @@
           "gd": 0,
           "gf": 3,
           "pj": 2,
-          "advance": 91.404,
-          "p1": 0.072,
-          "p2": 70.136,
-          "p3": 29.58
+          "advance": 91.414,
+          "p1": 0.068,
+          "p2": 70.198,
+          "p3": 29.524
         },
         {
-          "name": "Argelia",
+          "name": "Algeria",
           "iso": "DZA",
           "pts": 3,
           "gd": -2,
           "gf": 2,
           "pj": 2,
-          "advance": 67.664,
+          "advance": 67.638,
           "p1": 0.002,
-          "p2": 29.79,
-          "p3": 69.048
+          "p2": 29.732,
+          "p3": 69.106
         },
         {
-          "name": "Jordania",
+          "name": "Jordan",
           "iso": "JOR",
           "pts": 0,
           "gd": -3,
           "gf": 2,
           "pj": 2,
-          "advance": 0.792,
+          "advance": 0.798,
           "p1": 0,
           "p2": 0,
-          "p3": 1.372
+          "p3": 1.37
         }
       ]
     },
@@ -548,8 +548,8 @@
           "gf": 4,
           "pj": 2,
           "advance": 100,
-          "p1": 65.942,
-          "p2": 34.058,
+          "p1": 65.946,
+          "p2": 34.054,
           "p3": 0
         },
         {
@@ -560,33 +560,33 @@
           "gf": 6,
           "pj": 2,
           "advance": 100,
-          "p1": 34.058,
-          "p2": 65.644,
-          "p3": 0.298
+          "p1": 34.054,
+          "p2": 65.642,
+          "p3": 0.304
         },
         {
-          "name": "RD del Congo",
+          "name": "DR Congo",
           "iso": "COD",
           "pts": 1,
           "gd": -1,
           "gf": 1,
           "pj": 2,
-          "advance": 34.286,
+          "advance": 34.284,
           "p1": 0,
-          "p2": 0.298,
-          "p3": 63.404
+          "p2": 0.304,
+          "p3": 63.4
         },
         {
-          "name": "Uzbekistán",
+          "name": "Uzbekistan",
           "iso": "UZB",
           "pts": 0,
           "gd": -7,
           "gf": 1,
           "pj": 2,
-          "advance": 1.05,
+          "advance": 1.054,
           "p1": 0,
           "p2": 0,
-          "p3": 36.298
+          "p3": 36.296
         }
       ]
     },
@@ -594,16 +594,16 @@
       "completo": false,
       "equipos": [
         {
-          "name": "Inglaterra",
+          "name": "England",
           "iso": "GBR",
           "pts": 4,
           "gd": 2,
           "gf": 4,
           "pj": 2,
           "advance": 100,
-          "p1": 74.712,
-          "p2": 25.126,
-          "p3": 0.162
+          "p1": 74.724,
+          "p2": 25.116,
+          "p3": 0.16
         },
         {
           "name": "Ghana",
@@ -613,33 +613,33 @@
           "gf": 1,
           "pj": 2,
           "advance": 99.994,
-          "p1": 5.518,
-          "p2": 28.882,
-          "p3": 65.6
+          "p1": 5.512,
+          "p2": 28.844,
+          "p3": 65.644
         },
         {
-          "name": "Croacia",
+          "name": "Croatia",
           "iso": "HRV",
           "pts": 3,
           "gd": -1,
           "gf": 3,
           "pj": 2,
-          "advance": 94.95,
-          "p1": 19.77,
-          "p2": 45.992,
-          "p3": 33.242
+          "advance": 94.97,
+          "p1": 19.764,
+          "p2": 46.04,
+          "p3": 33.21
         },
         {
-          "name": "Panamá",
+          "name": "Panama",
           "iso": "PAN",
           "pts": 0,
           "gd": -2,
           "gf": 0,
           "pj": 2,
-          "advance": 0.83,
+          "advance": 0.818,
           "p1": 0,
           "p2": 0,
-          "p3": 0.996
+          "p3": 0.986
         }
       ]
     }
@@ -647,91 +647,91 @@
   "avance": [
     {
       "iso": "ESP",
-      "name": "España",
+      "name": "Spain",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 86.576,
-      "p2": 8.498,
-      "p3": 4.926,
-      "final": 21.774,
-      "champ": 15.11
+      "p1": 86.568,
+      "p2": 8.504,
+      "p3": 4.928,
+      "final": 21.908,
+      "champ": 15.264
     },
     {
       "iso": "ARG",
       "name": "Argentina",
       "confed": "CONMEBOL",
       "advance": 100,
-      "p1": 99.926,
-      "p2": 0.074,
+      "p1": 99.93,
+      "p2": 0.07,
       "p3": 0,
-      "final": 28.56,
-      "champ": 20.432
+      "final": 28.436,
+      "champ": 20.324
     },
     {
       "iso": "FRA",
-      "name": "Francia",
+      "name": "France",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 76.934,
-      "p2": 23.066,
+      "p1": 76.928,
+      "p2": 23.072,
       "p3": 0,
-      "final": 24.958,
-      "champ": 15.814
+      "final": 24.848,
+      "champ": 15.63
     },
     {
       "iso": "GBR",
-      "name": "Inglaterra",
+      "name": "England",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 74.712,
-      "p2": 25.126,
-      "p3": 0.162,
-      "final": 18.626,
-      "champ": 8.558
+      "p1": 74.724,
+      "p2": 25.116,
+      "p3": 0.16,
+      "final": 18.682,
+      "champ": 8.658
     },
     {
       "iso": "BRA",
-      "name": "Brasil",
+      "name": "Brazil",
       "confed": "CONMEBOL",
       "advance": 100,
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 12.48,
-      "champ": 5.144
+      "final": 12.934,
+      "champ": 5.402
     },
     {
       "iso": "PRT",
       "name": "Portugal",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 34.058,
-      "p2": 65.644,
-      "p3": 0.298,
-      "final": 10.51,
-      "champ": 4.806
+      "p1": 34.054,
+      "p2": 65.642,
+      "p3": 0.304,
+      "final": 10.394,
+      "champ": 4.656
     },
     {
       "iso": "COL",
       "name": "Colombia",
       "confed": "CONMEBOL",
       "advance": 100,
-      "p1": 65.942,
-      "p2": 34.058,
+      "p1": 65.946,
+      "p2": 34.054,
       "p3": 0,
-      "final": 15.94,
-      "champ": 6.962
+      "final": 15.772,
+      "champ": 6.898
     },
     {
       "iso": "NLD",
-      "name": "Países Bajos",
+      "name": "Netherlands",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 89.224,
-      "p2": 10.744,
-      "p3": 0.032,
-      "final": 8.14,
-      "champ": 3.952
+      "p1": 89.95,
+      "p2": 10.04,
+      "p3": 0.01,
+      "final": 8.682,
+      "champ": 4.35
     },
     {
       "iso": "ECU",
@@ -741,150 +741,150 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 4.962,
-      "champ": 1.438
+      "final": 5.028,
+      "champ": 1.472
     },
     {
       "iso": "DEU",
-      "name": "Alemania",
+      "name": "Germany",
       "confed": "UEFA",
       "advance": 100,
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 4.512,
-      "champ": 1.896
+      "final": 4.292,
+      "champ": 1.764
     },
     {
       "iso": "NOR",
-      "name": "Noruega",
+      "name": "Norway",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 23.066,
-      "p2": 76.934,
+      "p1": 23.072,
+      "p2": 76.928,
       "p3": 0,
-      "final": 9.228,
-      "champ": 3.326
+      "final": 9.262,
+      "champ": 3.292
     },
     {
       "iso": "JPN",
-      "name": "Japón",
+      "name": "Japan",
       "confed": "AFC",
       "advance": 100,
-      "p1": 10.776,
-      "p2": 89.224,
+      "p1": 10.05,
+      "p2": 89.95,
       "p3": 0,
-      "final": 4.526,
-      "champ": 1.44
+      "final": 3.916,
+      "champ": 1.18
     },
     {
       "iso": "CHE",
-      "name": "Suiza",
+      "name": "Switzerland",
       "confed": "UEFA",
       "advance": 100,
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 2.954,
-      "champ": 1.226
+      "final": 2.838,
+      "champ": 1.208
     },
     {
       "iso": "MEX",
-      "name": "México",
+      "name": "Mexico",
       "confed": "CONCACAF",
       "advance": 100,
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 11.27,
-      "champ": 4.106
+      "final": 11.244,
+      "champ": 4.072
     },
     {
       "iso": "MAR",
-      "name": "Marruecos",
+      "name": "Morocco",
       "confed": "CAF",
       "advance": 100,
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 2.366,
-      "champ": 0.894
+      "final": 2.328,
+      "champ": 0.904
     },
     {
       "iso": "CAN",
-      "name": "Canadá",
+      "name": "Canada",
       "confed": "CONCACAF",
       "advance": 100,
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 1.214,
-      "champ": 0.378
+      "final": 1.236,
+      "champ": 0.416
     },
     {
       "iso": "USA",
-      "name": "Estados Unidos",
+      "name": "United States",
       "confed": "CONCACAF",
       "advance": 100,
       "p1": 99.254,
       "p2": 0.746,
       "p3": 0,
-      "final": 5.068,
-      "champ": 1.256
+      "final": 5.1,
+      "champ": 1.258
     },
     {
       "iso": "SWE",
-      "name": "Suecia",
+      "name": "Sweden",
       "confed": "UEFA",
       "advance": 100,
       "p1": 0,
-      "p2": 0.032,
-      "p3": 99.968,
-      "final": 0.26,
-      "champ": 0.038
+      "p2": 0.01,
+      "p3": 99.99,
+      "final": 0.354,
+      "champ": 0.078
     },
     {
       "iso": "EGY",
-      "name": "Egipto",
+      "name": "Egypt",
       "confed": "CAF",
       "advance": 100,
-      "p1": 55.784,
-      "p2": 18.124,
-      "p3": 26.092,
-      "final": 0.536,
-      "champ": 0.088
+      "p1": 55.786,
+      "p2": 18.106,
+      "p3": 26.108,
+      "final": 0.506,
+      "champ": 0.086
     },
     {
       "iso": "CIV",
-      "name": "Costa de Marfil",
+      "name": "Ivory Coast",
       "confed": "CAF",
       "advance": 100,
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.288,
-      "champ": 0.034
+      "final": 0.352,
+      "champ": 0.046
     },
     {
       "iso": "BIH",
-      "name": "Bosnia y Herzegovina",
+      "name": "Bosnia and Herzegovina",
       "confed": "UEFA",
       "advance": 100,
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.056,
-      "champ": 0.002
+      "final": 0.052,
+      "champ": 0.004
     },
     {
       "iso": "ZAF",
-      "name": "Sudáfrica",
+      "name": "South Africa",
       "confed": "CAF",
       "advance": 100,
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.012,
+      "final": 0.01,
       "champ": 0
     },
     {
@@ -892,66 +892,66 @@
       "name": "Ghana",
       "confed": "CAF",
       "advance": 99.994,
-      "p1": 5.518,
-      "p2": 28.882,
-      "p3": 65.6,
+      "p1": 5.512,
+      "p2": 28.844,
+      "p3": 65.644,
       "final": 0.018,
-      "champ": 0.002
+      "champ": 0.004
     },
     {
       "iso": "HRV",
-      "name": "Croacia",
+      "name": "Croatia",
       "confed": "UEFA",
-      "advance": 94.95,
-      "p1": 19.77,
-      "p2": 45.992,
-      "p3": 33.242,
-      "final": 3.422,
-      "champ": 1.118
+      "advance": 94.97,
+      "p1": 19.764,
+      "p2": 46.04,
+      "p3": 33.21,
+      "final": 3.39,
+      "champ": 1.096
     },
     {
       "iso": "AUT",
       "name": "Austria",
       "confed": "UEFA",
-      "advance": 91.404,
-      "p1": 0.072,
-      "p2": 70.136,
-      "p3": 29.58,
-      "final": 0.854,
-      "champ": 0.2
+      "advance": 91.414,
+      "p1": 0.068,
+      "p2": 70.198,
+      "p3": 29.524,
+      "final": 0.87,
+      "champ": 0.214
     },
     {
       "iso": "BEL",
-      "name": "Bélgica",
+      "name": "Belgium",
       "confed": "UEFA",
-      "advance": 88.856,
-      "p1": 18.71,
-      "p2": 56.462,
-      "p3": 15.588,
-      "final": 2.776,
-      "champ": 0.764
+      "advance": 88.876,
+      "p1": 18.712,
+      "p2": 56.502,
+      "p3": 15.578,
+      "final": 2.8,
+      "champ": 0.778
     },
     {
       "iso": "AUS",
       "name": "Australia",
       "confed": "AFC",
-      "advance": 84.962,
+      "advance": 84.942,
       "p1": 0.636,
       "p2": 62.686,
       "p3": 31.948,
-      "final": 0.93,
-      "champ": 0.216
+      "final": 0.924,
+      "champ": 0.174
     },
     {
       "iso": "KOR",
-      "name": "Corea del Sur",
+      "name": "South Korea",
       "confed": "AFC",
-      "advance": 77.44,
+      "advance": 77.472,
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.144,
-      "champ": 0.026
+      "final": 0.102,
+      "champ": 0.018
     },
     {
       "iso": "PRY",
@@ -961,39 +961,39 @@
       "p1": 0.11,
       "p2": 36.568,
       "p3": 53.776,
-      "final": 0.768,
-      "champ": 0.18
+      "final": 0.8,
+      "champ": 0.17
     },
     {
       "iso": "DZA",
-      "name": "Argelia",
+      "name": "Algeria",
       "confed": "CAF",
-      "advance": 67.664,
+      "advance": 67.638,
       "p1": 0.002,
-      "p2": 29.79,
-      "p3": 69.048,
-      "final": 0.498,
-      "champ": 0.102
+      "p2": 29.732,
+      "p3": 69.106,
+      "final": 0.5,
+      "champ": 0.092
     },
     {
       "iso": "CPV",
-      "name": "Cabo Verde",
+      "name": "Cape Verde",
       "confed": "CAF",
-      "advance": 67.536,
-      "p1": 2.704,
+      "advance": 67.558,
+      "p1": 2.706,
       "p2": 55.648,
-      "p3": 19.552,
-      "final": 0.022,
+      "p3": 19.542,
+      "final": 0.016,
       "champ": 0.002
     },
     {
       "iso": "IRN",
-      "name": "Irán",
+      "name": "Iran",
       "confed": "AFC",
-      "advance": 66.118,
-      "p1": 25.506,
-      "p2": 17.688,
-      "p3": 52.022,
+      "advance": 66.11,
+      "p1": 25.502,
+      "p2": 17.676,
+      "p3": 52.02,
       "final": 0.458,
       "champ": 0.078
     },
@@ -1001,120 +1001,120 @@
       "iso": "SEN",
       "name": "Senegal",
       "confed": "CAF",
-      "advance": 46.25,
+      "advance": 46.214,
       "p1": 0,
       "p2": 0,
-      "p3": 83.656,
-      "final": 0.908,
-      "champ": 0.178
+      "p3": 83.566,
+      "final": 0.954,
+      "champ": 0.164
     },
     {
       "iso": "URY",
       "name": "Uruguay",
       "confed": "CONMEBOL",
-      "advance": 36.688,
-      "p1": 10.72,
-      "p2": 7.81,
-      "p3": 70.44,
-      "final": 0.77,
-      "champ": 0.206
+      "advance": 36.696,
+      "p1": 10.726,
+      "p2": 7.824,
+      "p3": 70.444,
+      "final": 0.812,
+      "champ": 0.22
     },
     {
       "iso": "COD",
-      "name": "RD del Congo",
+      "name": "DR Congo",
       "confed": "CAF",
-      "advance": 34.286,
+      "advance": 34.284,
       "p1": 0,
-      "p2": 0.298,
-      "p3": 63.404,
-      "final": 0.06,
-      "champ": 0.002
+      "p2": 0.304,
+      "p3": 63.4,
+      "final": 0.064,
+      "champ": 0.004
     },
     {
       "iso": "SAU",
-      "name": "Arabia Saudí",
+      "name": "Saudi Arabia",
       "confed": "AFC",
-      "advance": 32.182,
+      "advance": 32.164,
       "p1": 0,
-      "p2": 28.044,
-      "p3": 5.082,
-      "final": 0,
+      "p2": 28.024,
+      "p3": 5.086,
+      "final": 0.002,
       "champ": 0
     },
     {
       "iso": "SCO",
-      "name": "Escocia",
+      "name": "Scotland",
       "confed": "UEFA",
-      "advance": 14.422,
+      "advance": 14.42,
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.076,
+      "final": 0.07,
       "champ": 0.012
     },
     {
       "iso": "NZL",
-      "name": "Nueva Zelanda",
+      "name": "New Zealand",
       "confed": "OFC",
-      "advance": 10.802,
+      "advance": 10.78,
       "p1": 0,
-      "p2": 7.726,
-      "p3": 6.298,
+      "p2": 7.716,
+      "p3": 6.294,
       "final": 0,
       "champ": 0
     },
     {
       "iso": "TUR",
-      "name": "Turquía",
+      "name": "Turkey",
       "confed": "UEFA",
-      "advance": 10.218,
+      "advance": 10.232,
       "p1": 0,
       "p2": 0,
       "p3": 14.276,
-      "final": 0.05,
-      "champ": 0.014
+      "final": 0.042,
+      "champ": 0.012
     },
     {
       "iso": "UZB",
-      "name": "Uzbekistán",
+      "name": "Uzbekistan",
       "confed": "AFC",
-      "advance": 1.05,
+      "advance": 1.054,
       "p1": 0,
       "p2": 0,
-      "p3": 36.298,
+      "p3": 36.296,
       "final": 0,
       "champ": 0
     },
     {
       "iso": "IRQ",
-      "name": "Irak",
+      "name": "Iraq",
       "confed": "AFC",
-      "advance": 0.902,
+      "advance": 0.912,
       "p1": 0,
       "p2": 0,
-      "p3": 16.344,
+      "p3": 16.434,
       "final": 0.004,
       "champ": 0
     },
     {
       "iso": "PAN",
-      "name": "Panamá",
+      "name": "Panama",
       "confed": "CONCACAF",
-      "advance": 0.83,
+      "advance": 0.818,
       "p1": 0,
       "p2": 0,
-      "p3": 0.996,
-      "final": 0.002,
+      "p3": 0.986,
+      "final": 0,
       "champ": 0
     },
     {
       "iso": "JOR",
-      "name": "Jordania",
+      "name": "Jordan",
       "confed": "AFC",
-      "advance": 0.792,
+      "advance": 0.798,
       "p1": 0,
       "p2": 0,
-      "p3": 1.372,
+      "p3": 1.37,
       "final": 0,
       "champ": 0
     }
@@ -1125,121 +1125,121 @@
       "name": "Argentina",
       "confed": "CONMEBOL",
       "advance": 100,
-      "p1": 99.926,
-      "p2": 0.074,
+      "p1": 99.93,
+      "p2": 0.07,
       "p3": 0,
-      "final": 28.56,
-      "champ": 20.432
+      "final": 28.436,
+      "champ": 20.324
     },
     {
       "iso": "FRA",
-      "name": "Francia",
+      "name": "France",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 76.934,
-      "p2": 23.066,
+      "p1": 76.928,
+      "p2": 23.072,
       "p3": 0,
-      "final": 24.958,
-      "champ": 15.814
+      "final": 24.848,
+      "champ": 15.63
     },
     {
       "iso": "ESP",
-      "name": "España",
+      "name": "Spain",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 86.576,
-      "p2": 8.498,
-      "p3": 4.926,
-      "final": 21.774,
-      "champ": 15.11
+      "p1": 86.568,
+      "p2": 8.504,
+      "p3": 4.928,
+      "final": 21.908,
+      "champ": 15.264
     },
     {
       "iso": "GBR",
-      "name": "Inglaterra",
+      "name": "England",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 74.712,
-      "p2": 25.126,
-      "p3": 0.162,
-      "final": 18.626,
-      "champ": 8.558
+      "p1": 74.724,
+      "p2": 25.116,
+      "p3": 0.16,
+      "final": 18.682,
+      "champ": 8.658
     },
     {
       "iso": "COL",
       "name": "Colombia",
       "confed": "CONMEBOL",
       "advance": 100,
-      "p1": 65.942,
-      "p2": 34.058,
+      "p1": 65.946,
+      "p2": 34.054,
       "p3": 0,
-      "final": 15.94,
-      "champ": 6.962
+      "final": 15.772,
+      "champ": 6.898
     },
     {
       "iso": "BRA",
-      "name": "Brasil",
+      "name": "Brazil",
       "confed": "CONMEBOL",
       "advance": 100,
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 12.48,
-      "champ": 5.144
+      "final": 12.934,
+      "champ": 5.402
     },
     {
       "iso": "MEX",
-      "name": "México",
+      "name": "Mexico",
       "confed": "CONCACAF",
       "advance": 100,
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 11.27,
-      "champ": 4.106
+      "final": 11.244,
+      "champ": 4.072
     },
     {
       "iso": "PRT",
       "name": "Portugal",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 34.058,
-      "p2": 65.644,
-      "p3": 0.298,
-      "final": 10.51,
-      "champ": 4.806
+      "p1": 34.054,
+      "p2": 65.642,
+      "p3": 0.304,
+      "final": 10.394,
+      "champ": 4.656
     },
     {
       "iso": "NOR",
-      "name": "Noruega",
+      "name": "Norway",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 23.066,
-      "p2": 76.934,
+      "p1": 23.072,
+      "p2": 76.928,
       "p3": 0,
-      "final": 9.228,
-      "champ": 3.326
+      "final": 9.262,
+      "champ": 3.292
     },
     {
       "iso": "NLD",
-      "name": "Países Bajos",
+      "name": "Netherlands",
       "confed": "UEFA",
       "advance": 100,
-      "p1": 89.224,
-      "p2": 10.744,
-      "p3": 0.032,
-      "final": 8.14,
-      "champ": 3.952
+      "p1": 89.95,
+      "p2": 10.04,
+      "p3": 0.01,
+      "final": 8.682,
+      "champ": 4.35
     },
     {
       "iso": "USA",
-      "name": "Estados Unidos",
+      "name": "United States",
       "confed": "CONCACAF",
       "advance": 100,
       "p1": 99.254,
       "p2": 0.746,
       "p3": 0,
-      "final": 5.068,
-      "champ": 1.256
+      "final": 5.1,
+      "champ": 1.258
     },
     {
       "iso": "ECU",
@@ -1249,35 +1249,35 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 4.962,
-      "champ": 1.438
+      "final": 5.028,
+      "champ": 1.472
     }
   ],
   "final_mas_probable": [
     {
-      "final": "Argentina vs Inglaterra",
-      "prob": 4.828
+      "final": "Argentina vs England",
+      "prob": 4.812
+    },
+    {
+      "final": "Argentina vs Brazil",
+      "prob": 3.622
     },
     {
       "final": "Argentina vs Colombia",
-      "prob": 3.564
+      "prob": 3.582
     },
     {
-      "final": "Argentina vs Brasil",
-      "prob": 3.52
+      "final": "England vs Spain",
+      "prob": 3.5
     },
     {
-      "final": "España vs Inglaterra",
-      "prob": 3.486
+      "final": "England vs France",
+      "prob": 3.342
     },
     {
-      "final": "Francia vs Inglaterra",
-      "prob": 3.336
-    },
-    {
-      "final": "Argentina vs México",
-      "prob": 3.164
+      "final": "Argentina vs Mexico",
+      "prob": 3.044
     }
   ],
-  "prediccion_finalistas": "Argentina vs Inglaterra"
+  "prediccion_finalistas": "Argentina vs England"
 }

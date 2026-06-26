@@ -1,145 +1,98 @@
 ---
 name: prediccion-mundial-2026
-description: Predice resultados de partidos del Mundial 2026 combinando el índice Elo de selecciones (eloratings.net, vía El Atlas) con la forma reciente. Úsala cuando el usuario pida pronosticar un partido, un cruce, un grupo o el bracket del Mundial 2026, o pregunte probabilidades 1X2 / marcador de un enfrentamiento entre selecciones clasificadas.
+description: Predicts 2026 FIFA World Cup match results by combining the national-team Elo index (eloratings.net, via El Atlas) with recent form. Use it when the user asks to forecast a match, a tie, a group or the bracket of the 2026 World Cup, or asks for 1X2 / scoreline probabilities between qualified national teams.
 ---
 
-# Predicción de partidos · Mundial 2026
+# Match prediction · 2026 World Cup
 
-Skill para estimar el resultado de un partido entre selecciones clasificadas al
-Mundial 2026, usando como base el **rating Elo** de cada selección más un ajuste
-por **forma reciente**.
+Skill to estimate the result of a match between teams qualified for the 2026
+World Cup, using the **Elo rating** of each team plus a **recent-form** adjustment.
 
-## Datos
+## Data
 
-- `data/elo-mundial-2026.json` — los 48 clasificados con su Elo y ranking mundial
-  2026, más la trayectoria reciente (2018-2026) para calcular el momentum.
-- `data/elo-mundial-2026.csv` — misma data en formato plano.
-- `data/elo-series-completo-1901-2026.js` — serie histórica completa de las 195
-  selecciones (por si se necesita contexto o re-cálculo).
+- `data/elo-mundial-2026.json` — the 48 qualified teams with their 2026 Elo and
+  world rank, plus recent trajectory (2018-2026). `elo_2026` = pre-tournament
+  snapshot (backtest); `elo_live` = live eloratings (forward predictions);
+  `en_name` = English display name.
+- `data/grupos-resultados-2026.json` — the 12 groups, played results and the
+  remaining fixtures.
+- `data/knockout-2026.json` — official Round-of-32 to Final bracket structure.
+- `data/elo-series-completo-1901-2026.js` — full historical series (195 teams).
 
-**Fuente:** World Football Elo Ratings (eloratings.net), tomado del chart de
-El Atlas (`dschteingart.github.io/el-atlas-charts/03-futbol`). El índice es un
-valor **anual al cierre de año**; el campo 2026 es el último disponible al
-25/06/2026.
+**Source:** World Football Elo Ratings (eloratings.net), via the El Atlas chart.
+Scotland and Curacao are not in the Atlas extract; they use live eloratings Elo.
 
-> **Cobertura: 46 de 48 equipos.** **Escocia** y **Curaçao** no figuran en este
-> índice (el Atlas indexa por país ISO3: agrupa al Reino Unido como
-> "Inglaterra/GBR" y Curaçao no es estado de la ONU). Para predecir partidos de
-> esas dos selecciones hay que pasar el Elo a mano con `--eloA`/`--eloB`.
+## How to use
 
-## Cómo usar
-
-Requiere Node.js. Desde el directorio de la skill:
+Requires Node.js. From the skill directory:
 
 ```bash
-# Listar equipos disponibles y su Elo
-node predict.mjs --list
-
-# Partido en cancha neutral (default fase de grupos)
-node predict.mjs "España" "Argentina" --neutral
-
-# Con anfitrión (USA / Canadá / México tienen ventaja de localía)
-node predict.mjs USA "México" --host A
-
-# Con forma reciente manual (W=victoria, D=empate, L=derrota; más reciente primero)
-node predict.mjs Japon Croacia --formA W,W,D,L,W --formB L,D,L,L,W --neutral
-
-# Equipo sin índice → pasar Elo a mano
-node predict.mjs Escocia "España" --eloA 1700 --neutral
+node predict.mjs --list                            # list teams + Elo
+node predict.mjs "Spain" "Argentina" --neutral     # one match (neutral)
+node predict.mjs USA "Mexico" --host A             # with host advantage
+node predict.mjs Japan Croatia --formA W,W,D,L,W --formB L,D,L,L,W --neutral
+node predict.mjs Scotland "Spain" --eloA 1745 --neutral   # team without index: manual Elo
 ```
 
-Acepta nombre en español, en inglés o el código ISO3 (`ESP`, `ARG`, `GBR`...).
+Accepts English/Spanish name or ISO3 code (`ESP`, `ARG`, `GBR`...).
 
 ### Flags
 
-| Flag | Qué hace |
-|------|----------|
-| `--neutral` | Sin ventaja de localía (recomendado para fase de grupos en sede neutral). |
-| `--host A\|B` | Marca al equipo A o B como anfitrión (ventaja de localía). |
-| `--home A\|B` | Igual que host: ese equipo juega de local. |
-| `--formA / --formB` | Resultados recientes `W,D,L,...` (más reciente primero). Si no se pasan, se usa el *momentum* del índice (cuánto subió/bajó el Elo 2024→2026). |
-| `--eloA / --eloB` | Override manual del Elo. Obligatorio para Escocia y Curaçao. |
-| `--list` | Lista los 48 equipos con su Elo/ranking. |
+| Flag | What it does |
+|------|--------------|
+| `--neutral` | No home advantage (default for group stage at a neutral venue). |
+| `--host A\|B` | Marks team A or B as host (home advantage). |
+| `--home A\|B` | Same as host: that team plays at home. |
+| `--formA / --formB` | Recent results `W,D,L,...` (most recent first). Otherwise uses index momentum. |
+| `--eloA / --eloB` | Manual Elo override. |
+| `--list` | Lists the 48 teams with Elo/rank. |
 
-## Modelo
+## Model
 
-Heurística transparente y ajustable (ver `PARAMS` arriba de `predict.mjs`):
+Transparent, tunable heuristic (see `PARAMS` in `model.mjs`):
 
-1. **Elo efectivo** = Elo del índice + ajuste de forma (± acotado) + ventaja de
-   localía (si aplica).
-2. **Diferencia de goles esperada** = (Elo efectivo A − Elo efectivo B) ×
-   `GOAL_SCALE` (≈ 0,4 gol cada 100 puntos Elo).
-3. Se reparte sobre un total esperado (`BASE_TOTAL` ≈ 2,65 goles) para obtener
-   los goles esperados de cada equipo (λ).
-4. Con un modelo **Poisson** por equipo se calculan las probabilidades 1X2
-   (gana / empata / pierde) y los marcadores más probables.
+1. **Effective Elo** = index Elo + form adjustment (bounded) + home advantage (if any).
+2. **Expected goal difference** = (effective Elo A − effective Elo B) × `GOAL_SCALE`.
+3. Split over an expected total (`BASE_TOTAL`) to get each team's expected goals (λ).
+4. A per-team **Poisson** model gives 1X2 probabilities and the most likely scorelines.
 
-**Modelo de empate (v2):** se aplica la corrección **Dixon-Coles** (`DC_RHO`),
-que sube la probabilidad de 0-0 y 1-1 y deja la probabilidad de empate bien
-calibrada (~24,5% promedio vs 25% real en el backtest). Importante: el backtest
-mostró que *forzar* la predicción de empates no mejora el acierto (los empates
-del Mundial se dieron en favoritos que pincharon, no en partidos parejos), así
-que el predictor elige al favorito y reporta la probabilidad de empate calibrada
-en vez de apostar al empate (`DRAW_PICK_MARGIN` bajo).
+**Draw model (v2):** a **Dixon-Coles** correction (`DC_RHO`) raises 0-0 and 1-1
+probabilities and keeps the draw probability well-calibrated (~24.5% avg vs 25%
+real in the backtest). Important: the backtest showed that *forcing* draw picks
+does not improve accuracy (World Cup draws came from favorites slipping up, not
+even games), so the predictor picks the favorite and reports the calibrated draw
+probability (`DRAW_PICK_MARGIN` kept low).
 
-La forma reciente tiene dos modos: por defecto usa el *momentum* del propio
-índice (delta de Elo de los últimos años, tope ±40 pts); si se pasan resultados
-con `--formA/--formB`, los pondera dándole más peso a los más recientes
-(tope ±60 pts).
+The recent-form adjustment has two modes: index *momentum* by default, or actual
+recent results via `--formA/--formB`. Tested: it does not improve accuracy.
 
-## Limitaciones (importante)
+## Backtest, simulation and projection
 
-- El índice es **anual**, no se actualiza partido a partido: cerca o durante el
-  torneo puede estar algo desfasado. Para mayor precisión, pasá la forma
-  reciente real con `--formA/--formB`.
-- No modela bajas, lesiones, suspensiones, clima ni contexto del partido.
-- Los parámetros (`GOAL_SCALE`, `BASE_TOTAL`, `HOME_ADV`, pesos de forma) son
-  configurables y no están calibrados contra un histórico de apuestas: es una
-  estimación **orientativa**, no un pronóstico garantizado.
+- `backtest.mjs --md` — validates the predictor against the matches already played
+  (1X2 accuracy, exact score, Brier, log-loss, calibration, baselines). Writes
+  `analisis-backtest.md` and `data/backtest-stats.json`.
+- `simular.mjs 50000 --json` — Monte Carlo of the whole tournament: advance/position
+  probabilities per group, finalists and champion. Writes `predicciones/simulacion.json`.
+- `proyeccion.mjs` — deterministic single-most-likely bracket: predicts every
+  knockout tie (score + winner) from the Round of 32 to the final.
+- `experiment-forma.mjs` — walk-forward experiment on in-tournament form.
+- `genera-predicciones.mjs` — builds the public `predicciones/PREDICCIONES.md` and
+  updates the README predictions block (English).
 
-## Backtest (validación contra resultados reales)
+## Limitations
 
-`backtest.mjs` compara el predictor contra los partidos de fase de grupos ya
-jugados (`data/grupos-resultados-2026.json`, datos verificados multi-fuente).
+- The index updates daily (live) but is still just Elo: it does not model injuries,
+  suspensions, weather or match context. 1X2 accuracy tops out ~61-62%.
+- Finalist/champion predictions compound uncertainty each round: low confidence.
+- An estimate, not a guarantee. This is a research experiment, not a betting tool.
 
-```bash
-node backtest.mjs          # reporte en consola
-node backtest.mjs --md     # además genera analisis-backtest.md (incluye el dry-run de los 72 partidos)
-```
+## Architecture
 
-Mide acierto 1X2, marcador exacto, Brier score, log-loss, error de diferencia
-de goles, calibración y baselines. Ver `analisis-backtest.md` para el último
-resultado y los puntos de mejora.
+- `model.mjs` — the model (Elo + form → Poisson + Dixon-Coles) and `PARAMS`.
+- `predict.mjs` / `backtest.mjs` / `simular.mjs` / `proyeccion.mjs` / `experiment-forma.mjs`.
+- `actualizar-elo.mjs` + `../../../scripts/actualizar.sh` — daily live-Elo refresh.
 
-## Experimento: ¿sirve la forma intra-torneo? (`experiment-forma.mjs`)
+## Updating the data
 
-Backtest walk-forward (cada partido predicho solo con info de fechas previas)
-comparando: A) Elo estático + momentum, B) Elo + forma W/D/L del torneo,
-C) Elo actualizado partido a partido (fórmula eloratings K=60).
-
-**Resultado: la forma intra-torneo NO mejora el acierto** (las tres variantes:
-62,5% global, 75% en fechas ≥2; B y C empeoran levemente el Brier). Con 1-2
-partidos previos la señal es muy ruidosa y no da vuelta ninguna predicción.
-
-Incluso usar el Elo **en vivo** de eloratings.net (cota optimista, con fuga de
-datos porque ya incorpora los resultados) sube el acierto solo a 66,1%. O sea:
-el índice está cerca de su techo de acierto (~62-66%); los empates/sorpresas de
-la fase de grupos son esencialmente impredecibles desde el Elo. Donde el Elo
-fresco sí ayuda es en la **calidad de probabilidad** (Brier 0,555→0,493 en esa
-prueba), útil para rondas futuras.
-
-```bash
-node experiment-forma.mjs
-```
-
-## Arquitectura
-
-- `model.mjs` — lógica del modelo (Elo + forma → Poisson) y `PARAMS`. Editar acá.
-- `predict.mjs` — CLI de predicción de un partido.
-- `backtest.mjs` — validación contra resultados reales + dry-run completo.
-
-## Actualizar los datos
-
-Para refrescar el índice (p. ej. cuando el Atlas publique nuevos valores),
-volvé a descargar `data-elo-series.js` desde el chart de El Atlas y regenerá los
-archivos de `data/` con el mismo mapeo de los 48 clasificados.
+`bash scripts/actualizar.sh` (from repo root) refreshes the live Elo and regenerates
+everything. New match results go into `data/grupos-resultados-2026.json`.

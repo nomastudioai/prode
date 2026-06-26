@@ -1,176 +1,182 @@
-# ⚽️ Mundial 2026 · Predictor Elo (caso de estudio)
+# ⚽️ 2026 World Cup · Elo Predictor (case study)
 
-> **⚠️ Esto es un EXPERIMENTO educativo sobre modelos predictivos e IA. NO es una
-> herramienta para apostar. Estamos en contra de las apuestas. No nos hacemos
-> responsables de ningún uso de este material. Leé el [DISCLAIMER completo](DISCLAIMER.md).**
+> **⚠️ This is an EDUCATIONAL EXPERIMENT about predictive models and AI. It is NOT
+> a betting tool. We are against gambling. We accept no responsibility for any use
+> of this material. Read the [full DISCLAIMER](DISCLAIMER.md).**
 
-Proyecto abierto de **NoMa Studio AI**: ¿qué tan bien predice los partidos del
-Mundial 2026 un modelo estadístico simple basado en el **rating Elo** de las
-selecciones? Lo construimos, lo medimos contra los resultados reales y
-documentamos honestamente **qué funciona y qué no**.
+Open project by **NoMa Studio AI**: how well does a simple statistical model based
+on national-team **Elo ratings** predict the 2026 World Cup? We built it, measured
+it against the real results, and document honestly **what works and what doesn't**.
 
-La gracia del caso de estudio no es "ganarle al Mundial": es mostrar, con datos,
-**dónde está el techo de un modelo de este tipo y por qué.**
+The point of the case study isn't "beating the World Cup": it's showing, with data,
+**where the ceiling of a model like this is, and why.**
+
+🇦🇷 ¿Preferís leerlo en español? Ver [README.es.md](README.es.md).
 
 ---
 
-## 🔮 Predicciones actuales
+## 🔮 Current predictions
 
 <!-- PRED:START -->
-_Última actualización automática: **2026-06-26**. Backtest: el modelo acierta el 1X2 en **61.4%** de 57 partidos jugados (azar ≈ 33%)._
+_Last auto-update: **2026-06-26**. Backtest: the model gets the 1X2 right in **61.4%** of 57 matches played (random ≈ 33%)._
 
-**Predicción de finalistas:** Argentina vs Inglaterra (4.8% de las simulaciones).
+**🏆 Projected champion (most-likely bracket): Argentina.** Projected final: **Argentina 1-0 England**.
 
-**Máximas candidatas a llegar a la final:**
+**Most likely finalists (Monte Carlo):** Argentina vs England (4.8% of simulations).
 
-| Selección | Llega a la final | Campeón |
+| Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 28.6% | 20.4% |
-| Francia | 25.0% | 15.8% |
-| España | 21.8% | 15.1% |
-| Inglaterra | 18.6% | 8.6% |
-| Colombia | 15.9% | 7.0% |
-| Brasil | 12.5% | 5.1% |
+| Argentina | 28.4% | 20.3% |
+| France | 24.8% | 15.6% |
+| Spain | 21.9% | 15.3% |
+| England | 18.7% | 8.7% |
+| Colombia | 15.8% | 6.9% |
+| Brazil | 12.9% | 5.4% |
 
-Ver el detalle completo (todos los grupos y próximos partidos) en [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
+Full detail (every group, every upcoming match, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
 
 ---
 
-## 🧪 Qué probamos (y qué aprendimos)
+## 🧪 What we tried (and what we learned)
 
-Partimos de un modelo base (Elo → goles esperados → Poisson) y lo evaluamos con un
-**backtest** contra los partidos ya jugados. Después intentamos mejorarlo en tres
-frentes. Resultado honesto:
+We started from a base model (Elo → expected goals → Poisson) and evaluated it with
+a **backtest** against the matches already played. Then we tried to improve it on
+three fronts. Honest result:
 
-| Mejora que probamos | ¿Mejoró el acierto? | ¿Mejoró la calidad de probabilidad? |
+| Improvement we tried | Did accuracy improve? | Did probability quality improve? |
 |---|---|---|
-| **#1 Modelar el empate** (Dixon-Coles) | No | **Sí** (marcador exacto y empate bien calibrado) |
-| **#2 Forma intra-torneo** (Elo fresco partido a partido) | No | No |
-| **#3 Atenuar la sobreconfianza** (temple / shrink) | No | No |
+| **#1 Model draws** (Dixon-Coles) | No | **Yes** (exact score and well-calibrated draw prob.) |
+| **#2 In-tournament form** (fresh match-by-match Elo) | No | No |
+| **#3 Reduce overconfidence** (temper / shrink) | No | No |
 
-**Hallazgos clave:**
+**Key findings:**
 
-1. **El modelo nunca predice empate, y eso NO se puede "arreglar" forzándolo.** En
-   el backtest, los empates ocurrieron en favoritos que pincharon (España 0-0 Cabo
-   Verde, Inglaterra 0-0 Ghana), no en partidos parejos. Forzar empates baja el
-   acierto sin atrapar los empates reales. Lo que sí sirve (Dixon-Coles) es dejar
-   la **probabilidad** de empate bien calibrada (~24,5% predicho vs 25% real).
+1. **The model never predicts a draw, and that CANNOT be "fixed" by forcing it.** In
+   the backtest, draws happened when favorites slipped up (Spain 0-0 Cape Verde,
+   England 0-0 Ghana), not in evenly-matched games. Forcing draws lowers accuracy
+   without catching the real draws. What does help (Dixon-Coles) is making the draw
+   **probability** well-calibrated (~24.5% predicted vs 25% real).
 
-2. **La forma intra-torneo no aporta.** Un backtest walk-forward (sin fuga de datos)
-   mostró +0,0 pp de acierto. Incluso usando el Elo "perfectamente fresco" de
-   eloratings (cota optimista, con fuga) el techo apenas sube a ~66%.
+2. **In-tournament form doesn't help.** A walk-forward backtest (no data leakage)
+   showed +0.0 pp of accuracy. Even using the "perfectly fresh" live Elo from
+   eloratings (an optimistic, leaky upper bound) the ceiling barely rises to ~66%.
 
-3. **El modelo ya está bien calibrado.** Atenuar la confianza empeora el Brier:
-   la aparente sobreconfianza en favoritos grandes se compensaba con subconfianza
-   en partidos parejos.
+3. **The model is already well-calibrated.** Tempering confidence worsens the Brier
+   score: the apparent overconfidence on big favorites was offset by underconfidence
+   on close games.
 
-**Conclusión y por qué dejamos el modelo así:** el predictor está **en el techo de
-lo que el índice Elo puede dar** para la fase de grupos (~61-62% de acierto 1X2,
-igual que "gana el de mayor Elo"), con probabilidades ya calibradas. La única
-mejora que aportó valor real fue Dixon-Coles (calidad de probabilidad), así que es
-la que quedó. Subir el acierto de verdad requeriría datos fuera del índice (valor
-de plantel, lesiones, descanso, etc.), que es otro proyecto.
+**Conclusion and why we leave the model as-is:** the predictor is **at the ceiling
+of what the Elo index can deliver** for the group stage (~61-62% 1X2 accuracy, the
+same as "the higher-Elo team wins"), with already-calibrated probabilities. The only
+improvement that added real value was Dixon-Coles (probability quality), so that's
+the one we kept. Genuinely raising accuracy would need data outside the index (squad
+value, injuries, rest, etc.), which is another project.
 
-📄 Detalle del backtest: [`.claude/skills/prediccion-mundial-2026/analisis-backtest.md`](.claude/skills/prediccion-mundial-2026/analisis-backtest.md)
-
----
-
-## 📐 El modelo (specs)
-
-1. **Índice:** rating **Elo** de selecciones (World Football Elo Ratings,
-   [eloratings.net](https://www.eloratings.net/)), tomado del chart de
-   [El Atlas](https://dschteingart.github.io/el-atlas-charts/03-futbol/chart-elo-trayectoria.html).
-2. **Probabilidad de resultado:** la diferencia de Elo (más ventaja de localía para
-   los anfitriones México/Canadá/EE.UU.) se traduce a una diferencia de goles
-   esperada, que alimenta un modelo **Poisson** por equipo → probabilidades 1X2 y
-   marcadores. Con corrección **Dixon-Coles** para los marcadores bajos.
-3. **Forma reciente:** ajuste acotado por el *momentum* del índice o por resultados
-   recientes (opcional). Probado: no mejora el acierto (ver arriba).
-4. **Simulación del torneo:** Monte Carlo (50.000 corridas) que combina los
-   resultados reales con la simulación de los partidos restantes, resuelve grupos,
-   mejores terceros y el cuadro de eliminación oficial hasta la final.
-
-**Backtest (pre-torneo, sin fuga):** se usa el Elo *previo* al Mundial.
-**Predicciones a futuro:** se usa el Elo *en vivo* de eloratings (más actual).
-
-Todos los parámetros viven en
-[`model.mjs`](.claude/skills/prediccion-mundial-2026/model.mjs) y son ajustables.
+📄 Backtest detail: [`.claude/skills/prediccion-mundial-2026/analisis-backtest.md`](.claude/skills/prediccion-mundial-2026/analisis-backtest.md)
 
 ---
 
-## 🚀 Uso
+## 📐 The model (specs)
 
-Requiere Node.js (sin dependencias externas).
+1. **Index:** national-team **Elo** rating (World Football Elo Ratings,
+   [eloratings.net](https://www.eloratings.net/)), taken from the
+   [El Atlas](https://dschteingart.github.io/el-atlas-charts/03-futbol/chart-elo-trayectoria.html) chart.
+2. **Result probability:** the Elo difference (plus home advantage for the hosts
+   Mexico/Canada/USA) is mapped to an expected goal difference, which feeds a
+   **Poisson** model per team → 1X2 probabilities and scorelines. With a
+   **Dixon-Coles** correction for low scores.
+3. **Recent form:** a bounded adjustment from index *momentum* or recent results
+   (optional). Tested: does not improve accuracy (see above).
+4. **Tournament simulation:** Monte Carlo (50,000 runs) combining real results with
+   simulations of the remaining matches, resolving groups, best thirds and the
+   official knockout bracket up to the final.
+5. **Projected bracket:** a single most-likely path that predicts every knockout tie
+   (score + winner) from the Round of 32 to the final.
+
+**Backtest (pre-tournament, no leakage):** uses the Elo from *before* the World Cup.
+**Forward predictions:** use the *live* Elo from eloratings (most current).
+
+All parameters live in
+[`model.mjs`](.claude/skills/prediccion-mundial-2026/model.mjs) and are tunable.
+
+---
+
+## 🚀 Usage
+
+Requires Node.js (no external dependencies).
 
 ```bash
 cd .claude/skills/prediccion-mundial-2026
 
-node predict.mjs "España" "Argentina" --neutral   # un partido
-node predict.mjs USA "México" --host A             # con anfitrión
-node backtest.mjs --md                             # backtest vs realidad
-node simular.mjs 50000 --json                      # simular el torneo
-node experiment-forma.mjs                          # experimento de forma
+node predict.mjs "Spain" "Argentina" --neutral    # one match
+node predict.mjs USA "Mexico" --host A             # with host advantage
+node backtest.mjs --md                             # backtest vs reality
+node simular.mjs 50000 --json                      # simulate the tournament
+node experiment-forma.mjs                          # form experiment
 ```
 
 ---
 
-## 🔄 Cómo mantenerlo al día
+## 🔄 Keeping it up to date
 
-El índice Elo y las predicciones se **actualizan solos** con:
+The Elo index and the predictions **update themselves** with:
 
 ```bash
 bash scripts/actualizar.sh
 ```
 
-Esto baja el Elo en vivo de eloratings.net, refresca todo y regenera las
-predicciones y este README. Hay un **GitHub Action** ([`.github/workflows/actualizar.yml`](.github/workflows/actualizar.yml))
-que lo corre **todos los días** durante el Mundial y commitea los cambios.
+This pulls the live Elo from eloratings.net, refreshes everything and regenerates
+the predictions and this README. A **GitHub Action**
+([`.github/workflows/actualizar.yml`](.github/workflows/actualizar.yml)) runs it
+**every day** during the World Cup and commits the changes.
 
-**Resultados de partidos nuevos:** se agregan a
+**New match results:** add them to
 [`data/grupos-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/grupos-resultados-2026.json)
-(campo `played_matches`), moviéndolos desde `remaining_fixtures`. Es el único paso
-manual; el resto es automático.
+(`played_matches` field), moving them out of `remaining_fixtures`. That's the only
+manual step; the rest is automatic.
 
 ---
 
-## 📊 Datos y fuentes
+## 📊 Data and sources
 
-- **Elo:** eloratings.net (vía El Atlas). 46 de 48 selecciones salen del extracto
-  del Atlas; **Escocia y Curaçao** se completan con el Elo en vivo de eloratings.
-- **Resultados y fixture:** recopilados y cruzados entre múltiples fuentes públicas
-  (Wikipedia, ESPN, FIFA, Yahoo, FOX, CBS, NBC). Ningún resultado se inventa: los
-  no confirmados por dos fuentes quedan como "pendientes".
-- **Cuadro de eliminación:** estructura oficial de la FIFA; el emparejamiento fino
-  tras 16avos es la parte de menor certeza (ver notas en los datos).
+- **Elo:** eloratings.net (via El Atlas). 46 of 48 teams come from the Atlas
+  extract; **Scotland and Curacao** are filled in with the live Elo from eloratings.
+- **Results and fixtures:** collected and cross-checked across multiple public
+  sources (Wikipedia, ESPN, FIFA, Yahoo, FOX, CBS, NBC). Nothing is invented:
+  results not confirmed by two sources are kept as "pending".
+- **Knockout bracket:** official FIFA structure; the fine pairings after the Round
+  of 32 are the least certain part (see notes in the data).
 
 ---
 
-## 🧭 Estructura del repo
+## 🧭 Repo structure
 
 ```
-README.md                     · este caso de estudio
-DISCLAIMER.md                 · aviso legal (ES/EN)
-LICENSE                       · MIT (código) + nota sobre datos
-scripts/actualizar.sh         · actualización automática
-.github/workflows/            · Action diaria
-predicciones/PREDICCIONES.md  · predicciones completas (autogenerado)
+README.md                     · this case study (English)
+README.es.md                  · Spanish version
+DISCLAIMER.md                 · legal notice (EN/ES)
+LICENSE                       · MIT (code) + data note
+scripts/actualizar.sh         · automatic update
+.github/workflows/            · daily Action
+predicciones/PREDICCIONES.md  · full predictions (auto-generated)
 .claude/skills/prediccion-mundial-2026/
-  ├── model.mjs               · el modelo (Elo + Poisson + Dixon-Coles)
-  ├── predict.mjs             · predecir un partido
-  ├── backtest.mjs            · validación contra resultados reales
-  ├── simular.mjs             · Monte Carlo del torneo
-  ├── experiment-forma.mjs    · experimento de forma intra-torneo
-  ├── actualizar-elo.mjs      · refresco del Elo en vivo
-  ├── genera-predicciones.mjs · genera los documentos públicos
-  └── data/                   · índice Elo, grupos, resultados, cuadro
+  ├── model.mjs               · the model (Elo + Poisson + Dixon-Coles)
+  ├── predict.mjs             · predict one match
+  ├── backtest.mjs            · validation against real results
+  ├── simular.mjs             · tournament Monte Carlo
+  ├── proyeccion.mjs          · deterministic bracket projection
+  ├── experiment-forma.mjs    · in-tournament form experiment
+  ├── actualizar-elo.mjs      · live Elo refresh
+  ├── genera-predicciones.mjs · generates the public documents
+  └── data/                   · Elo index, groups, results, bracket
 ```
 
 ---
 
-## ⚖️ Aviso
+## ⚖️ Notice
 
-Hecho por **NoMa Studio AI** con fines educativos y de investigación sobre IA y
-modelos predictivos. **No promovemos las apuestas.** Las predicciones tienen un
-margen de error alto y documentado. Uso bajo tu exclusiva responsabilidad.
-Leé el [DISCLAIMER](DISCLAIMER.md).
+Built by **NoMa Studio AI** for educational and research purposes about AI and
+predictive models. **We do not promote gambling.** The predictions carry a high,
+documented margin of error. Use at your own sole risk. Read the
+[DISCLAIMER](DISCLAIMER.md).

@@ -19,6 +19,7 @@ const elo = loadData();
 const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
 const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
 const HOSTS = new Set(["MEX", "CAN", "USA"]);
+const en = (iso) => byIso[iso].en_name ?? byIso[iso].name;
 
 const outcome = (hg, ag) => (hg > ag ? "1" : hg === ag ? "X" : "2");
 
@@ -84,41 +85,41 @@ const pc = (x) => (x * 100).toFixed(1).padStart(5) + "%";
 let out = "";
 const w = (s = "") => { out += s + "\n"; console.log(s); };
 
-w(`\n══════ BACKTEST · Mundial 2026 (predictor Elo+forma vs realidad) ══════`);
-w(`Partidos jugados evaluados: ${n}\n`);
-w(`  Acierto 1X2 (signo):        ${pc(acc)}   ${(acc * n).toFixed(0)}/${n}`);
-w(`  Acierto marcador exacto:    ${pc(exact)}   ${(exact * n).toFixed(0)}/${n}`);
-w(`  Brier score (↓ mejor):      ${meanBrier.toFixed(3)}      [0=perfecto, 0.667=azar]`);
-w(`  Log-loss (↓ mejor):         ${logloss.toFixed(3)}`);
-w(`  Error medio dif. goles:     ${meanGdErr.toFixed(2)} goles`);
-w(`\n  Baselines de contraste:`);
-w(`    "gana el de mayor Elo":   ${pc(baseFav)}  (acierto del favorito por índice)`);
-w(`    tasa real de empates:     ${pc(drawRate)}`);
-w(`    tasa real victoria local: ${pc(baseHome)}`);
+w(`\n══════ BACKTEST · 2026 World Cup (Elo+form predictor vs reality) ══════`);
+w(`Played matches evaluated: ${n}\n`);
+w(`  1X2 accuracy (sign):        ${pc(acc)}   ${(acc * n).toFixed(0)}/${n}`);
+w(`  Exact-score accuracy:       ${pc(exact)}   ${(exact * n).toFixed(0)}/${n}`);
+w(`  Brier score (↓ better):     ${meanBrier.toFixed(3)}      [0=perfect, 0.667=random]`);
+w(`  Log-loss (↓ better):        ${logloss.toFixed(3)}`);
+w(`  Mean goal-diff error:       ${meanGdErr.toFixed(2)} goals`);
+w(`\n  Baselines:`);
+w(`    "higher-Elo team wins":   ${pc(baseFav)}  (favorite by index)`);
+w(`    real draw rate:           ${pc(drawRate)}`);
+w(`    real home-win rate:       ${pc(baseHome)}`);
 
-w(`\n  Calibración (cuando el modelo dice X%, ¿cuántas acierta?):`);
-w(`    rango      n   predicho   real`);
+w(`\n  Calibration (when the model says X%, how often is it right?):`);
+w(`    range      n   predicted  real`);
 for (const c of calib())
   w(`    ${c.rango.padEnd(8)} ${String(c.n).padStart(2)}   ${pc(c.predicho)}   ${pc(c.real)}`);
 
-// Peores fallos (resultado real con baja probabilidad asignada)
+// Biggest misses (real result given low probability by the model)
 const worst = [...rows].sort((a, b) => a.pActual - b.pActual).slice(0, 8);
-w(`\n  Mayores sorpresas (modelo le dio baja prob. al resultado real):`);
-w(`    partido                              real  pred  modelo→real`);
+w(`\n  Biggest surprises (model gave the real result low prob.):`);
+w(`    match                                real  pred  model→real`);
 for (const r of worst) {
-  const label = `${r.home_name} ${r.home_goals}-${r.away_goals} ${r.away_name}`;
+  const label = `${en(r.home)} ${r.home_goals}-${r.away_goals} ${en(r.away)}`;
   w(`    ${label.padEnd(36)} ${r.act.padEnd(5)} ${r.pred.padEnd(5)} ${pc(r.pActual)}`);
 }
 
-// Tabla completa por grupo
-w(`\n  Detalle por partido:`);
-w(`    G  partido                               1X2    p(1/X/2)            pred  ok  marc.pred`);
+// Full per-match table
+w(`\n  Per-match detail:`);
+w(`    G  match                                 1X2    p(1/X/2)            pred  ok  pred.score`);
 for (const r of rows.sort((a, b) => a.group.localeCompare(b.group) || a.matchday - b.matchday)) {
-  const label = `${r.home_name} ${r.home_goals}-${r.away_goals} ${r.away_name}`;
+  const label = `${en(r.home)} ${r.home_goals}-${r.away_goals} ${en(r.away)}`;
   const probs = `${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0}`;
   w(`    ${r.group}  ${label.padEnd(37)} ${r.act}    ${probs.padEnd(12)} ${r.pred}    ${r.hit ? "✓" : "·"}   ${r.predScore}`);
 }
-w(`\n  Modelo: Elo (Atlas, pre-torneo) + momentum, localía solo anfitriones. Orientativo.\n`);
+w(`\n  Model: Elo (Atlas, pre-tournament) + momentum, host advantage only. Indicative.\n`);
 
 // ─── Dry-run completo: los 72 partidos de fase de grupos ──────────────
 // Enumera el round-robin de cada grupo; si el partido se jugó, adjunta resultado.
@@ -130,24 +131,24 @@ for (const [g, teams] of Object.entries(fix.groups)) {
   for (let i = 0; i < teams.length; i++) for (let j = i + 1; j < teams.length; j++) {
     const t1 = teams[i], t2 = teams[j];
     const played = playedKey.get([t1.iso3, t2.iso3].sort().join("|"));
-    let homeIso, awayIso, homeName, awayName, result = null;
+    let homeIso, awayIso, result = null;
     if (played) {
-      homeIso = played.home; awayIso = played.away; homeName = played.home_name; awayName = played.away_name;
+      homeIso = played.home; awayIso = played.away;
       result = `${played.home_goals}-${played.away_goals}`;
-    } else { // no jugado: anfitrión de local, si no, orden del grupo
+    } else { // not played: host at home, otherwise group order
       const hostFirst = t2.host && !t1.host;
       const h = hostFirst ? t2 : t1, a = hostFirst ? t1 : t2;
-      homeIso = h.iso3; awayIso = a.iso3; homeName = h.name; awayName = a.name;
+      homeIso = h.iso3; awayIso = a.iso3;
     }
     const p = predict(homeIso, awayIso);
-    fullRows.push({ group: g, homeName, awayName, result,
+    fullRows.push({ group: g, homeName: en(homeIso), awayName: en(awayIso), result,
       p1: p.probs["1"], pX: p.probs["X"], p2: p.probs["2"], pred: p.pred, predScore: `${p.top.a}-${p.top.b}`,
       act: result ? outcome(played.home_goals, played.away_goals) : null,
       hit: result ? p.pred === outcome(played.home_goals, played.away_goals) : null });
   }
 }
-w(`\n  Dry-run completo (72 partidos de grupos; ● = ya jugado):`);
-w(`    G  partido                               pred  p(1/X/2)        marc.pred  real`);
+w(`\n  Full dry-run (72 group matches; ● = already played):`);
+w(`    G  match                                 pred  p(1/X/2)        pred.score real`);
 for (const r of fullRows) {
   const label = `${r.homeName} vs ${r.awayName}`;
   const probs = `${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0}`;
@@ -162,39 +163,39 @@ writeFileSync(join(__dir, "data", "backtest-stats.json"), JSON.stringify({
 
 // ─── Markdown opcional ────────────────────────────────────────────────
 if (process.argv.includes("--md")) {
-  let md = `# Backtest del predictor · Mundial 2026\n\n`;
-  md += `Comparación del predictor (Elo del Atlas + forma) contra los **${n} partidos**`;
-  md += ` de fase de grupos ya jugados al ${fix.meta.generado}.\n\n`;
-  md += `## Métricas globales\n\n`;
-  md += `| Métrica | Valor | Referencia |\n|---|---|---|\n`;
-  md += `| Acierto 1X2 (signo) | **${(acc * 100).toFixed(1)}%** (${(acc * n).toFixed(0)}/${n}) | azar ≈ 33% |\n`;
-  md += `| Acierto marcador exacto | ${(exact * 100).toFixed(1)}% (${(exact * n).toFixed(0)}/${n}) | difícil >12% |\n`;
-  md += `| Brier score | ${meanBrier.toFixed(3)} | 0 perfecto, 0.667 azar |\n`;
-  md += `| Log-loss | ${logloss.toFixed(3)} | menor es mejor |\n`;
-  md += `| Error medio dif. de goles | ${meanGdErr.toFixed(2)} goles | |\n`;
-  md += `| Baseline "gana mayor Elo" | ${(baseFav * 100).toFixed(1)}% | |\n`;
-  md += `| Tasa real de empates | ${(drawRate * 100).toFixed(1)}% | |\n\n`;
-  md += `> **Nota sobre el empate (modelo v2, Dixon-Coles):** la corrección Dixon-Coles deja la `;
-  md += `probabilidad media de empate del modelo (~24,5%) casi igual a la tasa real (25%), y mejora `;
-  md += `el marcador exacto y el log-loss. Pero **forzar la predicción de empates no mejora el acierto**: `;
-  md += `los empates de esta muestra no se dieron en partidos parejos sino en favoritos que pincharon `;
-  md += `(España 0-0 Cabo Verde, Inglaterra 0-0 Ghana, Suiza 1-1 Catar), que el Elo no anticipa. Por eso `;
-  md += `el predictor sigue eligiendo al favorito y reporta la probabilidad de empate ya calibrada.\n\n`;
-  md += `## Calibración\n\n| Prob. asignada | n | Predicho | Real |\n|---|---|---|---|\n`;
+  let md = `# Predictor backtest · 2026 World Cup\n\n`;
+  md += `The predictor (Atlas Elo + form) compared against the **${n} group-stage matches**`;
+  md += ` already played as of ${fix.meta.generado}.\n\n`;
+  md += `## Overall metrics\n\n`;
+  md += `| Metric | Value | Reference |\n|---|---|---|\n`;
+  md += `| 1X2 accuracy (sign) | **${(acc * 100).toFixed(1)}%** (${(acc * n).toFixed(0)}/${n}) | random ≈ 33% |\n`;
+  md += `| Exact-score accuracy | ${(exact * 100).toFixed(1)}% (${(exact * n).toFixed(0)}/${n}) | hard >12% |\n`;
+  md += `| Brier score | ${meanBrier.toFixed(3)} | 0 perfect, 0.667 random |\n`;
+  md += `| Log-loss | ${logloss.toFixed(3)} | lower is better |\n`;
+  md += `| Mean goal-diff error | ${meanGdErr.toFixed(2)} goals | |\n`;
+  md += `| Baseline "higher-Elo wins" | ${(baseFav * 100).toFixed(1)}% | |\n`;
+  md += `| Real draw rate | ${(drawRate * 100).toFixed(1)}% | |\n\n`;
+  md += `> **Note on draws (model v2, Dixon-Coles):** the Dixon-Coles correction leaves the model's `;
+  md += `average draw probability (~24.5%) almost equal to the real rate (25%), and improves the `;
+  md += `exact score and log-loss. But **forcing draw predictions does not improve accuracy**: `;
+  md += `the draws in this sample didn't happen in even games but in favorites slipping up `;
+  md += `(Spain 0-0 Cape Verde, England 0-0 Ghana, Switzerland 1-1 Qatar), which Elo can't anticipate. `;
+  md += `So the predictor keeps picking the favorite and reports the already-calibrated draw probability.\n\n`;
+  md += `## Calibration\n\n| Assigned prob. | n | Predicted | Real |\n|---|---|---|---|\n`;
   for (const c of calib()) md += `| ${c.rango} | ${c.n} | ${(c.predicho * 100).toFixed(1)}% | ${(c.real * 100).toFixed(1)}% |\n`;
-  md += `\n## Mayores sorpresas\n\n| Partido | Real | Pred | p(modelo→real) |\n|---|---|---|---|\n`;
-  for (const r of worst) md += `| ${r.home_name} ${r.home_goals}-${r.away_goals} ${r.away_name} | ${r.act} | ${r.pred} | ${(r.pActual * 100).toFixed(1)}% |\n`;
-  md += `\n## Detalle por partido\n\n| G | Partido | Real | p(1/X/2) | Pred | OK | Marcador pred. |\n|---|---|---|---|---|---|---|\n`;
+  md += `\n## Biggest surprises\n\n| Match | Real | Pred | p(model→real) |\n|---|---|---|---|\n`;
+  for (const r of worst) md += `| ${en(r.home)} ${r.home_goals}-${r.away_goals} ${en(r.away)} | ${r.act} | ${r.pred} | ${(r.pActual * 100).toFixed(1)}% |\n`;
+  md += `\n## Per-match detail\n\n| G | Match | Real | p(1/X/2) | Pred | OK | Pred. score |\n|---|---|---|---|---|---|---|\n`;
   for (const r of rows) {
-    md += `| ${r.group} | ${r.home_name} ${r.home_goals}-${r.away_goals} ${r.away_name} | ${r.act} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} | ${r.pred} | ${r.hit ? "✓" : "·"} | ${r.predScore} |\n`;
+    md += `| ${r.group} | ${en(r.home)} ${r.home_goals}-${r.away_goals} ${en(r.away)} | ${r.act} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} | ${r.pred} | ${r.hit ? "✓" : "·"} | ${r.predScore} |\n`;
   }
-  md += `\n## Dry-run completo: los 72 partidos de fase de grupos\n\n`;
-  md += `● = ya jugado (con resultado real y si el modelo acertó el signo).\n\n`;
-  md += `| G | Partido | Pred | p(1/X/2) | Marcador pred. | Real |\n|---|---|---|---|---|---|\n`;
+  md += `\n## Full dry-run: all 72 group-stage matches\n\n`;
+  md += `● = already played (with the real result and whether the model got the sign right).\n\n`;
+  md += `| G | Match | Pred | p(1/X/2) | Pred. score | Real |\n|---|---|---|---|---|---|\n`;
   for (const r of fullRows) {
     const real = r.result ? `● ${r.result} (${r.hit ? "✓" : "·"})` : "—";
     md += `| ${r.group} | ${r.homeName} vs ${r.awayName} | ${r.pred} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} | ${r.predScore} | ${real} |\n`;
   }
   writeFileSync(join(__dir, "analisis-backtest.md"), md);
-  console.log("→ escrito analisis-backtest.md");
+  console.log("→ wrote analisis-backtest.md");
 }

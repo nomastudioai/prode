@@ -26,7 +26,7 @@ const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
 const HOSTS = new Set(["MEX", "CAN", "USA"]);
 const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
 const eloOf = (iso) => byIso[iso].elo_live ?? byIso[iso].elo_2026; // en vivo para el futuro
-const name = (iso) => byIso[iso].name;
+const name = (iso) => byIso[iso].en_name ?? byIso[iso].name;
 
 const N = (() => { const a = process.argv.find((x) => /^\d+$/.test(x)); return a ? +a : 50000; })();
 
@@ -181,32 +181,32 @@ for (let s = 0; s < N; s++) {
 
 const pct = (x) => (100 * x / N);
 const rows = elo.equipos.map((t) => ({
-  iso: t.iso3, name: t.name, confed: t.confed,
+  iso: t.iso3, name: t.en_name ?? t.name, confed: t.confed,
   advance: pct(adv[t.iso3].advance), p1: pct(adv[t.iso3].p1), p2: pct(adv[t.iso3].p2),
   p3: pct(adv[t.iso3].p3), final: pct(adv[t.iso3].final), champ: pct(adv[t.iso3].champ),
 })).filter((r) => r.advance > 0 || r.final > 0);
 
 // ─── Salida consola ───────────────────────────────────────────────────
 const fp = (x) => x.toFixed(1).padStart(5) + "%";
-console.log(`\n══════ SIMULACIÓN Monte Carlo · ${N.toLocaleString("es")} corridas ══════`);
-console.log(`Elo: en vivo de eloratings.net · resultados reales hasta ${fix.meta.generado}\n`);
+console.log(`\n══════ Monte Carlo simulation · ${N.toLocaleString("en")} runs ══════`);
+console.log(`Elo: live from eloratings.net · real results through ${fix.meta.generado}\n`);
 
-console.log("PROBABILIDAD DE AVANZAR A 16VOS (top equipos):");
-console.log("  equipo                 avanza   1º     2º");
+console.log("PROBABILITY OF REACHING THE ROUND OF 32 (top teams):");
+console.log("  team                   advance  1st    2nd");
 for (const r of [...rows].sort((a, b) => b.advance - a.advance).slice(0, 24))
   console.log(`  ${r.name.padEnd(22)} ${fp(r.advance)} ${fp(r.p1)} ${fp(r.p2)}`);
 
-console.log("\nFINALISTAS MÁS PROBABLES (prob. de llegar a la final):");
+console.log("\nMOST LIKELY FINALISTS (prob. of reaching the final):");
 for (const r of [...rows].sort((a, b) => b.final - a.final).slice(0, 12))
-  console.log(`  ${r.name.padEnd(22)} ${fp(r.final)}   (campeón ${fp(r.champ)})`);
+  console.log(`  ${r.name.padEnd(22)} ${fp(r.final)}   (champion ${fp(r.champ)})`);
 
-console.log("\nFINAL MÁS PROBABLE (par de finalistas):");
+console.log("\nMOST LIKELY FINAL (pair of finalists):");
 const pairs = Object.entries(finalPairCount).sort((a, b) => b[1] - a[1]).slice(0, 6);
 for (const [k, c] of pairs) console.log(`  ${k.padEnd(34)} ${fp(pct(c))}`);
 
-const topPair = pairs[0][0]; // par de finalistas más probable (modo de la distribución conjunta)
-console.log(`\n→ PREDICCIÓN DE FINALISTAS: ${topPair}  (${fp(pct(pairs[0][1]))} de las simulaciones)`);
-console.log(`   (sin resultado del partido final)\n`);
+const topPair = pairs[0][0]; // most likely finalist pair (mode of the joint distribution)
+console.log(`\n→ PREDICTED FINALISTS: ${topPair}  (${fp(pct(pairs[0][1]))} of simulations)`);
+console.log(`   (without the result of the final match)\n`);
 
 if (process.argv.includes("--json")) {
   mkdirSync(join(ROOT, "predicciones"), { recursive: true });
@@ -214,7 +214,7 @@ if (process.argv.includes("--json")) {
   const gruposDetalle = {};
   for (const [g, teams] of Object.entries(fix.groups)) {
     const st = {};
-    for (const t of teams) st[t.iso3] = { iso: t.iso3, name: t.name, pts: 0, gd: 0, gf: 0, pj: 0 };
+    for (const t of teams) st[t.iso3] = { iso: t.iso3, name: byIso[t.iso3].en_name ?? t.name, pts: 0, gd: 0, gf: 0, pj: 0 };
     for (const m of fix.played_matches.filter((x) => x.group === g)) {
       st[m.home].pj++; st[m.away].pj++;
       st[m.home].gf += m.home_goals; st[m.away].gf += m.away_goals;
@@ -224,7 +224,7 @@ if (process.argv.includes("--json")) {
       else { st[m.home].pts++; st[m.away].pts++; }
     }
     const teamsOut = teams.map((t) => ({
-      name: t.name, ...st[t.iso3],
+      name: byIso[t.iso3].en_name ?? t.name, ...st[t.iso3],
       advance: pct(adv[t.iso3].advance), p1: pct(adv[t.iso3].p1), p2: pct(adv[t.iso3].p2), p3: pct(adv[t.iso3].p3),
     })).sort((a, b) => b.advance - a.advance || b.pts - a.pts || b.gd - a.gd);
     gruposDetalle[g] = { completo: fix.meta.grupos_completos.includes(g), equipos: teamsOut };

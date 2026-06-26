@@ -55,7 +55,8 @@
       },
       "in_index": true,
       "elo_live": 2134,
-      "rank_live": 2
+      "rank_live": 2,
+      "en_name": "Spain"
     },
     {
       "iso3": "ARG",
@@ -89,7 +90,8 @@
       },
       "in_index": true,
       "elo_live": 2144,
-      "rank_live": 1
+      "rank_live": 1,
+      "en_name": "Argentina"
     },
     {
       "iso3": "FRA",
@@ -123,7 +125,8 @@
       },
       "in_index": true,
       "elo_live": 2090,
-      "rank_live": 3
+      "rank_live": 3,
+      "en_name": "France"
     },
     {
       "iso3": "GBR",
@@ -157,7 +160,8 @@
       },
       "in_index": true,
       "elo_live": 2028,
-      "rank_live": 4
+      "rank_live": 4,
+      "en_name": "England"
     },
     {
       "iso3": "BRA",
@@ -191,7 +195,8 @@
       },
       "in_index": true,
       "elo_live": 2009,
-      "rank_live": 5
+      "rank_live": 5,
+      "en_name": "Brazil"
     },
     {
       "iso3": "PRT",
@@ -225,7 +230,8 @@
       },
       "in_index": true,
       "elo_live": 1988,
-      "rank_live": 7
+      "rank_live": 7,
+      "en_name": "Portugal"
     },
     {
       "iso3": "COL",
@@ -259,7 +265,8 @@
       },
       "in_index": true,
       "elo_live": 2006,
-      "rank_live": 6
+      "rank_live": 6,
+      "en_name": "Colombia"
     },
     {
       "iso3": "NLD",
@@ -292,8 +299,9 @@
         "2026": 8
       },
       "in_index": true,
-      "elo_live": 1972,
-      "rank_live": 8
+      "elo_live": 1980,
+      "rank_live": 8,
+      "en_name": "Netherlands"
     },
     {
       "iso3": "ECU",
@@ -327,7 +335,8 @@
       },
       "in_index": true,
       "elo_live": 1902,
-      "rank_live": 14
+      "rank_live": 14,
+      "en_name": "Ecuador"
     },
     {
       "iso3": "DEU",
@@ -361,7 +370,8 @@
       },
       "in_index": true,
       "elo_live": 1916,
-      "rank_live": 11
+      "rank_live": 10,
+      "en_name": "Germany"
     },
     {
       "iso3": "NOR",
@@ -395,7 +405,8 @@
       },
       "in_index": true,
       "elo_live": 1951,
-      "rank_live": 9
+      "rank_live": 9,
+      "en_name": "Norway"
     },
     {
       "iso3": "TUR",
@@ -429,7 +440,8 @@
       },
       "in_index": true,
       "elo_live": 1813,
-      "rank_live": 25
+      "rank_live": 25,
+      "en_name": "Turkey"
     },
     {
       "iso3": "HRV",
@@ -463,7 +475,8 @@
       },
       "in_index": true,
       "elo_live": 1896,
-      "rank_live": 15
+      "rank_live": 15,
+      "en_name": "Croatia"
     },
     {
       "iso3": "JPN",
@@ -496,8 +509,9 @@
         "2026": 14
       },
       "in_index": true,
-      "elo_live": 1925,
-      "rank_live": 10
+      "elo_live": 1910,
+      "rank_live": 13,
+      "en_name": "Japan"
     },
     {
       "iso3": "BEL",
@@ -531,7 +545,8 @@
       },
       "in_index": true,
       "elo_live": 1869,
-      "rank_live": 17
+      "rank_live": 17,
+      "en_name": "Belgium"
     },
     {
       "iso3": "URY",
@@ -565,7 +580,8 @@
       },
       "in_index": true,
       "elo_live": 1851,
-      "rank_live": 20
+      "rank_live": 20,
+      "en_name": "Uruguay"
     },
     {
       "iso3": "CHE",
@@ -599,7 +615,8 @@
       },
       "in_index": true,
       "elo_live": 1914,
-      "rank_live": 12
+      "rank_live": 11,
+      "en_name": "Switzerland"
     },
     {
       "iso3": "MEX",
@@ -633,7 +650,8 @@
       },
       "in_index": true,
       "elo_live": 1912,
-      "rank_live": 13
+      "rank_live": 12,
+      "en_name": "Mexico"
     },
     {
       "iso3": "SEN",
@@ -667,7 +685,8 @@
       },
       "in_index": true,
       "elo_live": 1817,
-      "rank_live": 23
+      "rank_live": 23,
+      "en_name": "Senegal"
     },
     {
       "iso3": "PRY",
@@ -701,7 +720,8 @@
       },
       "in_index": true,
       "elo_live": 1816,
-      "rank_live": 24
+      "rank_live": 24,
+      "en_name": "Paraguay"
     },
     {
       "iso3": "AUT",
@@ -735,7 +755,8 @@
       },
       "in_index": true,
       "elo_live": 1841,
-      "rank_live": 21
+      "rank_live": 21,
+      "en_name": "Austria"
     },
     {
       "iso3": "MAR",
@@ -769,7 +790,8 @@
       },
       "in_index": true,
       "elo_live": 1877,
-      "rank_live": 16
+      "rank_live": 16,
+      "en_name": "Morocco"
     },
     {
       "iso3": "CAN",
@@ -803,7 +825,8 @@
       },
       "in_index": true,
       "elo_live": 1748,
-      "rank_live": 32
+      "rank_live": 32,
+      "en_name": "Canada"
     },
     {
       "iso3": "AUS",
@@ -837,7 +860,8 @@
       },
       "in_index": true,
       "elo_live": 1799,
-      "rank_live": 26
+      "rank_live": 26,
+      "en_name": "Australia"
     },
     {
       "iso3": "IRN",
@@ -871,7 +895,8 @@
       },
       "in_index": true,
       "elo_live": 1766,
-      "rank_live": 31
+      "rank_live": 31,
+      "en_name": "Iran"
     },
     {
       "iso3": "DZA",
@@ -905,7 +930,8 @@
       },
       "in_index": true,
       "elo_live": 1780,
-      "rank_live": 27
+      "rank_live": 27,
+      "en_name": "Algeria"
     },
     {
       "iso3": "KOR",
@@ -939,7 +965,8 @@
       },
       "in_index": true,
       "elo_live": 1723,
-      "rank_live": 40
+      "rank_live": 40,
+      "en_name": "South Korea"
     },
     {
       "iso3": "SCO",
@@ -954,7 +981,8 @@
       "in_index": false,
       "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)",
       "elo_live": 1745,
-      "rank_live": 33
+      "rank_live": 33,
+      "en_name": "Scotland"
     },
     {
       "iso3": "CZE",
@@ -988,7 +1016,8 @@
       },
       "in_index": true,
       "elo_live": 1680,
-      "rank_live": 49
+      "rank_live": 49,
+      "en_name": "Czech Republic"
     },
     {
       "iso3": "PAN",
@@ -1022,7 +1051,8 @@
       },
       "in_index": true,
       "elo_live": 1668,
-      "rank_live": 51
+      "rank_live": 51,
+      "en_name": "Panama"
     },
     {
       "iso3": "USA",
@@ -1056,7 +1086,8 @@
       },
       "in_index": true,
       "elo_live": 1820,
-      "rank_live": 22
+      "rank_live": 22,
+      "en_name": "United States"
     },
     {
       "iso3": "UZB",
@@ -1090,7 +1121,8 @@
       },
       "in_index": true,
       "elo_live": 1677,
-      "rank_live": 50
+      "rank_live": 50,
+      "en_name": "Uzbekistan"
     },
     {
       "iso3": "SWE",
@@ -1123,8 +1155,9 @@
         "2026": 42
       },
       "in_index": true,
-      "elo_live": 1727,
-      "rank_live": 39
+      "elo_live": 1742,
+      "rank_live": 36,
+      "en_name": "Sweden"
     },
     {
       "iso3": "EGY",
@@ -1158,7 +1191,8 @@
       },
       "in_index": true,
       "elo_live": 1740,
-      "rank_live": 36
+      "rank_live": 37,
+      "en_name": "Egypt"
     },
     {
       "iso3": "CIV",
@@ -1192,7 +1226,8 @@
       },
       "in_index": true,
       "elo_live": 1743,
-      "rank_live": 35
+      "rank_live": 35,
+      "en_name": "Ivory Coast"
     },
     {
       "iso3": "JOR",
@@ -1226,7 +1261,8 @@
       },
       "in_index": true,
       "elo_live": 1632,
-      "rank_live": 57
+      "rank_live": 57,
+      "en_name": "Jordan"
     },
     {
       "iso3": "COD",
@@ -1260,7 +1296,8 @@
       },
       "in_index": true,
       "elo_live": 1666,
-      "rank_live": 53
+      "rank_live": 53,
+      "en_name": "DR Congo"
     },
     {
       "iso3": "TUN",
@@ -1293,8 +1330,9 @@
         "2026": 59
       },
       "in_index": true,
-      "elo_live": 1570,
-      "rank_live": 71
+      "elo_live": 1562,
+      "rank_live": 73,
+      "en_name": "Tunisia"
     },
     {
       "iso3": "IRQ",
@@ -1328,7 +1366,8 @@
       },
       "in_index": true,
       "elo_live": 1586,
-      "rank_live": 68
+      "rank_live": 68,
+      "en_name": "Iraq"
     },
     {
       "iso3": "BIH",
@@ -1362,7 +1401,8 @@
       },
       "in_index": true,
       "elo_live": 1622,
-      "rank_live": 59
+      "rank_live": 59,
+      "en_name": "Bosnia and Herzegovina"
     },
     {
       "iso3": "CPV",
@@ -1396,7 +1436,8 @@
       },
       "in_index": true,
       "elo_live": 1625,
-      "rank_live": 58
+      "rank_live": 58,
+      "en_name": "Cape Verde"
     },
     {
       "iso3": "SAU",
@@ -1430,7 +1471,8 @@
       },
       "in_index": true,
       "elo_live": 1593,
-      "rank_live": 65
+      "rank_live": 65,
+      "en_name": "Saudi Arabia"
     },
     {
       "iso3": "NZL",
@@ -1464,7 +1506,8 @@
       },
       "in_index": true,
       "elo_live": 1549,
-      "rank_live": 74
+      "rank_live": 74,
+      "en_name": "New Zealand"
     },
     {
       "iso3": "HTI",
@@ -1498,7 +1541,8 @@
       },
       "in_index": true,
       "elo_live": 1517,
-      "rank_live": 81
+      "rank_live": 81,
+      "en_name": "Haiti"
     },
     {
       "iso3": "ZAF",
@@ -1532,7 +1576,8 @@
       },
       "in_index": true,
       "elo_live": 1575,
-      "rank_live": 70
+      "rank_live": 70,
+      "en_name": "South Africa"
     },
     {
       "iso3": "GHA",
@@ -1566,7 +1611,8 @@
       },
       "in_index": true,
       "elo_live": 1584,
-      "rank_live": 69
+      "rank_live": 69,
+      "en_name": "Ghana"
     },
     {
       "iso3": "CUW",
@@ -1581,7 +1627,8 @@
       "in_index": false,
       "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)",
       "elo_live": 1438,
-      "rank_live": 91
+      "rank_live": 91,
+      "en_name": "Curacao"
     },
     {
       "iso3": "QAT",
@@ -1615,7 +1662,8 @@
       },
       "in_index": true,
       "elo_live": 1411,
-      "rank_live": 99
+      "rank_live": 99,
+      "en_name": "Qatar"
     }
   ]
 }

@@ -99,25 +99,25 @@ const C = evalMode((m, state) => ({
 
 // ─── Reporte ──────────────────────────────────────────────────────────
 const pc = (x) => (x * 100).toFixed(1).padStart(5) + "%";
-const md2 = (x) => x.matchday >= 2; // donde la forma intra-torneo puede influir
+const md2 = (x) => x.matchday >= 2; // where in-tournament form can have an effect
 
-console.log(`\n══════ EXPERIMENTO · forma intra-torneo vs Elo estático ══════\n`);
+console.log(`\n══════ EXPERIMENT · in-tournament form vs static Elo ══════\n`);
 function row(name, rec) {
   const all = metrics(rec), sub = metrics(rec, md2);
   console.log(`  ${name}`);
-  console.log(`     TODOS (${all.n}):    acc ${pc(all.acc)}   Brier ${all.brier.toFixed(3)}   logloss ${all.logloss.toFixed(3)}`);
-  console.log(`     FECHAS≥2 (${sub.n}): acc ${pc(sub.acc)}   Brier ${sub.brier.toFixed(3)}   logloss ${sub.logloss.toFixed(3)}\n`);
+  console.log(`     ALL (${all.n}):           acc ${pc(all.acc)}   Brier ${all.brier.toFixed(3)}   logloss ${all.logloss.toFixed(3)}`);
+  console.log(`     MATCHDAYS≥2 (${sub.n}):   acc ${pc(sub.acc)}   Brier ${sub.brier.toFixed(3)}   logloss ${sub.logloss.toFixed(3)}\n`);
 }
-row("A) Baseline (Elo estático + momentum anual)", A);
-row("B) Elo estático + forma W/D/L del torneo", B);
-row("C) Elo fresco (update partido a partido)", C);
+row("A) Baseline (static Elo + yearly momentum)", A);
+row("B) Static Elo + tournament W/D/L form", B);
+row("C) Fresh Elo (updated match by match)", C);
 
-// Comparación directa en fechas ≥2 (donde difieren de verdad)
+// Direct comparison on matchdays >= 2 (where they actually differ)
 const a = metrics(A, md2), b = metrics(B, md2), c = metrics(C, md2);
 const d = (x, base) => { const v = (x - base) * 100; return (v >= 0 ? "+" : "") + v.toFixed(1) + " pp"; };
-console.log(`  Δ en fechas ≥2 (acierto 1X2 vs baseline):`);
-console.log(`     B forma W/D/L : ${d(b.acc, a.acc)}   ·   C Elo fresco : ${d(c.acc, a.acc)}`);
-console.log(`  Δ en fechas ≥2 (Brier vs baseline, ↓ mejor):`);
-console.log(`     B forma W/D/L : ${(b.brier - a.brier).toFixed(3)}   ·   C Elo fresco : ${(c.brier - a.brier).toFixed(3)}\n`);
-console.log(`  Nota: fecha 1 es idéntica salvo el momentum; el efecto real se ve en fechas ≥2.`);
-console.log(`  Muestra chica (${c.n} partidos en fechas ≥2): tomar las diferencias como indicativas.\n`);
+console.log(`  Δ on matchdays ≥2 (1X2 accuracy vs baseline):`);
+console.log(`     B W/D/L form : ${d(b.acc, a.acc)}   ·   C fresh Elo : ${d(c.acc, a.acc)}`);
+console.log(`  Δ on matchdays ≥2 (Brier vs baseline, ↓ better):`);
+console.log(`     B W/D/L form : ${(b.brier - a.brier).toFixed(3)}   ·   C fresh Elo : ${(c.brier - a.brier).toFixed(3)}\n`);
+console.log(`  Note: matchday 1 is identical except for momentum; the real effect shows on matchdays ≥2.`);
+console.log(`  Small sample (${c.n} matches on matchdays ≥2): treat the differences as indicative.\n`);
