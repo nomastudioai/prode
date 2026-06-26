@@ -55,12 +55,13 @@ if (!flags.neutral && (side === "A" || side === "B")) {
   else { homeAdvB = PARAMS.HOME_ADV; venueNote = `${tB.name} ${flags.host ? "(anfitrión)" : "de local"}`; }
 }
 
+// Predicción "actual" → Elo en vivo de eloratings (si está); override manual gana.
 const opts = {
   homeAdvA, homeAdvB,
   formA: flags.formA != null ? resultForm(flags.formA) : null,
   formB: flags.formB != null ? resultForm(flags.formB) : null,
-  eloA: flags.eloA != null ? Number(flags.eloA) : undefined,
-  eloB: flags.eloB != null ? Number(flags.eloB) : undefined,
+  eloA: flags.eloA != null ? Number(flags.eloA) : (tA.elo_live ?? undefined),
+  eloB: flags.eloB != null ? Number(flags.eloB) : (tB.elo_live ?? undefined),
 };
 const r = predictMatch(tA, tB, opts);
 if (!r) { console.error("Falta el Elo de algún equipo. Pasá --eloA/--eloB."); process.exit(1); }

@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "descripcion": "Estructura del cuadro de eliminación (R32→Final) del Mundial 2026.",
+    "fuente": "Wikipedia / FIFA bracket oficial. Asignación de mejores terceros = tabla combinatoria oficial (aprox. por sets elegibles).",
+    "nota_confianza": "Slots R32 (73-88) y numeración oficiales. El emparejamiento R32→R16 (89-96) es la parte de menor confianza (fuente única).",
+    "third_slots": [
+      "3ABCDF",
+      "3CDFGH",
+      "3CEFHI",
+      "3EIJK",
+      "3BEFIJ",
+      "3AEHIJ",
+      "3EFGIJ",
+      "3DEIJL"
+    ]
+  },
+  "rounds": [
+    [
+      {
+        "id": "M73",
+        "home": "RA",
+        "away": "RB"
+      },
+      {
+        "id": "M74",
+        "home": "WE",
+        "away": "3ABCDF"
+      },
+      {
+        "id": "M75",
+        "home": "WF",
+        "away": "RC"
+      },
+      {
+        "id": "M76",
+        "home": "WC",
+        "away": "RF"
+      },
+      {
+        "id": "M77",
+        "home": "WI",
+        "away": "3CDFGH"
+      },
+      {
+        "id": "M78",
+        "home": "RE",
+        "away": "RI"
+      },
+      {
+        "id": "M79",
+        "home": "WA",
+        "away": "3CEFHI"
+      },
+      {
+        "id": "M80",
+        "home": "WL",
+        "away": "3EIJK"
+      },
+      {
+        "id": "M81",
+        "home": "WD",
+        "away": "3BEFIJ"
+      },
+      {
+        "id": "M82",
+        "home": "WG",
+        "away": "3AEHIJ"
+      },
+      {
+        "id": "M83",
+        "home": "RK",
+        "away": "RL"
+      },
+      {
+        "id": "M84",
+        "home": "WH",
+        "away": "RJ"
+      },
+      {
+        "id": "M85",
+        "home": "WB",
+        "away": "3EFGIJ"
+      },
+      {
+        "id": "M86",
+        "home": "WJ",
+        "away": "RH"
+      },
+      {
+        "id": "M87",
+        "home": "WK",
+        "away": "3DEIJL"
+      },
+      {
+        "id": "M88",
+        "home": "RD",
+        "away": "RG"
+      }
+    ],
+    [
+      {
+        "id": "M89",
+        "home": "M74",
+        "away": "M77"
+      },
+      {
+        "id": "M90",
+        "home": "M73",
+        "away": "M75"
+      },
+      {
+        "id": "M91",
+        "home": "M80",
+        "away": "M82"
+      },
+      {
+        "id": "M92",
+        "home": "M79",
+        "away": "M81"
+      },
+      {
+        "id": "M93",
+        "home": "M83",
+        "away": "M85"
+      },
+      {
+        "id": "M94",
+        "home": "M84",
+        "away": "M86"
+      },
+      {
+        "id": "M95",
+        "home": "M87",
+        "away": "M88"
+      },
+      {
+        "id": "M96",
+        "home": "M76",
+        "away": "M78"
+      }
+    ],
+    [
+      {
+        "id": "M97",
+        "home": "M89",
+        "away": "M90"
+      },
+      {
+        "id": "M98",
+        "home": "M93",
+        "away": "M94"
+      },
+      {
+        "id": "M99",
+        "home": "M91",
+        "away": "M92"
+      },
+      {
+        "id": "M100",
+        "home": "M95",
+        "away": "M96"
+      }
+    ],
+    [
+      {
+        "id": "M101",
+        "home": "M97",
+        "away": "M98"
+      },
+      {
+        "id": "M102",
+        "home": "M99",
+        "away": "M100"
+      }
+    ],
+    [
+      {
+        "id": "M104",
+        "home": "M101",
+        "away": "M102"
+      }
+    ]
+  ],
+  "final_id": "M104"
+}

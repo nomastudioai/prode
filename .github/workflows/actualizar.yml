@@ -1,0 +1,35 @@
+name: Actualizar Mundial 2026
+
+# Refresca el Elo en vivo de eloratings.net y regenera predicciones + README.
+# Corre todos los días durante el Mundial. También se puede disparar a mano.
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 11:00 UTC ~ 08:00 ART, todos los días
+  workflow_dispatch: {}
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Actualizar datos y predicciones
+        run: bash scripts/actualizar.sh
+
+      - name: Commitear cambios si los hay
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Actualización automática: Elo en vivo + predicciones ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "Sin cambios."
+          fi

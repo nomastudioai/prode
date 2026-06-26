@@ -18,7 +18,9 @@
         "nota": "No figura en el índice del Atlas (indexado por país ISO3; el RU se agrupa como Inglaterra/GBR y Curaçao no es estado UN)."
       }
     ],
-    "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte)."
+    "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
+    "elo_live_actualizado": "2026-06-26",
+    "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
     {
@@ -51,7 +53,9 @@
         "2025": 1,
         "2026": 1
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 2134,
+      "rank_live": 2
     },
     {
       "iso3": "ARG",
@@ -83,7 +87,9 @@
         "2025": 2,
         "2026": 2
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 2144,
+      "rank_live": 1
     },
     {
       "iso3": "FRA",
@@ -115,7 +121,9 @@
         "2025": 3,
         "2026": 3
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 2090,
+      "rank_live": 3
     },
     {
       "iso3": "GBR",
@@ -147,7 +155,9 @@
         "2025": 4,
         "2026": 4
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 2028,
+      "rank_live": 4
     },
     {
       "iso3": "BRA",
@@ -179,7 +189,9 @@
         "2025": 6,
         "2026": 5
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 2009,
+      "rank_live": 5
     },
     {
       "iso3": "PRT",
@@ -211,7 +223,9 @@
         "2025": 7,
         "2026": 6
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1988,
+      "rank_live": 7
     },
     {
       "iso3": "COL",
@@ -243,7 +257,9 @@
         "2025": 5,
         "2026": 7
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 2006,
+      "rank_live": 6
     },
     {
       "iso3": "NLD",
@@ -275,7 +291,9 @@
         "2025": 8,
         "2026": 8
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1972,
+      "rank_live": 8
     },
     {
       "iso3": "ECU",
@@ -307,7 +325,9 @@
         "2025": 9,
         "2026": 9
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1902,
+      "rank_live": 14
     },
     {
       "iso3": "DEU",
@@ -339,7 +359,9 @@
         "2025": 12,
         "2026": 10
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1916,
+      "rank_live": 11
     },
     {
       "iso3": "NOR",
@@ -371,7 +393,9 @@
         "2025": 11,
         "2026": 11
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1951,
+      "rank_live": 9
     },
     {
       "iso3": "TUR",
@@ -403,7 +427,9 @@
         "2025": 15,
         "2026": 12
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1813,
+      "rank_live": 25
     },
     {
       "iso3": "HRV",
@@ -435,7 +461,9 @@
         "2025": 10,
         "2026": 13
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1896,
+      "rank_live": 15
     },
     {
       "iso3": "JPN",
@@ -467,7 +495,9 @@
         "2025": 16,
         "2026": 14
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1925,
+      "rank_live": 10
     },
     {
       "iso3": "BEL",
@@ -499,7 +529,9 @@
         "2025": 19,
         "2026": 15
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1869,
+      "rank_live": 17
     },
     {
       "iso3": "URY",
@@ -531,7 +563,9 @@
         "2025": 14,
         "2026": 16
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1851,
+      "rank_live": 20
     },
     {
       "iso3": "CHE",
@@ -563,7 +597,9 @@
         "2025": 13,
         "2026": 17
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1914,
+      "rank_live": 12
     },
     {
       "iso3": "MEX",
@@ -595,7 +631,9 @@
         "2025": 21,
         "2026": 18
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1912,
+      "rank_live": 13
     },
     {
       "iso3": "SEN",
@@ -627,7 +665,9 @@
         "2025": 24,
         "2026": 19
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1817,
+      "rank_live": 23
     },
     {
       "iso3": "PRY",
@@ -659,7 +699,9 @@
         "2025": 22,
         "2026": 22
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1816,
+      "rank_live": 24
     },
     {
       "iso3": "AUT",
@@ -691,7 +733,9 @@
         "2025": 23,
         "2026": 23
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1841,
+      "rank_live": 21
     },
     {
       "iso3": "MAR",
@@ -723,7 +767,9 @@
         "2025": 20,
         "2026": 24
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1877,
+      "rank_live": 16
     },
     {
       "iso3": "CAN",
@@ -755,7 +801,9 @@
         "2025": 25,
         "2026": 25
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1748,
+      "rank_live": 32
     },
     {
       "iso3": "AUS",
@@ -787,7 +835,9 @@
         "2025": 30,
         "2026": 28
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1799,
+      "rank_live": 26
     },
     {
       "iso3": "IRN",
@@ -819,7 +869,9 @@
         "2025": 34,
         "2026": 29
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1766,
+      "rank_live": 31
     },
     {
       "iso3": "DZA",
@@ -851,7 +903,9 @@
         "2025": 33,
         "2026": 32
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1780,
+      "rank_live": 27
     },
     {
       "iso3": "KOR",
@@ -883,7 +937,9 @@
         "2025": 28,
         "2026": 33
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1723,
+      "rank_live": 40
     },
     {
       "iso3": "SCO",
@@ -896,7 +952,9 @@
       "elo_recent": {},
       "rank_recent": {},
       "in_index": false,
-      "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)"
+      "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)",
+      "elo_live": 1745,
+      "rank_live": 33
     },
     {
       "iso3": "CZE",
@@ -928,7 +986,9 @@
         "2025": 39,
         "2026": 35
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1680,
+      "rank_live": 49
     },
     {
       "iso3": "PAN",
@@ -960,7 +1020,9 @@
         "2025": 36,
         "2026": 37
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1668,
+      "rank_live": 51
     },
     {
       "iso3": "USA",
@@ -992,7 +1054,9 @@
         "2025": 35,
         "2026": 38
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1820,
+      "rank_live": 22
     },
     {
       "iso3": "UZB",
@@ -1024,7 +1088,9 @@
         "2025": 37,
         "2026": 40
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1677,
+      "rank_live": 50
     },
     {
       "iso3": "SWE",
@@ -1056,7 +1122,9 @@
         "2025": 53,
         "2026": 42
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1727,
+      "rank_live": 39
     },
     {
       "iso3": "EGY",
@@ -1088,7 +1156,9 @@
         "2025": 60,
         "2026": 48
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1740,
+      "rank_live": 36
     },
     {
       "iso3": "CIV",
@@ -1120,7 +1190,9 @@
         "2025": 59,
         "2026": 49
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1743,
+      "rank_live": 35
     },
     {
       "iso3": "JOR",
@@ -1152,7 +1224,9 @@
         "2025": 47,
         "2026": 50
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1632,
+      "rank_live": 57
     },
     {
       "iso3": "COD",
@@ -1184,7 +1258,9 @@
         "2025": 54,
         "2026": 54
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1666,
+      "rank_live": 53
     },
     {
       "iso3": "TUN",
@@ -1216,7 +1292,9 @@
         "2025": 61,
         "2026": 59
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1570,
+      "rank_live": 71
     },
     {
       "iso3": "IRQ",
@@ -1248,7 +1326,9 @@
         "2025": 68,
         "2026": 60
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1586,
+      "rank_live": 68
     },
     {
       "iso3": "BIH",
@@ -1280,7 +1360,9 @@
         "2025": 69,
         "2026": 65
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1622,
+      "rank_live": 59
     },
     {
       "iso3": "CPV",
@@ -1312,7 +1394,9 @@
         "2025": 73,
         "2026": 68
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1625,
+      "rank_live": 58
     },
     {
       "iso3": "SAU",
@@ -1344,7 +1428,9 @@
         "2025": 65,
         "2026": 70
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1593,
+      "rank_live": 65
     },
     {
       "iso3": "NZL",
@@ -1376,7 +1462,9 @@
         "2025": 67,
         "2026": 72
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1549,
+      "rank_live": 74
     },
     {
       "iso3": "HTI",
@@ -1408,7 +1496,9 @@
         "2025": 76,
         "2026": 73
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1517,
+      "rank_live": 81
     },
     {
       "iso3": "ZAF",
@@ -1440,7 +1530,9 @@
         "2025": 74,
         "2026": 77
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1575,
+      "rank_live": 70
     },
     {
       "iso3": "GHA",
@@ -1472,7 +1564,9 @@
         "2025": 80,
         "2026": 81
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1584,
+      "rank_live": 69
     },
     {
       "iso3": "CUW",
@@ -1485,7 +1579,9 @@
       "elo_recent": {},
       "rank_recent": {},
       "in_index": false,
-      "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)"
+      "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)",
+      "elo_live": 1438,
+      "rank_live": 91
     },
     {
       "iso3": "QAT",
@@ -1517,7 +1613,9 @@
         "2025": 93,
         "2026": 97
       },
-      "in_index": true
+      "in_index": true,
+      "elo_live": 1411,
+      "rank_live": 99
     }
   ]
 }

@@ -155,11 +155,16 @@ for (const r of fullRows) {
   w(`    ${r.group}  ${label.padEnd(37)} ${r.pred}    ${probs.padEnd(12)} ${r.predScore.padEnd(5)}   ${real}`);
 }
 
+// ─── Métricas a JSON (para el generador de predicciones) ──────────────
+writeFileSync(join(__dir, "data", "backtest-stats.json"), JSON.stringify({
+  generado: fix.meta.generado, n, acc, exact, brier: meanBrier, logloss, meanGdErr, baseFav, drawRate,
+}, null, 2));
+
 // ─── Markdown opcional ────────────────────────────────────────────────
 if (process.argv.includes("--md")) {
   let md = `# Backtest del predictor · Mundial 2026\n\n`;
   md += `Comparación del predictor (Elo del Atlas + forma) contra los **${n} partidos**`;
-  md += ` de fase de grupos ya jugados al 25/06/2026.\n\n`;
+  md += ` de fase de grupos ya jugados al ${fix.meta.generado}.\n\n`;
   md += `## Métricas globales\n\n`;
   md += `| Métrica | Valor | Referencia |\n|---|---|---|\n`;
   md += `| Acierto 1X2 (signo) | **${(acc * 100).toFixed(1)}%** (${(acc * n).toFixed(0)}/${n}) | azar ≈ 33% |\n`;

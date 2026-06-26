@@ -1,83 +1,90 @@
 {
   "meta": {
-    "descripcion": "Composición de los 12 grupos y resultados ya jugados del Mundial 2026 (al 25/06/2026).",
-    "fuente": "Recopilado y cruzado entre Wikipedia, ESPN, FIFA, Yahoo, CBS, NBC (verificación multi-fuente).",
-    "generado": "2026-06-25",
-    "partidos_jugados": 56,
-    "estado": "Grupos A, B, C, E completos (3 fechas). D y F: 2 fechas. G-L: 2 fechas. Resto de fecha 3 sin jugar al 25/06.",
-    "nota_anfitriones": "México (A), Canadá (B), Estados Unidos (D) son anfitriones."
+    "descripcion": "Grupos, resultados jugados y fixture restante del Mundial 2026.",
+    "fuente": "Recopilado y cruzado multi-fuente (Wikipedia, ESPN, FIFA, Yahoo, FOX, CBS, NBC).",
+    "generado": "2026-06-26",
+    "partidos_jugados": 57,
+    "grupos_completos": [
+      "A",
+      "B",
+      "C",
+      "E"
+    ],
+    "pendientes": 15,
+    "nota_pendientes": "3 partidos del 25/06 (Turquía-USA, Túnez-Países Bajos, Paraguay-Australia) no superaron la regla de 2 fuentes: van como pendientes, no se inventó resultado.",
+    "nota_anfitriones": "México (A), Canadá (B), Estados Unidos (D) anfitriones."
   },
   "groups": {
     "A": [
       {
         "iso3": "MEX",
-        "name": "Mexico",
+        "name": "México",
         "host": true
       },
       {
         "iso3": "ZAF",
-        "name": "South Africa",
+        "name": "Sudáfrica",
         "host": false
       },
       {
         "iso3": "KOR",
-        "name": "South Korea",
+        "name": "Corea del Sur",
         "host": false
       },
       {
         "iso3": "CZE",
-        "name": "Czech Republic",
+        "name": "República Checa",
         "host": false
       }
     ],
     "B": [
       {
         "iso3": "CAN",
-        "name": "Canada",
+        "name": "Canadá",
         "host": true
       },
       {
         "iso3": "BIH",
-        "name": "Bosnia and Herzegovina",
+        "name": "Bosnia y Herzegovina",
         "host": false
       },
       {
         "iso3": "QAT",
-        "name": "Qatar",
+        "name": "Catar",
         "host": false
       },
       {
         "iso3": "CHE",
-        "name": "Switzerland",
+        "name": "Suiza",
         "host": false
       }
     ],
     "C": [
       {
         "iso3": "BRA",
-        "name": "Brazil",
+        "name": "Brasil",
         "host": false
       },
       {
         "iso3": "MAR",
-        "name": "Morocco",
+        "name": "Marruecos",
         "host": false
       },
       {
         "iso3": "HTI",
-        "name": "Haiti",
+        "name": "Haití",
         "host": false
       },
       {
         "iso3": "SCO",
-        "name": "Scotland",
+        "name": "Escocia",
         "host": false
       }
     ],
     "D": [
       {
         "iso3": "USA",
-        "name": "United States",
+        "name": "Estados Unidos",
         "host": true
       },
       {
@@ -92,24 +99,24 @@
       },
       {
         "iso3": "TUR",
-        "name": "Turkey",
+        "name": "Turquía",
         "host": false
       }
     ],
     "E": [
       {
         "iso3": "DEU",
-        "name": "Germany",
+        "name": "Alemania",
         "host": false
       },
       {
         "iso3": "CUW",
-        "name": "Curacao",
+        "name": "Curaçao",
         "host": false
       },
       {
         "iso3": "CIV",
-        "name": "Ivory Coast",
+        "name": "Costa de Marfil",
         "host": false
       },
       {
@@ -121,61 +128,61 @@
     "F": [
       {
         "iso3": "NLD",
-        "name": "Netherlands",
+        "name": "Países Bajos",
         "host": false
       },
       {
         "iso3": "JPN",
-        "name": "Japan",
+        "name": "Japón",
         "host": false
       },
       {
         "iso3": "SWE",
-        "name": "Sweden",
+        "name": "Suecia",
         "host": false
       },
       {
         "iso3": "TUN",
-        "name": "Tunisia",
+        "name": "Túnez",
         "host": false
       }
     ],
     "G": [
       {
         "iso3": "BEL",
-        "name": "Belgium",
+        "name": "Bélgica",
         "host": false
       },
       {
         "iso3": "EGY",
-        "name": "Egypt",
+        "name": "Egipto",
         "host": false
       },
       {
         "iso3": "IRN",
-        "name": "Iran",
+        "name": "Irán",
         "host": false
       },
       {
         "iso3": "NZL",
-        "name": "New Zealand",
+        "name": "Nueva Zelanda",
         "host": false
       }
     ],
     "H": [
       {
         "iso3": "ESP",
-        "name": "Spain",
+        "name": "España",
         "host": false
       },
       {
         "iso3": "CPV",
-        "name": "Cape Verde",
+        "name": "Cabo Verde",
         "host": false
       },
       {
         "iso3": "SAU",
-        "name": "Saudi Arabia",
+        "name": "Arabia Saudí",
         "host": false
       },
       {
@@ -187,7 +194,7 @@
     "I": [
       {
         "iso3": "FRA",
-        "name": "France",
+        "name": "Francia",
         "host": false
       },
       {
@@ -197,12 +204,12 @@
       },
       {
         "iso3": "IRQ",
-        "name": "Iraq",
+        "name": "Irak",
         "host": false
       },
       {
         "iso3": "NOR",
-        "name": "Norway",
+        "name": "Noruega",
         "host": false
       }
     ],
@@ -214,7 +221,7 @@
       },
       {
         "iso3": "DZA",
-        "name": "Algeria",
+        "name": "Argelia",
         "host": false
       },
       {
@@ -224,7 +231,7 @@
       },
       {
         "iso3": "JOR",
-        "name": "Jordan",
+        "name": "Jordania",
         "host": false
       }
     ],
@@ -236,12 +243,12 @@
       },
       {
         "iso3": "COD",
-        "name": "DR Congo",
+        "name": "RD del Congo",
         "host": false
       },
       {
         "iso3": "UZB",
-        "name": "Uzbekistan",
+        "name": "Uzbekistán",
         "host": false
       },
       {
@@ -253,12 +260,12 @@
     "L": [
       {
         "iso3": "GBR",
-        "name": "England",
+        "name": "Inglaterra",
         "host": false
       },
       {
         "iso3": "HRV",
-        "name": "Croatia",
+        "name": "Croacia",
         "host": false
       },
       {
@@ -268,7 +275,7 @@
       },
       {
         "iso3": "PAN",
-        "name": "Panama",
+        "name": "Panamá",
         "host": false
       }
     ]
@@ -279,9 +286,9 @@
       "matchday": 1,
       "date": "2026-06-11",
       "home": "MEX",
-      "home_name": "Mexico",
+      "home_name": "México",
       "away": "ZAF",
-      "away_name": "South Africa",
+      "away_name": "Sudáfrica",
       "home_goals": 2,
       "away_goals": 0
     },
@@ -290,9 +297,9 @@
       "matchday": 1,
       "date": "2026-06-11",
       "home": "KOR",
-      "home_name": "South Korea",
+      "home_name": "Corea del Sur",
       "away": "CZE",
-      "away_name": "Czech Republic",
+      "away_name": "República Checa",
       "home_goals": 2,
       "away_goals": 1
     },
@@ -301,9 +308,9 @@
       "matchday": 2,
       "date": "2026-06-18",
       "home": "CZE",
-      "home_name": "Czech Republic",
+      "home_name": "República Checa",
       "away": "ZAF",
-      "away_name": "South Africa",
+      "away_name": "Sudáfrica",
       "home_goals": 1,
       "away_goals": 1
     },
@@ -312,9 +319,9 @@
       "matchday": 2,
       "date": "2026-06-18",
       "home": "MEX",
-      "home_name": "Mexico",
+      "home_name": "México",
       "away": "KOR",
-      "away_name": "South Korea",
+      "away_name": "Corea del Sur",
       "home_goals": 1,
       "away_goals": 0
     },
@@ -323,9 +330,9 @@
       "matchday": 3,
       "date": "2026-06-24",
       "home": "CZE",
-      "home_name": "Czech Republic",
+      "home_name": "República Checa",
       "away": "MEX",
-      "away_name": "Mexico",
+      "away_name": "México",
       "home_goals": 0,
       "away_goals": 3
     },
@@ -334,9 +341,9 @@
       "matchday": 3,
       "date": "2026-06-24",
       "home": "ZAF",
-      "home_name": "South Africa",
+      "home_name": "Sudáfrica",
       "away": "KOR",
-      "away_name": "South Korea",
+      "away_name": "Corea del Sur",
       "home_goals": 1,
       "away_goals": 0
     },
@@ -345,9 +352,9 @@
       "matchday": 1,
       "date": "2026-06-12",
       "home": "CAN",
-      "home_name": "Canada",
+      "home_name": "Canadá",
       "away": "BIH",
-      "away_name": "Bosnia and Herzegovina",
+      "away_name": "Bosnia y Herzegovina",
       "home_goals": 1,
       "away_goals": 1
     },
@@ -355,10 +362,10 @@
       "group": "B",
       "matchday": 1,
       "date": "2026-06-13",
-      "home": "CHE",
-      "home_name": "Switzerland",
-      "away": "QAT",
-      "away_name": "Qatar",
+      "home": "QAT",
+      "home_name": "Catar",
+      "away": "CHE",
+      "away_name": "Suiza",
       "home_goals": 1,
       "away_goals": 1
     },
@@ -367,9 +374,9 @@
       "matchday": 2,
       "date": "2026-06-18",
       "home": "CHE",
-      "home_name": "Switzerland",
+      "home_name": "Suiza",
       "away": "BIH",
-      "away_name": "Bosnia and Herzegovina",
+      "away_name": "Bosnia y Herzegovina",
       "home_goals": 4,
       "away_goals": 1
     },
@@ -378,9 +385,9 @@
       "matchday": 2,
       "date": "2026-06-18",
       "home": "CAN",
-      "home_name": "Canada",
+      "home_name": "Canadá",
       "away": "QAT",
-      "away_name": "Qatar",
+      "away_name": "Catar",
       "home_goals": 6,
       "away_goals": 0
     },
@@ -389,9 +396,9 @@
       "matchday": 3,
       "date": "2026-06-24",
       "home": "CHE",
-      "home_name": "Switzerland",
+      "home_name": "Suiza",
       "away": "CAN",
-      "away_name": "Canada",
+      "away_name": "Canadá",
       "home_goals": 2,
       "away_goals": 1
     },
@@ -400,9 +407,9 @@
       "matchday": 3,
       "date": "2026-06-24",
       "home": "BIH",
-      "home_name": "Bosnia and Herzegovina",
+      "home_name": "Bosnia y Herzegovina",
       "away": "QAT",
-      "away_name": "Qatar",
+      "away_name": "Catar",
       "home_goals": 3,
       "away_goals": 1
     },
@@ -411,9 +418,9 @@
       "matchday": 1,
       "date": "2026-06-13",
       "home": "BRA",
-      "home_name": "Brazil",
+      "home_name": "Brasil",
       "away": "MAR",
-      "away_name": "Morocco",
+      "away_name": "Marruecos",
       "home_goals": 1,
       "away_goals": 1
     },
@@ -421,32 +428,32 @@
       "group": "C",
       "matchday": 1,
       "date": "2026-06-13",
-      "home": "SCO",
-      "home_name": "Scotland",
-      "away": "HTI",
-      "away_name": "Haiti",
-      "home_goals": 1,
-      "away_goals": 0
+      "home": "HTI",
+      "home_name": "Haití",
+      "away": "SCO",
+      "away_name": "Escocia",
+      "home_goals": 0,
+      "away_goals": 1
     },
     {
       "group": "C",
       "matchday": 2,
       "date": "2026-06-19",
-      "home": "MAR",
-      "home_name": "Morocco",
-      "away": "SCO",
-      "away_name": "Scotland",
-      "home_goals": 1,
-      "away_goals": 0
+      "home": "SCO",
+      "home_name": "Escocia",
+      "away": "MAR",
+      "away_name": "Marruecos",
+      "home_goals": 0,
+      "away_goals": 1
     },
     {
       "group": "C",
       "matchday": 2,
       "date": "2026-06-19",
       "home": "BRA",
-      "home_name": "Brazil",
+      "home_name": "Brasil",
       "away": "HTI",
-      "away_name": "Haiti",
+      "away_name": "Haití",
       "home_goals": 3,
       "away_goals": 0
     },
@@ -455,9 +462,9 @@
       "matchday": 3,
       "date": "2026-06-24",
       "home": "SCO",
-      "home_name": "Scotland",
+      "home_name": "Escocia",
       "away": "BRA",
-      "away_name": "Brazil",
+      "away_name": "Brasil",
       "home_goals": 0,
       "away_goals": 3
     },
@@ -466,9 +473,9 @@
       "matchday": 3,
       "date": "2026-06-24",
       "home": "MAR",
-      "home_name": "Morocco",
+      "home_name": "Marruecos",
       "away": "HTI",
-      "away_name": "Haiti",
+      "away_name": "Haití",
       "home_goals": 4,
       "away_goals": 2
     },
@@ -477,7 +484,7 @@
       "matchday": 1,
       "date": "2026-06-12",
       "home": "USA",
-      "home_name": "United States",
+      "home_name": "Estados Unidos",
       "away": "PRY",
       "away_name": "Paraguay",
       "home_goals": 4,
@@ -490,7 +497,7 @@
       "home": "AUS",
       "home_name": "Australia",
       "away": "TUR",
-      "away_name": "Turkey",
+      "away_name": "Turquía",
       "home_goals": 2,
       "away_goals": 0
     },
@@ -499,7 +506,7 @@
       "matchday": 2,
       "date": "2026-06-19",
       "home": "USA",
-      "home_name": "United States",
+      "home_name": "Estados Unidos",
       "away": "AUS",
       "away_name": "Australia",
       "home_goals": 2,
@@ -509,21 +516,21 @@
       "group": "D",
       "matchday": 2,
       "date": "2026-06-19",
-      "home": "PRY",
-      "home_name": "Paraguay",
-      "away": "TUR",
-      "away_name": "Turkey",
-      "home_goals": 1,
-      "away_goals": 0
+      "home": "TUR",
+      "home_name": "Turquía",
+      "away": "PRY",
+      "away_name": "Paraguay",
+      "home_goals": 0,
+      "away_goals": 1
     },
     {
       "group": "E",
       "matchday": 1,
       "date": "2026-06-14",
       "home": "DEU",
-      "home_name": "Germany",
+      "home_name": "Alemania",
       "away": "CUW",
-      "away_name": "Curacao",
+      "away_name": "Curaçao",
       "home_goals": 7,
       "away_goals": 1
     },
@@ -532,7 +539,7 @@
       "matchday": 1,
       "date": "2026-06-14",
       "home": "CIV",
-      "home_name": "Ivory Coast",
+      "home_name": "Costa de Marfil",
       "away": "ECU",
       "away_name": "Ecuador",
       "home_goals": 1,
@@ -543,9 +550,9 @@
       "matchday": 2,
       "date": "2026-06-20",
       "home": "DEU",
-      "home_name": "Germany",
+      "home_name": "Alemania",
       "away": "CIV",
-      "away_name": "Ivory Coast",
+      "away_name": "Costa de Marfil",
       "home_goals": 2,
       "away_goals": 1
     },
@@ -556,9 +563,20 @@
       "home": "ECU",
       "home_name": "Ecuador",
       "away": "CUW",
-      "away_name": "Curacao",
+      "away_name": "Curaçao",
       "home_goals": 0,
       "away_goals": 0
+    },
+    {
+      "group": "E",
+      "matchday": 3,
+      "date": "2026-06-25",
+      "home": "CUW",
+      "home_name": "Curaçao",
+      "away": "CIV",
+      "away_name": "Costa de Marfil",
+      "home_goals": 0,
+      "away_goals": 2
     },
     {
       "group": "E",
@@ -567,29 +585,18 @@
       "home": "ECU",
       "home_name": "Ecuador",
       "away": "DEU",
-      "away_name": "Germany",
+      "away_name": "Alemania",
       "home_goals": 2,
       "away_goals": 1
-    },
-    {
-      "group": "E",
-      "matchday": 3,
-      "date": "2026-06-25",
-      "home": "CUW",
-      "home_name": "Curacao",
-      "away": "CIV",
-      "away_name": "Ivory Coast",
-      "home_goals": 0,
-      "away_goals": 2
     },
     {
       "group": "F",
       "matchday": 1,
       "date": "2026-06-14",
       "home": "NLD",
-      "home_name": "Netherlands",
+      "home_name": "Países Bajos",
       "away": "JPN",
-      "away_name": "Japan",
+      "away_name": "Japón",
       "home_goals": 2,
       "away_goals": 2
     },
@@ -598,9 +605,9 @@
       "matchday": 1,
       "date": "2026-06-14",
       "home": "SWE",
-      "home_name": "Sweden",
+      "home_name": "Suecia",
       "away": "TUN",
-      "away_name": "Tunisia",
+      "away_name": "Túnez",
       "home_goals": 5,
       "away_goals": 1
     },
@@ -609,9 +616,9 @@
       "matchday": 2,
       "date": "2026-06-20",
       "home": "NLD",
-      "home_name": "Netherlands",
+      "home_name": "Países Bajos",
       "away": "SWE",
-      "away_name": "Sweden",
+      "away_name": "Suecia",
       "home_goals": 5,
       "away_goals": 1
     },
@@ -620,20 +627,31 @@
       "matchday": 2,
       "date": "2026-06-20",
       "home": "TUN",
-      "home_name": "Tunisia",
+      "home_name": "Túnez",
       "away": "JPN",
-      "away_name": "Japan",
+      "away_name": "Japón",
       "home_goals": 0,
       "away_goals": 4
+    },
+    {
+      "group": "F",
+      "matchday": 3,
+      "date": "2026-06-25",
+      "home": "JPN",
+      "home_name": "Japón",
+      "away": "SWE",
+      "away_name": "Suecia",
+      "home_goals": 1,
+      "away_goals": 1
     },
     {
       "group": "G",
       "matchday": 1,
       "date": "2026-06-15",
       "home": "BEL",
-      "home_name": "Belgium",
+      "home_name": "Bélgica",
       "away": "EGY",
-      "away_name": "Egypt",
+      "away_name": "Egipto",
       "home_goals": 1,
       "away_goals": 1
     },
@@ -642,9 +660,9 @@
       "matchday": 1,
       "date": "2026-06-15",
       "home": "IRN",
-      "home_name": "Iran",
+      "home_name": "Irán",
       "away": "NZL",
-      "away_name": "New Zealand",
+      "away_name": "Nueva Zelanda",
       "home_goals": 2,
       "away_goals": 2
     },
@@ -653,9 +671,9 @@
       "matchday": 2,
       "date": "2026-06-21",
       "home": "BEL",
-      "home_name": "Belgium",
+      "home_name": "Bélgica",
       "away": "IRN",
-      "away_name": "Iran",
+      "away_name": "Irán",
       "home_goals": 0,
       "away_goals": 0
     },
@@ -663,21 +681,21 @@
       "group": "G",
       "matchday": 2,
       "date": "2026-06-21",
-      "home": "EGY",
-      "home_name": "Egypt",
-      "away": "NZL",
-      "away_name": "New Zealand",
-      "home_goals": 3,
-      "away_goals": 1
+      "home": "NZL",
+      "home_name": "Nueva Zelanda",
+      "away": "EGY",
+      "away_name": "Egipto",
+      "home_goals": 1,
+      "away_goals": 3
     },
     {
       "group": "H",
       "matchday": 1,
       "date": "2026-06-15",
       "home": "ESP",
-      "home_name": "Spain",
+      "home_name": "España",
       "away": "CPV",
-      "away_name": "Cape Verde",
+      "away_name": "Cabo Verde",
       "home_goals": 0,
       "away_goals": 0
     },
@@ -686,7 +704,7 @@
       "matchday": 1,
       "date": "2026-06-15",
       "home": "SAU",
-      "home_name": "Saudi Arabia",
+      "home_name": "Arabia Saudí",
       "away": "URY",
       "away_name": "Uruguay",
       "home_goals": 1,
@@ -697,9 +715,9 @@
       "matchday": 2,
       "date": "2026-06-21",
       "home": "ESP",
-      "home_name": "Spain",
+      "home_name": "España",
       "away": "SAU",
-      "away_name": "Saudi Arabia",
+      "away_name": "Arabia Saudí",
       "home_goals": 4,
       "away_goals": 0
     },
@@ -710,7 +728,7 @@
       "home": "URY",
       "home_name": "Uruguay",
       "away": "CPV",
-      "away_name": "Cape Verde",
+      "away_name": "Cabo Verde",
       "home_goals": 2,
       "away_goals": 2
     },
@@ -719,7 +737,7 @@
       "matchday": 1,
       "date": "2026-06-16",
       "home": "FRA",
-      "home_name": "France",
+      "home_name": "Francia",
       "away": "SEN",
       "away_name": "Senegal",
       "home_goals": 3,
@@ -729,21 +747,21 @@
       "group": "I",
       "matchday": 1,
       "date": "2026-06-16",
-      "home": "NOR",
-      "home_name": "Norway",
-      "away": "IRQ",
-      "away_name": "Iraq",
-      "home_goals": 4,
-      "away_goals": 1
+      "home": "IRQ",
+      "home_name": "Irak",
+      "away": "NOR",
+      "away_name": "Noruega",
+      "home_goals": 1,
+      "away_goals": 4
     },
     {
       "group": "I",
       "matchday": 2,
       "date": "2026-06-22",
       "home": "FRA",
-      "home_name": "France",
+      "home_name": "Francia",
       "away": "IRQ",
-      "away_name": "Iraq",
+      "away_name": "Irak",
       "home_goals": 3,
       "away_goals": 0
     },
@@ -752,7 +770,7 @@
       "matchday": 2,
       "date": "2026-06-22",
       "home": "NOR",
-      "home_name": "Norway",
+      "home_name": "Noruega",
       "away": "SEN",
       "away_name": "Senegal",
       "home_goals": 3,
@@ -765,7 +783,7 @@
       "home": "ARG",
       "home_name": "Argentina",
       "away": "DZA",
-      "away_name": "Algeria",
+      "away_name": "Argelia",
       "home_goals": 3,
       "away_goals": 0
     },
@@ -776,7 +794,7 @@
       "home": "AUT",
       "home_name": "Austria",
       "away": "JOR",
-      "away_name": "Jordan",
+      "away_name": "Jordania",
       "home_goals": 3,
       "away_goals": 1
     },
@@ -796,9 +814,9 @@
       "matchday": 2,
       "date": "2026-06-22",
       "home": "JOR",
-      "home_name": "Jordan",
+      "home_name": "Jordania",
       "away": "DZA",
-      "away_name": "Algeria",
+      "away_name": "Argelia",
       "home_goals": 1,
       "away_goals": 2
     },
@@ -809,7 +827,7 @@
       "home": "PRT",
       "home_name": "Portugal",
       "away": "COD",
-      "away_name": "DR Congo",
+      "away_name": "RD del Congo",
       "home_goals": 1,
       "away_goals": 1
     },
@@ -817,12 +835,12 @@
       "group": "K",
       "matchday": 1,
       "date": "2026-06-17",
-      "home": "COL",
-      "home_name": "Colombia",
-      "away": "UZB",
-      "away_name": "Uzbekistan",
-      "home_goals": 3,
-      "away_goals": 1
+      "home": "UZB",
+      "home_name": "Uzbekistán",
+      "away": "COL",
+      "away_name": "Colombia",
+      "home_goals": 1,
+      "away_goals": 3
     },
     {
       "group": "K",
@@ -831,7 +849,7 @@
       "home": "PRT",
       "home_name": "Portugal",
       "away": "UZB",
-      "away_name": "Uzbekistan",
+      "away_name": "Uzbekistán",
       "home_goals": 5,
       "away_goals": 0
     },
@@ -842,7 +860,7 @@
       "home": "COL",
       "home_name": "Colombia",
       "away": "COD",
-      "away_name": "DR Congo",
+      "away_name": "RD del Congo",
       "home_goals": 1,
       "away_goals": 0
     },
@@ -851,9 +869,9 @@
       "matchday": 1,
       "date": "2026-06-17",
       "home": "GBR",
-      "home_name": "England",
+      "home_name": "Inglaterra",
       "away": "HRV",
-      "away_name": "Croatia",
+      "away_name": "Croacia",
       "home_goals": 4,
       "away_goals": 2
     },
@@ -864,7 +882,7 @@
       "home": "GHA",
       "home_name": "Ghana",
       "away": "PAN",
-      "away_name": "Panama",
+      "away_name": "Panamá",
       "home_goals": 1,
       "away_goals": 0
     },
@@ -873,7 +891,7 @@
       "matchday": 2,
       "date": "2026-06-23",
       "home": "GBR",
-      "home_name": "England",
+      "home_name": "Inglaterra",
       "away": "GHA",
       "away_name": "Ghana",
       "home_goals": 0,
@@ -884,11 +902,163 @@
       "matchday": 2,
       "date": "2026-06-23",
       "home": "PAN",
-      "home_name": "Panama",
+      "home_name": "Panamá",
       "away": "HRV",
-      "away_name": "Croatia",
+      "away_name": "Croacia",
       "home_goals": 0,
       "away_goals": 1
+    }
+  ],
+  "remaining_fixtures": [
+    {
+      "group": "D",
+      "matchday": 3,
+      "date": "2026-06-25",
+      "home": "TUR",
+      "home_name": "Turquía",
+      "away": "USA",
+      "away_name": "Estados Unidos",
+      "nota": "Reported by one source (ESPN-derived) as Turkey 0-3 United States with Balogun x2 and Freeman scoring, but not confirmed by a second independent final-score source; Wikipedia/CBS/NBC snapshots still show it unplayed. Listed here as unconfirmed pending second source."
+    },
+    {
+      "group": "D",
+      "matchday": 3,
+      "date": "2026-06-25",
+      "home": "PRY",
+      "home_name": "Paraguay",
+      "away": "AUS",
+      "away_name": "Australia",
+      "nota": "Match 60, Levi's Stadium, kickoff 7pm PT June 25. No final score available from any accessed source as of retrieval; not invented."
+    },
+    {
+      "group": "F",
+      "matchday": 3,
+      "date": "2026-06-25",
+      "home": "TUN",
+      "home_name": "Túnez",
+      "away": "NLD",
+      "away_name": "Países Bajos",
+      "nota": "Match 58, Arrowhead Stadium. Yahoo live blog reported it complete as Netherlands 3-1 Tunisia (van Hecke 62'), but a clean second full-time source could not be confirmed, so it is held here as unconfirmed rather than placed in played matches."
+    },
+    {
+      "group": "G",
+      "matchday": 3,
+      "date": "2026-06-26",
+      "home": "EGY",
+      "home_name": "Egipto",
+      "away": "IRN",
+      "away_name": "Irán",
+      "nota": "Scheduled June 26; no confirmed final score at retrieval time."
+    },
+    {
+      "group": "G",
+      "matchday": 3,
+      "date": "2026-06-26",
+      "home": "NZL",
+      "home_name": "Nueva Zelanda",
+      "away": "BEL",
+      "away_name": "Bélgica",
+      "nota": "Scheduled June 26; no confirmed final score at retrieval time."
+    },
+    {
+      "group": "H",
+      "matchday": 3,
+      "date": "2026-06-26",
+      "home": "CPV",
+      "home_name": "Cabo Verde",
+      "away": "SAU",
+      "away_name": "Arabia Saudí",
+      "nota": "Scheduled June 26 (Houston); no confirmed final score at retrieval time."
+    },
+    {
+      "group": "H",
+      "matchday": 3,
+      "date": "2026-06-26",
+      "home": "URY",
+      "home_name": "Uruguay",
+      "away": "ESP",
+      "away_name": "España",
+      "nota": "Scheduled June 26 (Guadalajara/Zapopan); no confirmed final score at retrieval time."
+    },
+    {
+      "group": "I",
+      "matchday": 3,
+      "date": "2026-06-26",
+      "home": "NOR",
+      "home_name": "Noruega",
+      "away": "FRA",
+      "away_name": "Francia",
+      "nota": "Scheduled June 26 (Foxborough); no confirmed final score at retrieval time."
+    },
+    {
+      "group": "I",
+      "matchday": 3,
+      "date": "2026-06-26",
+      "home": "SEN",
+      "home_name": "Senegal",
+      "away": "IRQ",
+      "away_name": "Irak",
+      "nota": "Scheduled June 26 (Toronto); no confirmed final score at retrieval time."
+    },
+    {
+      "group": "J",
+      "matchday": 3,
+      "date": "2026-06-27",
+      "home": "DZA",
+      "home_name": "Argelia",
+      "away": "AUT",
+      "away_name": "Austria",
+      "nota": null
+    },
+    {
+      "group": "J",
+      "matchday": 3,
+      "date": "2026-06-27",
+      "home": "JOR",
+      "home_name": "Jordania",
+      "away": "ARG",
+      "away_name": "Argentina",
+      "nota": null
+    },
+    {
+      "group": "K",
+      "matchday": 3,
+      "date": "2026-06-27",
+      "home": "COL",
+      "home_name": "Colombia",
+      "away": "PRT",
+      "away_name": "Portugal",
+      "nota": null
+    },
+    {
+      "group": "K",
+      "matchday": 3,
+      "date": "2026-06-27",
+      "home": "COD",
+      "home_name": "RD del Congo",
+      "away": "UZB",
+      "away_name": "Uzbekistán",
+      "nota": null
+    },
+    {
+      "group": "L",
+      "matchday": 3,
+      "date": "2026-06-27",
+      "home": "PAN",
+      "home_name": "Panamá",
+      "away": "GBR",
+      "away_name": "Inglaterra",
+      "nota": null
+    },
+    {
+      "group": "L",
+      "matchday": 3,
+      "date": "2026-06-27",
+      "home": "HRV",
+      "home_name": "Croacia",
+      "away": "GHA",
+      "away_name": "Ghana",
+      "nota": null
     }
   ]
 }
