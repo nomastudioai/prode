@@ -12,7 +12,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { loadData, predictMatch, PARAMS } from "./model.mjs";
+import { loadData, predictMatch, pick1x2, PARAMS } from "./model.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const elo = loadData();
@@ -30,7 +30,7 @@ function predict(homeIso, awayIso) {
   const r = predictMatch(A, B, opts);
   // outcome más probable entre 1/X/2
   const probs = { "1": r.pWin, "X": r.pDraw, "2": r.pLose };
-  const pred = Object.entries(probs).sort((a, b) => b[1] - a[1])[0][0];
+  const pred = pick1x2(probs);
   return { ...r, probs, pred, top: r.scores[0] };
 }
 
@@ -169,6 +169,12 @@ if (process.argv.includes("--md")) {
   md += `| Error medio dif. de goles | ${meanGdErr.toFixed(2)} goles | |\n`;
   md += `| Baseline "gana mayor Elo" | ${(baseFav * 100).toFixed(1)}% | |\n`;
   md += `| Tasa real de empates | ${(drawRate * 100).toFixed(1)}% | |\n\n`;
+  md += `> **Nota sobre el empate (modelo v2, Dixon-Coles):** la corrección Dixon-Coles deja la `;
+  md += `probabilidad media de empate del modelo (~24,5%) casi igual a la tasa real (25%), y mejora `;
+  md += `el marcador exacto y el log-loss. Pero **forzar la predicción de empates no mejora el acierto**: `;
+  md += `los empates de esta muestra no se dieron en partidos parejos sino en favoritos que pincharon `;
+  md += `(España 0-0 Cabo Verde, Inglaterra 0-0 Ghana, Suiza 1-1 Catar), que el Elo no anticipa. Por eso `;
+  md += `el predictor sigue eligiendo al favorito y reporta la probabilidad de empate ya calibrada.\n\n`;
   md += `## Calibración\n\n| Prob. asignada | n | Predicho | Real |\n|---|---|---|---|\n`;
   for (const c of calib()) md += `| ${c.rango} | ${c.n} | ${(c.predicho * 100).toFixed(1)}% | ${(c.real * 100).toFixed(1)}% |\n`;
   md += `\n## Mayores sorpresas\n\n| Partido | Real | Pred | p(modelo→real) |\n|---|---|---|---|\n`;

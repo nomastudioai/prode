@@ -74,6 +74,14 @@ Heurística transparente y ajustable (ver `PARAMS` arriba de `predict.mjs`):
 4. Con un modelo **Poisson** por equipo se calculan las probabilidades 1X2
    (gana / empata / pierde) y los marcadores más probables.
 
+**Modelo de empate (v2):** se aplica la corrección **Dixon-Coles** (`DC_RHO`),
+que sube la probabilidad de 0-0 y 1-1 y deja la probabilidad de empate bien
+calibrada (~24,5% promedio vs 25% real en el backtest). Importante: el backtest
+mostró que *forzar* la predicción de empates no mejora el acierto (los empates
+del Mundial se dieron en favoritos que pincharon, no en partidos parejos), así
+que el predictor elige al favorito y reporta la probabilidad de empate calibrada
+en vez de apostar al empate (`DRAW_PICK_MARGIN` bajo).
+
 La forma reciente tiene dos modos: por defecto usa el *momentum* del propio
 índice (delta de Elo de los últimos años, tope ±40 pts); si se pasan resultados
 con `--formA/--formB`, los pondera dándole más peso a los más recientes

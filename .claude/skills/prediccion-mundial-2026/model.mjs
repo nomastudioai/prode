@@ -19,7 +19,26 @@ export const PARAMS = {
   FORM_RESULT_PTS: 12,   // puntos Elo por victoria reciente
   FORM_RESULT_CAP: 60,   // tope (± pts Elo) del ajuste por resultados recientes
   MAX_GOALS: 9,          // tamaño de la grilla de Poisson (0..MAX_GOALS)
+  // Empate (mejora v2):
+  DC_RHO: -0.13,         // Dixon-Coles ρ (<0 sube 0-0 y 1-1, baja 1-0 y 0-1 → más empates)
+  DRAW_PICK_MARGIN: 0.05,// predecir "X" si p(empate) ≥ max(p1,p2) − este margen (solo partidos muy parejos)
 };
+
+// Corrección Dixon-Coles para marcadores bajos (mejora el realismo de los empates).
+function dcTau(x, y, lamA, lamB, rho) {
+  if (x === 0 && y === 0) return 1 - lamA * lamB * rho;
+  if (x === 0 && y === 1) return 1 + lamA * rho;
+  if (x === 1 && y === 0) return 1 + lamB * rho;
+  if (x === 1 && y === 1) return 1 - rho;
+  return 1;
+}
+
+// Elige la predicción 1X2: argmax, pero permite "X" en partidos parejos.
+export function pick1x2(probs, margin = PARAMS.DRAW_PICK_MARGIN) {
+  const top = Math.max(probs["1"], probs["2"]);
+  if (probs["X"] >= top - margin) return "X";
+  return probs["1"] >= probs["2"] ? "1" : "2";
+}
 
 export function loadData() {
   return JSON.parse(readFileSync(join(__dir, "data", "elo-mundial-2026.json"), "utf8"));
@@ -85,7 +104,7 @@ export function predictFromEff(effA, effB, P = PARAMS) {
   const scores = [];
   for (let a = 0; a <= N; a++) {
     for (let b = 0; b <= N; b++) {
-      const p = poisson(a, lamA) * poisson(b, lamB);
+      const p = poisson(a, lamA) * poisson(b, lamB) * dcTau(a, b, lamA, lamB, P.DC_RHO);
       scores.push({ a, b, p });
       if (a > b) pWin += p; else if (a === b) pDraw += p; else pLose += p;
     }
