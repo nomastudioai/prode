@@ -439,8 +439,8 @@
         "2026": 12
       },
       "in_index": true,
-      "elo_live": 1813,
-      "rank_live": 25,
+      "elo_live": 1852,
+      "rank_live": 20,
       "en_name": "Turkey"
     },
     {
@@ -580,7 +580,7 @@
       },
       "in_index": true,
       "elo_live": 1851,
-      "rank_live": 20,
+      "rank_live": 21,
       "en_name": "Uruguay"
     },
     {
@@ -719,7 +719,7 @@
         "2026": 22
       },
       "in_index": true,
-      "elo_live": 1816,
+      "elo_live": 1815,
       "rank_live": 24,
       "en_name": "Paraguay"
     },
@@ -755,7 +755,7 @@
       },
       "in_index": true,
       "elo_live": 1841,
-      "rank_live": 21,
+      "rank_live": 22,
       "en_name": "Austria"
     },
     {
@@ -859,8 +859,8 @@
         "2026": 28
       },
       "in_index": true,
-      "elo_live": 1799,
-      "rank_live": 26,
+      "elo_live": 1800,
+      "rank_live": 25,
       "en_name": "Australia"
     },
     {
@@ -1085,8 +1085,8 @@
         "2026": 38
       },
       "in_index": true,
-      "elo_live": 1820,
-      "rank_live": 22,
+      "elo_live": 1781,
+      "rank_live": 26,
       "en_name": "United States"
     },
     {
