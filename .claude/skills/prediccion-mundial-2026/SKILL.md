@@ -111,6 +111,27 @@ Mide acierto 1X2, marcador exacto, Brier score, log-loss, error de diferencia
 de goles, calibración y baselines. Ver `analisis-backtest.md` para el último
 resultado y los puntos de mejora.
 
+## Experimento: ¿sirve la forma intra-torneo? (`experiment-forma.mjs`)
+
+Backtest walk-forward (cada partido predicho solo con info de fechas previas)
+comparando: A) Elo estático + momentum, B) Elo + forma W/D/L del torneo,
+C) Elo actualizado partido a partido (fórmula eloratings K=60).
+
+**Resultado: la forma intra-torneo NO mejora el acierto** (las tres variantes:
+62,5% global, 75% en fechas ≥2; B y C empeoran levemente el Brier). Con 1-2
+partidos previos la señal es muy ruidosa y no da vuelta ninguna predicción.
+
+Incluso usar el Elo **en vivo** de eloratings.net (cota optimista, con fuga de
+datos porque ya incorpora los resultados) sube el acierto solo a 66,1%. O sea:
+el índice está cerca de su techo de acierto (~62-66%); los empates/sorpresas de
+la fase de grupos son esencialmente impredecibles desde el Elo. Donde el Elo
+fresco sí ayuda es en la **calidad de probabilidad** (Brier 0,555→0,493 en esa
+prueba), útil para rondas futuras.
+
+```bash
+node experiment-forma.mjs
+```
+
 ## Arquitectura
 
 - `model.mjs` — lógica del modelo (Elo + forma → Poisson) y `PARAMS`. Editar acá.
