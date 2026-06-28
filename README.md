@@ -26,12 +26,12 @@ _Last auto-update: **2026-06-26**. Backtest: the model gets the 1X2 right in **6
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 28.4% | 20.4% |
-| France | 24.7% | 15.4% |
-| Spain | 22.1% | 15.3% |
-| England | 18.8% | 8.6% |
-| Colombia | 15.9% | 7.0% |
-| Brazil | 12.8% | 5.3% |
+| France | 29.8% | 19.9% |
+| Argentina | 26.9% | 19.1% |
+| Spain | 22.0% | 15.4% |
+| England | 20.4% | 9.4% |
+| Colombia | 15.1% | 6.3% |
+| Brazil | 13.5% | 5.4% |
 
 Full detail (every group, every upcoming match, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
