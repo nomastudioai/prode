@@ -653,8 +653,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 21.55,
-      "champ": 15.218
+      "final": 34.002,
+      "champ": 20.5
     },
     {
       "iso": "ARG",
@@ -664,8 +664,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 26.608,
-      "champ": 19.016
+      "final": 45.61,
+      "champ": 27.636
     },
     {
       "iso": "FRA",
@@ -675,8 +675,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 29.044,
-      "champ": 19.754
+      "final": 33.008,
+      "champ": 18.85
     },
     {
       "iso": "GBR",
@@ -686,8 +686,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 25.306,
-      "champ": 10.81
+      "final": 15.164,
+      "champ": 7.036
     },
     {
       "iso": "BRA",
@@ -697,8 +697,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 14.134,
-      "champ": 5.608
+      "final": 9.162,
+      "champ": 3.93
     },
     {
       "iso": "PRT",
@@ -708,8 +708,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 5.446,
-      "champ": 2.836
+      "final": 7.02,
+      "champ": 2.958
     },
     {
       "iso": "COL",
@@ -719,8 +719,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 23.678,
-      "champ": 9.228
+      "final": 12.096,
+      "champ": 5.044
     },
     {
       "iso": "NLD",
@@ -730,8 +730,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 7.116,
-      "champ": 3.59
+      "final": 8.688,
+      "champ": 3.506
     },
     {
       "iso": "ECU",
@@ -741,8 +741,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 4.77,
-      "champ": 1.268
+      "final": 2.018,
+      "champ": 0.618
     },
     {
       "iso": "DEU",
@@ -752,8 +752,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 2.596,
-      "champ": 1.112
+      "final": 3.244,
+      "champ": 1.034
     },
     {
       "iso": "NOR",
@@ -763,8 +763,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 6.598,
-      "champ": 1.924
+      "final": 3.93,
+      "champ": 1.262
     },
     {
       "iso": "HRV",
@@ -774,8 +774,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 1.56,
-      "champ": 0.64
+      "final": 2.15,
+      "champ": 0.686
     },
     {
       "iso": "JPN",
@@ -785,8 +785,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 4.092,
-      "champ": 1.13
+      "final": 2.424,
+      "champ": 0.762
     },
     {
       "iso": "BEL",
@@ -796,8 +796,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 3.738,
-      "champ": 1.012
+      "final": 3.062,
+      "champ": 0.916
     },
     {
       "iso": "CHE",
@@ -807,8 +807,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 2.406,
-      "champ": 0.984
+      "final": 3.16,
+      "champ": 1.016
     },
     {
       "iso": "MEX",
@@ -818,8 +818,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 9.924,
-      "champ": 3.378
+      "final": 4.852,
+      "champ": 1.796
     },
     {
       "iso": "SEN",
@@ -829,8 +829,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 2.026,
-      "champ": 0.424
+      "final": 1.624,
+      "champ": 0.406
     },
     {
       "iso": "PRY",
@@ -840,8 +840,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.52,
-      "champ": 0.136
+      "final": 0.802,
+      "champ": 0.194
     },
     {
       "iso": "AUT",
@@ -851,8 +851,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.252,
-      "champ": 0.058
+      "final": 0.634,
+      "champ": 0.16
     },
     {
       "iso": "MAR",
@@ -862,8 +862,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 1.638,
-      "champ": 0.568
+      "final": 2.186,
+      "champ": 0.614
     },
     {
       "iso": "CAN",
@@ -873,8 +873,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.9,
-      "champ": 0.226
+      "final": 1.274,
+      "champ": 0.274
     },
     {
       "iso": "AUS",
@@ -884,8 +884,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 1.574,
-      "champ": 0.272
+      "final": 0.664,
+      "champ": 0.142
     },
     {
       "iso": "DZA",
@@ -895,8 +895,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.244,
-      "champ": 0.042
+      "final": 0.368,
+      "champ": 0.062
     },
     {
       "iso": "USA",
@@ -906,8 +906,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 2.908,
-      "champ": 0.588
+      "final": 2.058,
+      "champ": 0.482
     },
     {
       "iso": "SWE",
@@ -917,8 +917,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.112,
-      "champ": 0.026
+      "final": 0.202,
+      "champ": 0.036
     },
     {
       "iso": "EGY",
@@ -928,8 +928,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.572,
-      "champ": 0.07
+      "final": 0.244,
+      "champ": 0.04
     },
     {
       "iso": "CIV",
@@ -939,8 +939,8 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.352,
-      "champ": 0.048
+      "final": 0.216,
+      "champ": 0.032
     },
     {
       "iso": "COD",
@@ -950,8 +950,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.24,
-      "champ": 0.022
+      "final": 0.084,
+      "champ": 0.006
     },
     {
       "iso": "BIH",
@@ -961,8 +961,8 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.054,
-      "champ": 0.002
+      "final": 0.032,
+      "champ": 0
     },
     {
       "iso": "CPV",
@@ -973,7 +973,7 @@
       "p2": 100,
       "p3": 0,
       "final": 0.006,
-      "champ": 0.004
+      "champ": 0
     },
     {
       "iso": "ZAF",
@@ -983,7 +983,7 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 0.002,
+      "final": 0.014,
       "champ": 0.002
     },
     {
@@ -994,22 +994,11 @@
       "p1": 0,
       "p2": 0,
       "p3": 100,
-      "final": 0.034,
-      "champ": 0.004
+      "final": 0.002,
+      "champ": 0
     }
   ],
   "finalistas": [
-    {
-      "iso": "FRA",
-      "name": "France",
-      "confed": "UEFA",
-      "advance": 100,
-      "p1": 100,
-      "p2": 0,
-      "p3": 0,
-      "final": 29.044,
-      "champ": 19.754
-    },
     {
       "iso": "ARG",
       "name": "Argentina",
@@ -1018,30 +1007,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 26.608,
-      "champ": 19.016
-    },
-    {
-      "iso": "GBR",
-      "name": "England",
-      "confed": "UEFA",
-      "advance": 100,
-      "p1": 100,
-      "p2": 0,
-      "p3": 0,
-      "final": 25.306,
-      "champ": 10.81
-    },
-    {
-      "iso": "COL",
-      "name": "Colombia",
-      "confed": "CONMEBOL",
-      "advance": 100,
-      "p1": 100,
-      "p2": 0,
-      "p3": 0,
-      "final": 23.678,
-      "champ": 9.228
+      "final": 45.61,
+      "champ": 27.636
     },
     {
       "iso": "ESP",
@@ -1051,8 +1018,41 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 21.55,
-      "champ": 15.218
+      "final": 34.002,
+      "champ": 20.5
+    },
+    {
+      "iso": "FRA",
+      "name": "France",
+      "confed": "UEFA",
+      "advance": 100,
+      "p1": 100,
+      "p2": 0,
+      "p3": 0,
+      "final": 33.008,
+      "champ": 18.85
+    },
+    {
+      "iso": "GBR",
+      "name": "England",
+      "confed": "UEFA",
+      "advance": 100,
+      "p1": 100,
+      "p2": 0,
+      "p3": 0,
+      "final": 15.164,
+      "champ": 7.036
+    },
+    {
+      "iso": "COL",
+      "name": "Colombia",
+      "confed": "CONMEBOL",
+      "advance": 100,
+      "p1": 100,
+      "p2": 0,
+      "p3": 0,
+      "final": 12.096,
+      "champ": 5.044
     },
     {
       "iso": "BRA",
@@ -1062,19 +1062,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 14.134,
-      "champ": 5.608
-    },
-    {
-      "iso": "MEX",
-      "name": "Mexico",
-      "confed": "CONCACAF",
-      "advance": 100,
-      "p1": 100,
-      "p2": 0,
-      "p3": 0,
-      "final": 9.924,
-      "champ": 3.378
+      "final": 9.162,
+      "champ": 3.93
     },
     {
       "iso": "NLD",
@@ -1084,19 +1073,8 @@
       "p1": 100,
       "p2": 0,
       "p3": 0,
-      "final": 7.116,
-      "champ": 3.59
-    },
-    {
-      "iso": "NOR",
-      "name": "Norway",
-      "confed": "UEFA",
-      "advance": 100,
-      "p1": 0,
-      "p2": 100,
-      "p3": 0,
-      "final": 6.598,
-      "champ": 1.924
+      "final": 8.688,
+      "champ": 3.506
     },
     {
       "iso": "PRT",
@@ -1106,57 +1084,79 @@
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 5.446,
-      "champ": 2.836
+      "final": 7.02,
+      "champ": 2.958
     },
     {
-      "iso": "ECU",
-      "name": "Ecuador",
-      "confed": "CONMEBOL",
+      "iso": "MEX",
+      "name": "Mexico",
+      "confed": "CONCACAF",
       "advance": 100,
-      "p1": 0,
+      "p1": 100,
       "p2": 0,
-      "p3": 100,
-      "final": 4.77,
-      "champ": 1.268
+      "p3": 0,
+      "final": 4.852,
+      "champ": 1.796
     },
     {
-      "iso": "JPN",
-      "name": "Japan",
-      "confed": "AFC",
+      "iso": "NOR",
+      "name": "Norway",
+      "confed": "UEFA",
       "advance": 100,
       "p1": 0,
       "p2": 100,
       "p3": 0,
-      "final": 4.092,
-      "champ": 1.13
+      "final": 3.93,
+      "champ": 1.262
+    },
+    {
+      "iso": "DEU",
+      "name": "Germany",
+      "confed": "UEFA",
+      "advance": 100,
+      "p1": 100,
+      "p2": 0,
+      "p3": 0,
+      "final": 3.244,
+      "champ": 1.034
+    },
+    {
+      "iso": "CHE",
+      "name": "Switzerland",
+      "confed": "UEFA",
+      "advance": 100,
+      "p1": 100,
+      "p2": 0,
+      "p3": 0,
+      "final": 3.16,
+      "champ": 1.016
     }
   ],
   "final_mas_probable": [
     {
-      "final": "England vs France",
-      "prob": 7.246
+      "final": "Argentina vs Spain",
+      "prob": 15.418
     },
     {
-      "final": "Colombia vs France",
-      "prob": 6.976
-    },
-    {
-      "final": "Argentina vs England",
-      "prob": 6.746
-    },
-    {
-      "final": "Argentina vs Colombia",
-      "prob": 6.318
+      "final": "Argentina vs France",
+      "prob": 15.126
     },
     {
       "final": "England vs Spain",
-      "prob": 5.498
+      "prob": 5.142
+    },
+    {
+      "final": "England vs France",
+      "prob": 5.06
     },
     {
       "final": "Colombia vs Spain",
-      "prob": 5.006
+      "prob": 4.26
+    },
+    {
+      "final": "Argentina vs Netherlands",
+      "prob": 4.024
     }
   ],
-  "prediccion_finalistas": "England vs France"
+  "prediccion_finalistas": "Argentina vs Spain"
 }

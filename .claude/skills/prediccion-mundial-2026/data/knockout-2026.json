@@ -2,7 +2,7 @@
   "meta": {
     "descripcion": "Estructura del cuadro de eliminación (R32→Final) del Mundial 2026.",
     "fuente": "Wikipedia / FIFA bracket oficial. Asignación de mejores terceros = tabla combinatoria oficial (aprox. por sets elegibles).",
-    "nota_confianza": "Slots R32 (73-88) y numeración oficiales. El emparejamiento R32→R16 (89-96) es la parte de menor confianza (fuente única).",
+    "nota_confianza": "Bracket completo (R32 73-88, R16 89-96, cuartos 97-100, semis 101-102, final 104) verificado contra el cuadro oficial de la FIFA (Wikipedia).",
     "third_slots": [
       "3ABCDF",
       "3CDFGH",
@@ -124,33 +124,33 @@
       },
       {
         "id": "M91",
-        "home": "M80",
-        "away": "M82"
+        "home": "M76",
+        "away": "M78"
       },
       {
         "id": "M92",
         "home": "M79",
-        "away": "M81"
+        "away": "M80"
       },
       {
         "id": "M93",
         "home": "M83",
-        "away": "M85"
+        "away": "M84"
       },
       {
         "id": "M94",
-        "home": "M84",
-        "away": "M86"
+        "home": "M81",
+        "away": "M82"
       },
       {
         "id": "M95",
-        "home": "M87",
+        "home": "M86",
         "away": "M88"
       },
       {
         "id": "M96",
-        "home": "M76",
-        "away": "M78"
+        "home": "M85",
+        "away": "M87"
       }
     ],
     [
