@@ -1,17 +1,25 @@
 {
   "meta": {
-    "descripcion": "Grupos, resultados jugados y fixture restante del Mundial 2026.",
-    "fuente": "Recopilado y cruzado multi-fuente (Wikipedia, ESPN, FIFA, Yahoo, FOX, CBS, NBC).",
-    "generado": "2026-06-26",
-    "partidos_jugados": 57,
+    "descripcion": "Grupos y resultados de la fase de grupos del Mundial 2026 (completa).",
+    "fuente": "Recopilado y cruzado multi-fuente (Wikipedia, ESPN, FIFA, Yahoo, FOX, CBS, NBC, France 24).",
+    "generado": "2026-06-28",
+    "partidos_jugados": 72,
     "grupos_completos": [
       "A",
       "B",
       "C",
-      "E"
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L"
     ],
-    "pendientes": 15,
-    "nota_pendientes": "3 partidos del 25/06 (Turquía-USA, Túnez-Países Bajos, Paraguay-Australia) no superaron la regla de 2 fuentes: van como pendientes, no se inventó resultado.",
+    "pendientes": 0,
+    "nota_pendientes": "Fase de grupos completa: los 72 partidos jugados y confirmados por dos fuentes. La fase eliminatoria todavía no se jugó.",
     "nota_anfitriones": "México (A), Canadá (B), Estados Unidos (D) anfitriones."
   },
   "groups": {
@@ -907,9 +915,7 @@
       "away_name": "Croacia",
       "home_goals": 0,
       "away_goals": 1
-    }
-  ],
-  "remaining_fixtures": [
+    },
     {
       "group": "D",
       "matchday": 3,
@@ -918,7 +924,8 @@
       "home_name": "Turquía",
       "away": "USA",
       "away_name": "Estados Unidos",
-      "nota": "Reported by one source (ESPN-derived) as Turkey 0-3 United States with Balogun x2 and Freeman scoring, but not confirmed by a second independent final-score source; Wikipedia/CBS/NBC snapshots still show it unplayed. Listed here as unconfirmed pending second source."
+      "home_goals": 3,
+      "away_goals": 2
     },
     {
       "group": "D",
@@ -928,7 +935,8 @@
       "home_name": "Paraguay",
       "away": "AUS",
       "away_name": "Australia",
-      "nota": "Match 60, Levi's Stadium, kickoff 7pm PT June 25. No final score available from any accessed source as of retrieval; not invented."
+      "home_goals": 0,
+      "away_goals": 0
     },
     {
       "group": "F",
@@ -938,7 +946,8 @@
       "home_name": "Túnez",
       "away": "NLD",
       "away_name": "Países Bajos",
-      "nota": "Match 58, Arrowhead Stadium. Yahoo live blog reported it complete as Netherlands 3-1 Tunisia (van Hecke 62'), but a clean second full-time source could not be confirmed, so it is held here as unconfirmed rather than placed in played matches."
+      "home_goals": 1,
+      "away_goals": 3
     },
     {
       "group": "G",
@@ -948,7 +957,8 @@
       "home_name": "Egipto",
       "away": "IRN",
       "away_name": "Irán",
-      "nota": "Scheduled June 26; no confirmed final score at retrieval time."
+      "home_goals": 1,
+      "away_goals": 1
     },
     {
       "group": "G",
@@ -958,7 +968,8 @@
       "home_name": "Nueva Zelanda",
       "away": "BEL",
       "away_name": "Bélgica",
-      "nota": "Scheduled June 26; no confirmed final score at retrieval time."
+      "home_goals": 1,
+      "away_goals": 5
     },
     {
       "group": "H",
@@ -968,7 +979,8 @@
       "home_name": "Cabo Verde",
       "away": "SAU",
       "away_name": "Arabia Saudí",
-      "nota": "Scheduled June 26 (Houston); no confirmed final score at retrieval time."
+      "home_goals": 0,
+      "away_goals": 0
     },
     {
       "group": "H",
@@ -978,7 +990,8 @@
       "home_name": "Uruguay",
       "away": "ESP",
       "away_name": "España",
-      "nota": "Scheduled June 26 (Guadalajara/Zapopan); no confirmed final score at retrieval time."
+      "home_goals": 0,
+      "away_goals": 1
     },
     {
       "group": "I",
@@ -988,7 +1001,8 @@
       "home_name": "Noruega",
       "away": "FRA",
       "away_name": "Francia",
-      "nota": "Scheduled June 26 (Foxborough); no confirmed final score at retrieval time."
+      "home_goals": 4,
+      "away_goals": 1
     },
     {
       "group": "I",
@@ -998,7 +1012,8 @@
       "home_name": "Senegal",
       "away": "IRQ",
       "away_name": "Irak",
-      "nota": "Scheduled June 26 (Toronto); no confirmed final score at retrieval time."
+      "home_goals": 5,
+      "away_goals": 0
     },
     {
       "group": "J",
@@ -1008,7 +1023,8 @@
       "home_name": "Argelia",
       "away": "AUT",
       "away_name": "Austria",
-      "nota": null
+      "home_goals": 3,
+      "away_goals": 3
     },
     {
       "group": "J",
@@ -1018,7 +1034,8 @@
       "home_name": "Jordania",
       "away": "ARG",
       "away_name": "Argentina",
-      "nota": null
+      "home_goals": 1,
+      "away_goals": 3
     },
     {
       "group": "K",
@@ -1028,7 +1045,8 @@
       "home_name": "Colombia",
       "away": "PRT",
       "away_name": "Portugal",
-      "nota": null
+      "home_goals": 0,
+      "away_goals": 0
     },
     {
       "group": "K",
@@ -1038,7 +1056,8 @@
       "home_name": "RD del Congo",
       "away": "UZB",
       "away_name": "Uzbekistán",
-      "nota": null
+      "home_goals": 3,
+      "away_goals": 1
     },
     {
       "group": "L",
@@ -1048,7 +1067,8 @@
       "home_name": "Panamá",
       "away": "GBR",
       "away_name": "Inglaterra",
-      "nota": null
+      "home_goals": 0,
+      "away_goals": 2
     },
     {
       "group": "L",
@@ -1058,7 +1078,9 @@
       "home_name": "Croacia",
       "away": "GHA",
       "away_name": "Ghana",
-      "nota": null
+      "home_goals": 2,
+      "away_goals": 1
     }
-  ]
+  ],
+  "remaining_fixtures": []
 }

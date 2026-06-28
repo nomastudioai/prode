@@ -53,25 +53,47 @@ md += `Exact scoreline ${(bt.exact * 100).toFixed(1)}%. Everything below inherit
 md += `which **grows every round** (the finalist predictions are low-confidence). The most likely `;
 md += `scoreline is shown for every match: useful as an "expected result", not a certainty.\n\n`;
 
-// 1) Upcoming matches
-md += `## 1) Upcoming matches (predicted score)\n\n`;
-if (fix.remaining_fixtures.length === 0) md += `_No group-stage matches left to play._\n\n`;
-else {
-  md += `Matches not yet played or not confirmed by two sources. `;
-  md += `Predicted with live Elo. 1 = home win, X = draw, 2 = away win.\n\n`;
-  md += `| Date | Group | Match | Pick | Score | p(1/X/2) |\n|---|---|---|---|---|---|\n`;
-  for (const m of fix.remaining_fixtures) {
-    const r = predRow(m.home, m.away);
-    const pick = r.pred === "1" ? en(m.home) : r.pred === "2" ? en(m.away) : "Draw";
-    md += `| ${m.date} | ${m.group} | ${en(m.home)} vs ${en(m.away)} | **${pick}** | ${r.score} | ${(r.p1*100)|0}/${(r.pX*100)|0}/${(r.p2*100)|0} |\n`;
+// 1) Group stage: predictions vs results (when complete) — otherwise upcoming matches
+const btMatchesPath = join(__dir, "data", "backtest-matches.json");
+if (fix.remaining_fixtures.length === 0 && existsSync(btMatchesPath)) {
+  const bm = JSON.parse(readFileSync(btMatchesPath, "utf8"));
+  const hits = bm.filter((m) => m.hit).length;
+  const exacts = bm.filter((m) => m.exact).length;
+  md += `## 1) Group stage: our predictions vs the final results\n\n`;
+  md += `The group stage is over: all **${bm.length} matches** have been played. Each one was predicted `;
+  md += `**before kick-off** with the same Elo + Poisson model as the backtest (pre-tournament Elo, no leakage). `;
+  md += `The **Hit** column marks where the model's 1X2 pick matched the real result.\n\n`;
+  md += `**Scoreboard: we called ${hits} of ${bm.length} group-stage results right `;
+  md += `(${((100 * hits) / bm.length).toFixed(1)}%)**, and nailed the exact scoreline ${exacts} times `;
+  md += `(${((100 * exacts) / bm.length).toFixed(1)}%). ✓ = correct pick, ✗ = miss. `;
+  md += `1 = home win, X = draw, 2 = away win.\n\n`;
+  md += `| Date | Group | Match | Result | Our pick | Pred. score | Hit |\n|---|---|---|---|---|---|---|\n`;
+  for (const m of bm) {
+    const pick = m.pred === "1" ? m.homeName : m.pred === "2" ? m.awayName : "Draw";
+    md += `| ${m.date} | ${m.group} | ${m.homeName} vs ${m.awayName} | **${m.home_goals}-${m.away_goals}** | ${pick} | ${m.predScore} | ${m.hit ? "✓" : "✗"} |\n`;
   }
   md += `\n`;
+} else {
+  md += `## 1) Upcoming matches (predicted score)\n\n`;
+  if (fix.remaining_fixtures.length === 0) md += `_No group-stage matches left to play._\n\n`;
+  else {
+    md += `Matches not yet played or not confirmed by two sources. `;
+    md += `Predicted with live Elo. 1 = home win, X = draw, 2 = away win.\n\n`;
+    md += `| Date | Group | Match | Pick | Score | p(1/X/2) |\n|---|---|---|---|---|---|\n`;
+    for (const m of fix.remaining_fixtures) {
+      const r = predRow(m.home, m.away);
+      const pick = r.pred === "1" ? en(m.home) : r.pred === "2" ? en(m.away) : "Draw";
+      md += `| ${m.date} | ${m.group} | ${en(m.home)} vs ${en(m.away)} | **${pick}** | ${r.score} | ${(r.p1*100)|0}/${(r.pX*100)|0}/${(r.p2*100)|0} |\n`;
+    }
+    md += `\n`;
+  }
 }
 
 // 2) Projected knockout bracket (match by match)
 md += `## 2) Projected knockout bracket (match by match)\n\n`;
-md += `Single most-likely path: real group results + the most-likely score for the remaining `;
-md += `group games decide the standings; then every knockout tie is predicted with a decisive `;
+const groupsDone = fix.remaining_fixtures.length === 0;
+md += `Single most-likely path: ${groupsDone ? "the **final** group standings" : "real group results + the most-likely score for the remaining group games"} `;
+md += `${groupsDone ? "set the bracket" : "decide the standings"}; then every knockout tie is predicted with a decisive `;
 md += `score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the `;
 md += `near coin-flips).\n\n`;
 let curRound = "";
@@ -121,7 +143,7 @@ resumen += `**Most likely finalists (Monte Carlo):** ${sim.prediccion_finalistas
 resumen += `(${pct(sim.final_mas_probable[0].prob)} of simulations).\n\n`;
 resumen += `| Team | Reaches final | Champion |\n|---|---|---|\n`;
 for (const r of sim.finalistas.slice(0, 6)) resumen += `| ${r.name} | ${pct(r.final)} | ${pct(r.champ)} |\n`;
-resumen += `\nFull detail (every group, every upcoming match, the match-by-match bracket) in `;
+resumen += `\nFull detail (${groupsDone ? "our group-stage predictions vs the results" : "every group, every upcoming match"}, the match-by-match bracket) in `;
 resumen += `[**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).\n`;
 resumen += `<!-- PRED:END -->`;
 

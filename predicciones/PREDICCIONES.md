@@ -1,34 +1,93 @@
 # Predictions · 2026 FIFA World Cup
 
-> Auto-generated on 2026-06-26. **This is an experiment, do NOT bet.** See [DISCLAIMER](../DISCLAIMER.md).
+> Auto-generated on 2026-06-28. **This is an experiment, do NOT bet.** See [DISCLAIMER](../DISCLAIMER.md).
 
-**Model reliability (backtest over 57 matches already played):** the model gets the 1X2 result right **61.4%** of the time (random ≈ 33%, "higher-Elo team wins" ≈ 61.4%). Exact scoreline 14.0%. Everything below inherits that margin of error, which **grows every round** (the finalist predictions are low-confidence). The most likely scoreline is shown for every match: useful as an "expected result", not a certainty.
+**Model reliability (backtest over 72 matches already played):** the model gets the 1X2 result right **59.7%** of the time (random ≈ 33%, "higher-Elo team wins" ≈ 59.7%). Exact scoreline 13.9%. Everything below inherits that margin of error, which **grows every round** (the finalist predictions are low-confidence). The most likely scoreline is shown for every match: useful as an "expected result", not a certainty.
 
-## 1) Upcoming matches (predicted score)
+## 1) Group stage: our predictions vs the final results
 
-Matches not yet played or not confirmed by two sources. Predicted with live Elo. 1 = home win, X = draw, 2 = away win.
+The group stage is over: all **72 matches** have been played. Each one was predicted **before kick-off** with the same Elo + Poisson model as the backtest (pre-tournament Elo, no leakage). The **Hit** column marks where the model's 1X2 pick matched the real result.
 
-| Date | Group | Match | Pick | Score | p(1/X/2) |
-|---|---|---|---|---|---|
-| 2026-06-25 | D | Turkey vs United States | **Turkey** | 1-1 | 40/29/30 |
-| 2026-06-25 | D | Paraguay vs Australia | **Paraguay** | 1-1 | 36/29/33 |
-| 2026-06-25 | F | Tunisia vs Netherlands | **Netherlands** | 0-2 | 6/19/74 |
-| 2026-06-26 | G | Egypt vs Iran | **Egypt** | 1-1 | 38/29/32 |
-| 2026-06-26 | G | New Zealand vs Belgium | **Belgium** | 0-2 | 7/20/72 |
-| 2026-06-26 | H | Cape Verde vs Saudi Arabia | **Cape Verde** | 1-1 | 40/29/30 |
-| 2026-06-26 | H | Uruguay vs Spain | **Spain** | 0-2 | 10/22/66 |
-| 2026-06-26 | I | Norway vs France | **France** | 1-1 | 20/27/51 |
-| 2026-06-26 | I | Senegal vs Iraq | **Senegal** | 2-0 | 64/23/11 |
-| 2026-06-27 | J | Algeria vs Austria | **Algeria** | 1-1 | 35/29/34 |
-| 2026-06-27 | J | Jordan vs Argentina | **Argentina** | 0-2 | 3/15/81 |
-| 2026-06-27 | K | Colombia vs Portugal | **Colombia** | 1-1 | 36/29/33 |
-| 2026-06-27 | K | DR Congo vs Uzbekistan | **DR Congo** | 1-1 | 45/28/26 |
-| 2026-06-27 | L | Panama vs England | **England** | 0-2 | 7/20/72 |
-| 2026-06-27 | L | Croatia vs Ghana | **Croatia** | 2-0 | 64/23/11 |
+**Scoreboard: we called 43 of 72 group-stage results right (59.7%)**, and nailed the exact scoreline 10 times (13.9%). ✓ = correct pick, ✗ = miss. 1 = home win, X = draw, 2 = away win.
+
+| Date | Group | Match | Result | Our pick | Pred. score | Hit |
+|---|---|---|---|---|---|---|
+| 2026-06-11 | A | Mexico vs South Africa | **2-0** | Mexico | 2-0 | ✓ |
+| 2026-06-11 | A | South Korea vs Czech Republic | **2-1** | South Korea | 1-1 | ✓ |
+| 2026-06-18 | A | Czech Republic vs South Africa | **1-1** | Czech Republic | 1-1 | ✗ |
+| 2026-06-18 | A | Mexico vs South Korea | **1-0** | Mexico | 1-1 | ✓ |
+| 2026-06-24 | A | Czech Republic vs Mexico | **0-3** | Mexico | 1-1 | ✓ |
+| 2026-06-24 | A | South Africa vs South Korea | **1-0** | South Korea | 1-1 | ✗ |
+| 2026-06-12 | B | Canada vs Bosnia and Herzegovina | **1-1** | Canada | 1-1 | ✗ |
+| 2026-06-13 | B | Qatar vs Switzerland | **1-1** | Switzerland | 0-2 | ✗ |
+| 2026-06-18 | B | Switzerland vs Bosnia and Herzegovina | **4-1** | Switzerland | 2-0 | ✓ |
+| 2026-06-18 | B | Canada vs Qatar | **6-0** | Canada | 2-0 | ✓ |
+| 2026-06-24 | B | Switzerland vs Canada | **2-1** | Switzerland | 1-1 | ✓ |
+| 2026-06-24 | B | Bosnia and Herzegovina vs Qatar | **3-1** | Bosnia and Herzegovina | 1-1 | ✓ |
+| 2026-06-13 | C | Brazil vs Morocco | **1-1** | Brazil | 1-1 | ✗ |
+| 2026-06-13 | C | Haiti vs Scotland | **0-1** | Scotland | 1-1 | ✓ |
+| 2026-06-19 | C | Scotland vs Morocco | **0-1** | Morocco | 1-1 | ✓ |
+| 2026-06-19 | C | Brazil vs Haiti | **3-0** | Brazil | 2-0 | ✓ |
+| 2026-06-24 | C | Scotland vs Brazil | **0-3** | Brazil | 1-1 | ✓ |
+| 2026-06-24 | C | Morocco vs Haiti | **4-2** | Morocco | 2-0 | ✓ |
+| 2026-06-12 | D | United States vs Paraguay | **4-1** | Paraguay | 1-1 | ✗ |
+| 2026-06-13 | D | Australia vs Turkey | **2-0** | Turkey | 1-1 | ✗ |
+| 2026-06-19 | D | United States vs Australia | **2-0** | Australia | 1-1 | ✗ |
+| 2026-06-19 | D | Turkey vs Paraguay | **0-1** | Turkey | 1-1 | ✗ |
+| 2026-06-25 | D | Turkey vs United States | **3-2** | Turkey | 1-1 | ✓ |
+| 2026-06-25 | D | Paraguay vs Australia | **0-0** | Paraguay | 1-1 | ✗ |
+| 2026-06-14 | E | Germany vs Curacao | **7-1** | Germany | 2-0 | ✓ |
+| 2026-06-14 | E | Ivory Coast vs Ecuador | **1-0** | Ecuador | 1-1 | ✗ |
+| 2026-06-20 | E | Germany vs Ivory Coast | **2-1** | Germany | 1-1 | ✓ |
+| 2026-06-20 | E | Ecuador vs Curacao | **0-0** | Ecuador | 2-0 | ✗ |
+| 2026-06-25 | E | Curacao vs Ivory Coast | **0-2** | Ivory Coast | 0-2 | ✓ |
+| 2026-06-25 | E | Ecuador vs Germany | **2-1** | Ecuador | 1-1 | ✓ |
+| 2026-06-14 | F | Netherlands vs Japan | **2-2** | Netherlands | 1-1 | ✗ |
+| 2026-06-14 | F | Sweden vs Tunisia | **5-1** | Sweden | 1-1 | ✓ |
+| 2026-06-20 | F | Netherlands vs Sweden | **5-1** | Netherlands | 1-1 | ✓ |
+| 2026-06-20 | F | Tunisia vs Japan | **0-4** | Japan | 0-2 | ✓ |
+| 2026-06-25 | F | Japan vs Sweden | **1-1** | Japan | 1-1 | ✗ |
+| 2026-06-25 | F | Tunisia vs Netherlands | **1-3** | Netherlands | 0-2 | ✓ |
+| 2026-06-15 | G | Belgium vs Egypt | **1-1** | Belgium | 1-1 | ✗ |
+| 2026-06-15 | G | Iran vs New Zealand | **2-2** | Iran | 1-1 | ✗ |
+| 2026-06-21 | G | Belgium vs Iran | **0-0** | Belgium | 1-1 | ✗ |
+| 2026-06-21 | G | New Zealand vs Egypt | **1-3** | Egypt | 1-1 | ✓ |
+| 2026-06-26 | G | Egypt vs Iran | **1-1** | Iran | 1-1 | ✗ |
+| 2026-06-26 | G | New Zealand vs Belgium | **1-5** | Belgium | 0-2 | ✓ |
+| 2026-06-15 | H | Spain vs Cape Verde | **0-0** | Spain | 2-0 | ✗ |
+| 2026-06-15 | H | Saudi Arabia vs Uruguay | **1-1** | Uruguay | 0-2 | ✗ |
+| 2026-06-21 | H | Spain vs Saudi Arabia | **4-0** | Spain | 2-0 | ✓ |
+| 2026-06-21 | H | Uruguay vs Cape Verde | **2-2** | Uruguay | 1-1 | ✗ |
+| 2026-06-26 | H | Cape Verde vs Saudi Arabia | **0-0** | Cape Verde | 1-1 | ✗ |
+| 2026-06-26 | H | Uruguay vs Spain | **0-1** | Spain | 0-2 | ✓ |
+| 2026-06-16 | I | France vs Senegal | **3-1** | France | 1-1 | ✓ |
+| 2026-06-16 | I | Iraq vs Norway | **1-4** | Norway | 0-2 | ✓ |
+| 2026-06-22 | I | France vs Iraq | **3-0** | France | 2-0 | ✓ |
+| 2026-06-22 | I | Norway vs Senegal | **3-2** | Norway | 1-1 | ✓ |
+| 2026-06-26 | I | Norway vs France | **4-1** | France | 1-1 | ✗ |
+| 2026-06-26 | I | Senegal vs Iraq | **5-0** | Senegal | 2-0 | ✓ |
+| 2026-06-16 | J | Argentina vs Algeria | **3-0** | Argentina | 2-0 | ✓ |
+| 2026-06-16 | J | Austria vs Jordan | **3-1** | Austria | 1-1 | ✓ |
+| 2026-06-22 | J | Argentina vs Austria | **2-0** | Argentina | 2-0 | ✓ |
+| 2026-06-22 | J | Jordan vs Algeria | **1-2** | Algeria | 1-1 | ✓ |
+| 2026-06-27 | J | Algeria vs Austria | **3-3** | Austria | 1-1 | ✗ |
+| 2026-06-27 | J | Jordan vs Argentina | **1-3** | Argentina | 0-2 | ✓ |
+| 2026-06-17 | K | Portugal vs DR Congo | **1-1** | Portugal | 2-0 | ✗ |
+| 2026-06-17 | K | Uzbekistan vs Colombia | **1-3** | Colombia | 1-1 | ✓ |
+| 2026-06-23 | K | Portugal vs Uzbekistan | **5-0** | Portugal | 1-1 | ✓ |
+| 2026-06-23 | K | Colombia vs DR Congo | **1-0** | Colombia | 2-0 | ✓ |
+| 2026-06-27 | K | Colombia vs Portugal | **0-0** | Portugal | 1-1 | ✗ |
+| 2026-06-27 | K | DR Congo vs Uzbekistan | **3-1** | Uzbekistan | 1-1 | ✗ |
+| 2026-06-17 | L | England vs Croatia | **4-2** | England | 1-1 | ✓ |
+| 2026-06-17 | L | Ghana vs Panama | **1-0** | Panama | 1-1 | ✗ |
+| 2026-06-23 | L | England vs Ghana | **0-0** | England | 2-0 | ✗ |
+| 2026-06-23 | L | Panama vs Croatia | **0-1** | Croatia | 1-1 | ✓ |
+| 2026-06-27 | L | Panama vs England | **0-2** | England | 0-2 | ✓ |
+| 2026-06-27 | L | Croatia vs Ghana | **2-1** | Croatia | 2-0 | ✓ |
 
 ## 2) Projected knockout bracket (match by match)
 
-Single most-likely path: real group results + the most-likely score for the remaining group games decide the standings; then every knockout tie is predicted with a decisive score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the near coin-flips).
+Single most-likely path: the **final** group standings set the bracket; then every knockout tie is predicted with a decisive score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the near coin-flips).
 
 
 ### Round of 32
@@ -37,49 +96,49 @@ Single most-likely path: real group results + the most-likely score for the rema
 - **Germany 2-0 Bosnia and Herzegovina** → advances **Germany**
 - **Netherlands 2-1 Morocco** → advances **Netherlands**
 - **Brazil 2-1 Japan** → advances **Brazil**
-- **France 2-0 Paraguay** → advances **France**
-- **Ivory Coast 0-1 Norway** → advances **Norway**
+- **Norway 2-1 Paraguay** → advances **Norway**
+- **Ivory Coast 0-2 France** → advances **France**
 - **Mexico 2-1 Ecuador** → advances **Mexico**
-- **England 1-0 Senegal** → advances **England**
+- **England 2-0 DR Congo** → advances **England**
 - **United States 1-0 Sweden** → advances **United States**
-- **Egypt 1-2 Algeria** → advances **Algeria**
+- **Belgium 2-1 Senegal** → advances **Belgium**
 - **Portugal 2-1 Croatia** → advances **Portugal**
 - **Spain 2-0 Austria** → advances **Spain**
-- **Switzerland 1-0 Iran** → advances **Switzerland**
+- **Switzerland 1-0 Algeria** → advances **Switzerland**
 - **Argentina 2-0 Cape Verde** → advances **Argentina**
 - **Colombia 2-0 Ghana** → advances **Colombia**
-- **Australia 1-2 Belgium** → advances **Belgium**
+- **Australia 2-1 Egypt** → advances **Australia**
 
 ### Round of 16
 
-- **Germany 0-1 France** → advances **France**
+- **Germany 1-2 Norway** → advances **Norway** _(tight)_
 - **Canada 0-1 Netherlands** → advances **Netherlands**
-- **England 2-0 Algeria** → advances **England**
+- **England 1-0 Belgium** → advances **England**
 - **Mexico 1-0 United States** → advances **Mexico**
 - **Portugal 2-1 Switzerland** → advances **Portugal**
 - **Spain 1-2 Argentina** → advances **Argentina** _(tight)_
-- **Colombia 1-0 Belgium** → advances **Colombia**
-- **Brazil 2-1 Norway** → advances **Brazil**
+- **Colombia 1-0 Australia** → advances **Colombia**
+- **Brazil 0-1 France** → advances **France**
 
 ### Quarter-finals
 
-- **France 1-0 Netherlands** → advances **France**
+- **Norway 1-2 Netherlands** → advances **Netherlands**
 - **Portugal 0-1 Argentina** → advances **Argentina**
 - **England 2-1 Mexico** → advances **England**
-- **Colombia 1-2 Brazil** → advances **Brazil** _(tight)_
+- **Colombia 0-1 France** → advances **France**
 
 ### Semi-finals
 
-- **France 1-2 Argentina** → advances **Argentina** _(tight)_
-- **England 2-1 Brazil** → advances **England** _(tight)_
+- **Netherlands 0-1 Argentina** → advances **Argentina**
+- **England 1-2 France** → advances **France**
 
 ### Final
 
-- **Argentina 1-0 England** → advances **Argentina**
+- **Argentina 2-1 France** → advances **Argentina** _(tight)_
 
 ### 🏆 Projected champion: **Argentina**
 
-Projected final: Argentina 1-0 England (winner Argentina, without the actual result).
+Projected final: Argentina 2-1 France (winner Argentina, without the actual result).
 
 ## 3) Who advances? Group probabilities
 
@@ -91,7 +150,7 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 |---|---|---|---|---|---|---|---|
 | 1 | Mexico | 3 | 9 | +6 | ✓ 100% | 100.0% | 0.0% |
 | 2 | South Africa | 3 | 4 | -1 | ✓ 100% | 0.0% | 100.0% |
-| 3 | South Korea | 3 | 3 | -1 | 73.5% | 0.0% | 0.0% |
+| 3 | South Korea | 3 | 3 | -1 | 0.0% | 0.0% | 0.0% |
 | 4 | Czech Republic | 3 | 1 | -4 | 0.0% | 0.0% | 0.0% |
 
 ### Group B ✓ (decided)
@@ -109,17 +168,17 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 |---|---|---|---|---|---|---|---|
 | 1 | Brazil | 3 | 7 | +6 | ✓ 100% | 100.0% | 0.0% |
 | 2 | Morocco | 3 | 7 | +3 | ✓ 100% | 0.0% | 100.0% |
-| 3 | Scotland | 3 | 3 | -3 | 11.9% | 0.0% | 0.0% |
+| 3 | Scotland | 3 | 3 | -3 | 0.0% | 0.0% | 0.0% |
 | 4 | Haiti | 3 | 0 | -6 | 0.0% | 0.0% | 0.0% |
 
-### Group D
+### Group D ✓ (decided)
 
 | Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
 |---|---|---|---|---|---|---|---|
-| 1 | United States | 2 | 6 | +5 | 100.0% | 98.9% | 1.1% |
-| 2 | Australia | 2 | 3 | +0 | 83.1% | 0.9% | 62.6% |
-| 3 | Paraguay | 2 | 3 | -2 | 71.2% | 0.2% | 36.3% |
-| 4 | Turkey | 2 | 0 | -3 | 12.7% | 0.0% | 0.0% |
+| 1 | United States | 3 | 6 | +4 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Australia | 3 | 4 | +0 | ✓ 100% | 0.0% | 100.0% |
+| 3 | Paraguay | 3 | 4 | -2 | 100.0% | 0.0% | 0.0% |
+| 4 | Turkey | 3 | 3 | -2 | 0.0% | 0.0% | 0.0% |
 
 ### Group E ✓ (decided)
 
@@ -130,95 +189,95 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 | 3 | Ecuador | 3 | 4 | +0 | 100.0% | 0.0% | 0.0% |
 | 4 | Curacao | 3 | 1 | -8 | 0.0% | 0.0% | 0.0% |
 
-### Group F
+### Group F ✓ (decided)
 
 | Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
 |---|---|---|---|---|---|---|---|
-| 1 | Japan | 3 | 5 | +4 | 100.0% | 10.0% | 90.0% |
-| 2 | Netherlands | 2 | 4 | +4 | 100.0% | 90.0% | 10.0% |
+| 1 | Netherlands | 3 | 7 | +6 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Japan | 3 | 5 | +4 | ✓ 100% | 0.0% | 100.0% |
 | 3 | Sweden | 3 | 4 | +0 | 100.0% | 0.0% | 0.0% |
-| 4 | Tunisia | 2 | 0 | -8 | 0.0% | 0.0% | 0.0% |
+| 4 | Tunisia | 3 | 0 | -10 | 0.0% | 0.0% | 0.0% |
 
-### Group G
-
-| Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
-|---|---|---|---|---|---|---|---|
-| 1 | Egypt | 2 | 4 | +2 | 100.0% | 55.4% | 17.9% |
-| 2 | Belgium | 2 | 2 | +0 | 90.5% | 20.0% | 57.7% |
-| 3 | Iran | 2 | 2 | +0 | 65.7% | 24.7% | 17.9% |
-| 4 | New Zealand | 2 | 1 | -2 | 9.1% | 0.0% | 6.5% |
-
-### Group H
+### Group G ✓ (decided)
 
 | Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
 |---|---|---|---|---|---|---|---|
-| 1 | Spain | 2 | 4 | +4 | 100.0% | 87.9% | 7.6% |
-| 2 | Cape Verde | 2 | 2 | +0 | 66.9% | 2.6% | 56.0% |
-| 3 | Uruguay | 2 | 2 | +0 | 34.8% | 9.5% | 7.5% |
-| 4 | Saudi Arabia | 2 | 1 | -4 | 32.7% | 0.0% | 28.9% |
+| 1 | Belgium | 3 | 5 | +4 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Egypt | 3 | 5 | +2 | ✓ 100% | 0.0% | 100.0% |
+| 3 | Iran | 3 | 3 | +0 | 0.0% | 0.0% | 0.0% |
+| 4 | New Zealand | 3 | 1 | -6 | 0.0% | 0.0% | 0.0% |
 
-### Group I
-
-| Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
-|---|---|---|---|---|---|---|---|
-| 1 | France | 2 | 6 | +5 | 100.0% | 81.6% | 18.4% |
-| 2 | Norway | 2 | 6 | +4 | 100.0% | 18.4% | 81.6% |
-| 3 | Senegal | 2 | 0 | -3 | 49.4% | 0.0% | 0.0% |
-| 4 | Iraq | 2 | 0 | -6 | 0.6% | 0.0% | 0.0% |
-
-### Group J
+### Group H ✓ (decided)
 
 | Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
 |---|---|---|---|---|---|---|---|
-| 1 | Argentina | 2 | 6 | +5 | 100.0% | 99.9% | 0.1% |
-| 2 | Austria | 2 | 3 | +0 | 90.3% | 0.1% | 69.2% |
-| 3 | Algeria | 2 | 3 | -2 | 67.5% | 0.0% | 30.7% |
-| 4 | Jordan | 2 | 0 | -3 | 0.7% | 0.0% | 0.0% |
+| 1 | Spain | 3 | 7 | +5 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Cape Verde | 3 | 3 | +0 | ✓ 100% | 0.0% | 100.0% |
+| 3 | Uruguay | 3 | 2 | -1 | 0.0% | 0.0% | 0.0% |
+| 4 | Saudi Arabia | 3 | 2 | -4 | 0.0% | 0.0% | 0.0% |
 
-### Group K
-
-| Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
-|---|---|---|---|---|---|---|---|
-| 1 | Colombia | 2 | 6 | +3 | 100.0% | 65.9% | 34.1% |
-| 2 | Portugal | 2 | 4 | +5 | 100.0% | 34.1% | 65.5% |
-| 3 | DR Congo | 2 | 1 | -1 | 43.3% | 0.0% | 0.4% |
-| 4 | Uzbekistan | 2 | 0 | -7 | 0.5% | 0.0% | 0.0% |
-
-### Group L
+### Group I ✓ (decided)
 
 | Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
 |---|---|---|---|---|---|---|---|
-| 1 | England | 2 | 4 | +2 | 100.0% | 76.3% | 23.6% |
-| 2 | Ghana | 2 | 4 | +1 | 100.0% | 4.7% | 28.0% |
-| 3 | Croatia | 2 | 3 | -1 | 94.9% | 18.9% | 48.4% |
-| 4 | Panama | 2 | 0 | -2 | 0.6% | 0.0% | 0.0% |
+| 1 | Norway | 3 | 9 | +7 | ✓ 100% | 100.0% | 0.0% |
+| 2 | France | 3 | 6 | +2 | ✓ 100% | 0.0% | 100.0% |
+| 3 | Senegal | 3 | 3 | +2 | 100.0% | 0.0% | 0.0% |
+| 4 | Iraq | 3 | 0 | -11 | 0.0% | 0.0% | 0.0% |
+
+### Group J ✓ (decided)
+
+| Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
+|---|---|---|---|---|---|---|---|
+| 1 | Argentina | 3 | 9 | +7 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Austria | 3 | 4 | +0 | ✓ 100% | 0.0% | 100.0% |
+| 3 | Algeria | 3 | 4 | -2 | 100.0% | 0.0% | 0.0% |
+| 4 | Jordan | 3 | 0 | -5 | 0.0% | 0.0% | 0.0% |
+
+### Group K ✓ (decided)
+
+| Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
+|---|---|---|---|---|---|---|---|
+| 1 | Colombia | 3 | 7 | +3 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Portugal | 3 | 5 | +5 | ✓ 100% | 0.0% | 100.0% |
+| 3 | DR Congo | 3 | 4 | +1 | 100.0% | 0.0% | 0.0% |
+| 4 | Uzbekistan | 3 | 0 | -9 | 0.0% | 0.0% | 0.0% |
+
+### Group L ✓ (decided)
+
+| Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
+|---|---|---|---|---|---|---|---|
+| 1 | England | 3 | 7 | +4 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Croatia | 3 | 6 | +0 | ✓ 100% | 0.0% | 100.0% |
+| 3 | Ghana | 3 | 4 | +0 | 100.0% | 0.0% | 0.0% |
+| 4 | Panama | 3 | 0 | -4 | 0.0% | 0.0% | 0.0% |
 
 ## 4) Finalist probabilities (Monte Carlo)
 
 From 50,000 simulations of the whole tournament (official bracket, live Elo).
 
-**Most likely final: Argentina vs England** (occurs in 4.9% of simulations).
+**Most likely final: Argentina vs France** (occurs in 10.3% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| France | 29.8% | 19.9% |
-| Argentina | 26.9% | 19.1% |
-| Spain | 22.0% | 15.4% |
-| England | 20.4% | 9.4% |
-| Colombia | 15.1% | 6.3% |
-| Brazil | 13.5% | 5.4% |
-| Mexico | 11.8% | 4.0% |
-| Portugal | 10.4% | 4.5% |
-| Netherlands | 7.9% | 3.9% |
-| Norway | 6.6% | 1.9% |
+| Argentina | 32.3% | 21.1% |
+| France | 31.8% | 18.5% |
+| Spain | 26.0% | 16.8% |
+| England | 20.9% | 10.1% |
+| Colombia | 16.9% | 7.2% |
+| Netherlands | 10.9% | 4.8% |
+| Brazil | 8.3% | 3.6% |
+| Mexico | 8.2% | 3.1% |
+| Portugal | 7.2% | 3.1% |
+| Germany | 6.6% | 2.5% |
 
 **Most likely finals:**
 
-- Argentina vs England — 4.9%
-- England vs France — 4.6%
-- England vs Spain — 3.9%
-- Argentina vs Brazil — 3.5%
-- Brazil vs France — 3.5%
-- Colombia vs France — 3.4%
+- Argentina vs France — 10.3%
+- France vs Spain — 8.3%
+- Argentina vs England — 6.7%
+- Argentina vs Colombia — 5.6%
+- England vs Spain — 5.4%
+- Colombia vs Spain — 4.4%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.

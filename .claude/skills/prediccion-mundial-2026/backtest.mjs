@@ -161,6 +161,20 @@ writeFileSync(join(__dir, "data", "backtest-stats.json"), JSON.stringify({
   generado: fix.meta.generado, n, acc, exact, brier: meanBrier, logloss, meanGdErr, baseFav, drawRate,
 }, null, 2));
 
+// ─── Detalle por partido a JSON (para la tabla "predicción vs resultado") ─
+writeFileSync(join(__dir, "data", "backtest-matches.json"), JSON.stringify(
+  rows
+    .slice()
+    .sort((a, b) => a.group.localeCompare(b.group) || a.matchday - b.matchday)
+    .map((r) => ({
+      group: r.group, matchday: r.matchday, date: r.date,
+      home: r.home, away: r.away, homeName: en(r.home), awayName: en(r.away),
+      home_goals: r.home_goals, away_goals: r.away_goals,
+      pred: r.pred, act: r.act, hit: r.hit, exact: r.exact, predScore: r.predScore,
+      p1: r.p1, pX: r.pX, p2: r.p2,
+    })),
+  null, 2));
+
 // ─── Markdown opcional ────────────────────────────────────────────────
 if (process.argv.includes("--md")) {
   let md = `# Predictor backtest · 2026 World Cup\n\n`;
