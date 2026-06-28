@@ -30,6 +30,10 @@ const name = (iso) => byIso[iso].en_name ?? byIso[iso].name;
 
 const N = (() => { const a = process.argv.find((x) => /^\d+$/.test(x)); return a ? +a : 50000; })();
 
+// Tabla oficial de asignación de terceros (si aplica al conjunto clasificado).
+const OFFICIAL_ALLOC = bracket.meta.third_allocation || null;
+const OFFICIAL_KEY = OFFICIAL_ALLOC ? [...OFFICIAL_ALLOC.qualifying_groups].sort().join("") : null;
+
 // ─── Distribución de marcadores de un partido (cacheada) ──────────────
 const distCache = new Map();
 function scoreDist(homeIso, awayIso) {
@@ -110,22 +114,29 @@ function simulate(rnd) {
   const qualifyingThirds = thirds.slice(0, 8).map((t) => t.g);
   const bestThirdGroups = new Set(qualifyingThirds);
 
-  // 2b) asignar cada slot de "tercero" a un grupo clasificado (bijección por sets elegibles).
-  // Aproxima la tabla combinatoria oficial: ningún grupo se repite y no hay revancha de grupo.
+  // 2b) asignar cada slot de "tercero" a un grupo clasificado.
+  // Si el conjunto de grupos con tercero clasificado coincide con la tabla
+  // combinatoria OFICIAL de la FIFA, se usa esa asignación exacta; si no,
+  // se aproxima con una bijección por sets elegibles (ningún grupo se repite).
   const slots = bracket.meta.third_slots;             // p.ej. "3ABCDF"
-  const eligible = slots.map((s) => s.slice(1).split("").filter((g) => bestThirdGroups.has(g)));
-  const thirdAssign = {}; // token -> grupo
-  (function match(i, used) {
-    if (i === slots.length) return true;
-    // ordenar por menos opciones primero ayuda a la convergencia
-    const opts = eligible[i].filter((g) => !used.has(g));
-    for (const g of opts) {
-      thirdAssign[slots[i]] = g; used.add(g);
-      if (match(i + 1, used)) return true;
-      used.delete(g); delete thirdAssign[slots[i]];
-    }
-    return false;
-  })(0, new Set());
+  let thirdAssign; // token -> grupo
+  if (OFFICIAL_ALLOC && [...bestThirdGroups].sort().join("") === OFFICIAL_KEY) {
+    thirdAssign = { ...OFFICIAL_ALLOC.map };
+  } else {
+    thirdAssign = {};
+    const eligible = slots.map((s) => s.slice(1).split("").filter((g) => bestThirdGroups.has(g)));
+    (function match(i, used) {
+      if (i === slots.length) return true;
+      // ordenar por menos opciones primero ayuda a la convergencia
+      const opts = eligible[i].filter((g) => !used.has(g));
+      for (const g of opts) {
+        thirdAssign[slots[i]] = g; used.add(g);
+        if (match(i + 1, used)) return true;
+        used.delete(g); delete thirdAssign[slots[i]];
+      }
+      return false;
+    })(0, new Set());
+  }
 
   // 3) llaves: resolver slots
   const slot = (def) => {

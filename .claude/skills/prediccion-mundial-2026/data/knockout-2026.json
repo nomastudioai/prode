@@ -7,12 +7,26 @@
       "3ABCDF",
       "3CDFGH",
       "3CEFHI",
-      "3EIJK",
+      "3EHIJK",
       "3BEFIJ",
       "3AEHIJ",
       "3EFGIJ",
       "3DEIJL"
-    ]
+    ],
+    "third_allocation": {
+      "_nota": "Asignación OFICIAL de los 8 mejores terceros (tabla combinatoria FIFA), aplicable solo cuando el conjunto de grupos con tercero clasificado coincide con qualifying_groups. Si no coincide (p.ej. fase de grupos incompleta), se usa la heurística por sets elegibles.",
+      "qualifying_groups": ["B", "D", "E", "F", "I", "J", "K", "L"],
+      "map": {
+        "3ABCDF": "D",
+        "3CDFGH": "F",
+        "3CEFHI": "E",
+        "3EHIJK": "K",
+        "3BEFIJ": "B",
+        "3AEHIJ": "I",
+        "3EFGIJ": "J",
+        "3DEIJL": "L"
+      }
+    }
   },
   "rounds": [
     [
@@ -54,7 +68,7 @@
       {
         "id": "M80",
         "home": "WL",
-        "away": "3EIJK"
+        "away": "3EHIJK"
       },
       {
         "id": "M81",
