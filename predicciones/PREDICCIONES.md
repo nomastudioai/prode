@@ -2,13 +2,13 @@
 
 > Auto-generated on 2026-06-28. **This is an experiment, do NOT bet.** See [DISCLAIMER](../DISCLAIMER.md).
 
-**Model reliability (backtest over 72 matches already played):** the model gets the 1X2 result right **59.7%** of the time (random ≈ 33%, "higher-Elo team wins" ≈ 59.7%). Exact scoreline 13.9%. Everything below inherits that margin of error, which **grows every round** (the finalist predictions are low-confidence). The most likely scoreline is shown for every match: useful as an "expected result", not a certainty.
+**Model reliability (backtest over 72 matches already played):** the model gets the 1X2 result right **61.1%** of the time (random ≈ 33%, "higher-Elo team wins" ≈ 61.1%). Exact scoreline 13.9%. Everything below inherits that margin of error, which **grows every round** (the finalist predictions are low-confidence). The most likely scoreline is shown for every match: useful as an "expected result", not a certainty.
 
 ## 1) Group stage: our predictions vs the final results
 
 The group stage is over: all **72 matches** have been played. Each one was predicted **before kick-off** with the same Elo + Poisson model as the backtest (pre-tournament Elo, no leakage). The **Hit** column marks where the model's 1X2 pick matched the real result.
 
-**Scoreboard: we called 43 of 72 group-stage results right (59.7%)**, and nailed the exact scoreline 10 times (13.9%). ✓ = correct pick, ✗ = miss. 1 = home win, X = draw, 2 = away win.
+**Scoreboard: we called 44 of 72 group-stage results right (61.1%)**, and nailed the exact scoreline 10 times (13.9%). ✓ = correct pick, ✗ = miss. 1 = home win, X = draw, 2 = away win.
 
 | Date | Group | Match | Result | Our pick | Pred. score | Hit |
 |---|---|---|---|---|---|---|
@@ -64,7 +64,7 @@ The group stage is over: all **72 matches** have been played. Each one was predi
 | 2026-06-16 | I | Iraq vs Norway | **1-4** | Norway | 0-2 | ✓ |
 | 2026-06-22 | I | France vs Iraq | **3-0** | France | 2-0 | ✓ |
 | 2026-06-22 | I | Norway vs Senegal | **3-2** | Norway | 1-1 | ✓ |
-| 2026-06-26 | I | Norway vs France | **4-1** | France | 1-1 | ✗ |
+| 2026-06-26 | I | Norway vs France | **1-4** | France | 1-1 | ✓ |
 | 2026-06-26 | I | Senegal vs Iraq | **5-0** | Senegal | 2-0 | ✓ |
 | 2026-06-16 | J | Argentina vs Algeria | **3-0** | Argentina | 2-0 | ✓ |
 | 2026-06-16 | J | Austria vs Jordan | **3-1** | Austria | 1-1 | ✓ |
@@ -93,14 +93,14 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 ### Round of 32
 
 - **South Africa 0-2 Canada** → advances **Canada**
-- **Germany 2-0 Bosnia and Herzegovina** → advances **Germany**
+- **Germany 2-1 Paraguay** → advances **Germany**
 - **Netherlands 2-1 Morocco** → advances **Netherlands**
 - **Brazil 2-1 Japan** → advances **Brazil**
-- **Norway 2-1 Paraguay** → advances **Norway**
-- **Ivory Coast 0-2 France** → advances **France**
+- **France 2-0 Sweden** → advances **France**
+- **Ivory Coast 0-1 Norway** → advances **Norway**
 - **Mexico 2-1 Ecuador** → advances **Mexico**
 - **England 2-0 DR Congo** → advances **England**
-- **United States 1-0 Sweden** → advances **United States**
+- **United States 2-0 Bosnia and Herzegovina** → advances **United States**
 - **Belgium 2-1 Senegal** → advances **Belgium**
 - **Portugal 2-1 Croatia** → advances **Portugal**
 - **Spain 2-0 Austria** → advances **Spain**
@@ -111,34 +111,34 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 
 ### Round of 16
 
-- **Germany 1-2 Norway** → advances **Norway** _(tight)_
+- **Germany 0-1 France** → advances **France**
 - **Canada 0-1 Netherlands** → advances **Netherlands**
 - **England 1-0 Belgium** → advances **England**
 - **Mexico 1-0 United States** → advances **Mexico**
 - **Portugal 2-1 Switzerland** → advances **Portugal**
 - **Spain 1-2 Argentina** → advances **Argentina** _(tight)_
 - **Colombia 1-0 Australia** → advances **Colombia**
-- **Brazil 0-1 France** → advances **France**
+- **Brazil 2-1 Norway** → advances **Brazil**
 
 ### Quarter-finals
 
-- **Norway 1-2 Netherlands** → advances **Netherlands**
+- **France 1-0 Netherlands** → advances **France**
 - **Portugal 0-1 Argentina** → advances **Argentina**
 - **England 2-1 Mexico** → advances **England**
-- **Colombia 0-1 France** → advances **France**
+- **Colombia 1-2 Brazil** → advances **Brazil** _(tight)_
 
 ### Semi-finals
 
-- **Netherlands 0-1 Argentina** → advances **Argentina**
-- **England 1-2 France** → advances **France**
+- **France 1-2 Argentina** → advances **Argentina** _(tight)_
+- **England 2-1 Brazil** → advances **England** _(tight)_
 
 ### Final
 
-- **Argentina 2-1 France** → advances **Argentina** _(tight)_
+- **Argentina 1-0 England** → advances **Argentina**
 
 ### 🏆 Projected champion: **Argentina**
 
-Projected final: Argentina 2-1 France (winner Argentina, without the actual result).
+Projected final: Argentina 1-0 England (winner Argentina, without the actual result).
 
 ## 3) Who advances? Group probabilities
 
@@ -220,8 +220,8 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 
 | Pos | Team | P | Pts | GD | Advance | 1st | 2nd |
 |---|---|---|---|---|---|---|---|
-| 1 | Norway | 3 | 9 | +7 | ✓ 100% | 100.0% | 0.0% |
-| 2 | France | 3 | 6 | +2 | ✓ 100% | 0.0% | 100.0% |
+| 1 | France | 3 | 9 | +8 | ✓ 100% | 100.0% | 0.0% |
+| 2 | Norway | 3 | 6 | +1 | ✓ 100% | 0.0% | 100.0% |
 | 3 | Senegal | 3 | 3 | +2 | 100.0% | 0.0% | 0.0% |
 | 4 | Iraq | 3 | 0 | -11 | 0.0% | 0.0% | 0.0% |
 
@@ -256,28 +256,28 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 
 From 50,000 simulations of the whole tournament (official bracket, live Elo).
 
-**Most likely final: Argentina vs France** (occurs in 10.3% of simulations).
+**Most likely final: England vs France** (occurs in 7.2% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 32.3% | 21.1% |
-| France | 31.8% | 18.5% |
-| Spain | 26.0% | 16.8% |
-| England | 20.9% | 10.1% |
-| Colombia | 16.9% | 7.2% |
-| Netherlands | 10.9% | 4.8% |
-| Brazil | 8.3% | 3.6% |
-| Mexico | 8.2% | 3.1% |
-| Portugal | 7.2% | 3.1% |
-| Germany | 6.6% | 2.5% |
+| France | 29.0% | 19.8% |
+| Argentina | 26.6% | 19.0% |
+| England | 25.3% | 10.8% |
+| Colombia | 23.7% | 9.2% |
+| Spain | 21.6% | 15.2% |
+| Brazil | 14.1% | 5.6% |
+| Mexico | 9.9% | 3.4% |
+| Netherlands | 7.1% | 3.6% |
+| Norway | 6.6% | 1.9% |
+| Portugal | 5.4% | 2.8% |
 
 **Most likely finals:**
 
-- Argentina vs France — 10.3%
-- France vs Spain — 8.3%
+- England vs France — 7.2%
+- Colombia vs France — 7.0%
 - Argentina vs England — 6.7%
-- Argentina vs Colombia — 5.6%
-- England vs Spain — 5.4%
-- Colombia vs Spain — 4.4%
+- Argentina vs Colombia — 6.3%
+- England vs Spain — 5.5%
+- Colombia vs Spain — 5.0%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.

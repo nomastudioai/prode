@@ -74,19 +74,29 @@ export function proyectar() {
     .sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || eloOf(b.iso) - eloOf(a.iso));
   const qualifyingThirds = new Set(thirds.slice(0, 8).map((t) => t.g));
 
-  // 3) Assign third slots (bijection over eligible group sets).
+  // 3) Assign third slots. Prefer the OFFICIAL FIFA allocation table when the set
+  //    of groups with a qualifying third matches it; otherwise fall back to a
+  //    bijection over the eligible group sets (approximation).
   const slots = bracket.meta.third_slots;
-  const eligible = slots.map((s) => s.slice(1).split("").filter((g) => qualifyingThirds.has(g)));
-  const thirdAssign = {};
-  (function matchSlots(i, used) {
-    if (i === slots.length) return true;
-    for (const g of eligible[i].filter((g) => !used.has(g))) {
-      thirdAssign[slots[i]] = g; used.add(g);
-      if (matchSlots(i + 1, used)) return true;
-      used.delete(g); delete thirdAssign[slots[i]];
-    }
-    return false;
-  })(0, new Set());
+  const alloc = bracket.meta.third_allocation;
+  const curKey = [...qualifyingThirds].sort().join("");
+  const officialKey = alloc ? [...alloc.qualifying_groups].sort().join("") : null;
+  let thirdAssign;
+  if (alloc && curKey === officialKey) {
+    thirdAssign = { ...alloc.map };
+  } else {
+    thirdAssign = {};
+    const eligible = slots.map((s) => s.slice(1).split("").filter((g) => qualifyingThirds.has(g)));
+    (function matchSlots(i, used) {
+      if (i === slots.length) return true;
+      for (const g of eligible[i].filter((g) => !used.has(g))) {
+        thirdAssign[slots[i]] = g; used.add(g);
+        if (matchSlots(i + 1, used)) return true;
+        used.delete(g); delete thirdAssign[slots[i]];
+      }
+      return false;
+    })(0, new Set());
+  }
 
   const resolveSlot = (def) => {
     if (def.startsWith("W")) return tables[def[1]][0].iso;

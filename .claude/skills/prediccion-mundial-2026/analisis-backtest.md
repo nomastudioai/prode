@@ -6,12 +6,12 @@ The predictor (Atlas Elo + form) compared against the **72 group-stage matches**
 
 | Metric | Value | Reference |
 |---|---|---|
-| 1X2 accuracy (sign) | **59.7%** (43/72) | random ≈ 33% |
+| 1X2 accuracy (sign) | **61.1%** (44/72) | random ≈ 33% |
 | Exact-score accuracy | 13.9% (10/72) | hard >12% |
-| Brier score | 0.539 | 0 perfect, 0.667 random |
-| Log-loss | 0.899 | lower is better |
-| Mean goal-diff error | 1.38 goals | |
-| Baseline "higher-Elo wins" | 59.7% | |
+| Brier score | 0.534 | 0 perfect, 0.667 random |
+| Log-loss | 0.891 | lower is better |
+| Mean goal-diff error | 1.36 goals | |
+| Baseline "higher-Elo wins" | 61.1% | |
 | Real draw rate | 27.8% | |
 
 > **Note on draws (model v2, Dixon-Coles):** the Dixon-Coles correction leaves the model's average draw probability (~24.5%) almost equal to the real rate (25%), and improves the exact score and log-loss. But **forcing draw predictions does not improve accuracy**: the draws in this sample didn't happen in even games but in favorites slipping up (Spain 0-0 Cape Verde, England 0-0 Ghana, Switzerland 1-1 Qatar), which Elo can't anticipate. So the predictor keeps picking the favorite and reports the already-calibrated draw probability.
@@ -21,7 +21,7 @@ The predictor (Atlas Elo + form) compared against the **72 group-stage matches**
 | Assigned prob. | n | Predicted | Real |
 |---|---|---|---|
 | 33-45% | 18 | 40.0% | 44.4% |
-| 45-55% | 14 | 51.3% | 50.0% |
+| 45-55% | 14 | 51.3% | 57.1% |
 | 55-65% | 24 | 60.6% | 66.7% |
 | 65-80% | 9 | 71.8% | 100.0% |
 | 80-101% | 7 | 82.8% | 42.9% |
@@ -95,7 +95,7 @@ The predictor (Atlas Elo + form) compared against the **72 group-stage matches**
 | I | Iraq 1-4 Norway | 2 | 10/22/66 | 2 | ✓ | 0-2 |
 | I | France 3-0 Iraq | 1 | 76/18/5 | 1 | ✓ | 2-0 |
 | I | Norway 3-2 Senegal | 1 | 40/29/30 | 1 | ✓ | 1-1 |
-| I | Norway 4-1 France | 1 | 25/28/45 | 2 | · | 1-1 |
+| I | Norway 1-4 France | 2 | 25/28/45 | 2 | ✓ | 1-1 |
 | I | Senegal 5-0 Iraq | 1 | 61/24/13 | 1 | ✓ | 2-0 |
 | J | Argentina 3-0 Algeria | 1 | 66/22/10 | 1 | ✓ | 2-0 |
 | J | Austria 3-1 Jordan | 1 | 43/28/27 | 1 | ✓ | 1-1 |
@@ -172,7 +172,7 @@ The predictor (Atlas Elo + form) compared against the **72 group-stage matches**
 | H | Saudi Arabia vs Uruguay | 2 | 13/24/62 | 0-2 | ● 1-1 (·) |
 | I | France vs Senegal | 1 | 50/27/21 | 1-1 | ● 3-1 (✓) |
 | I | France vs Iraq | 1 | 76/18/5 | 2-0 | ● 3-0 (✓) |
-| I | Norway vs France | 2 | 25/28/45 | 1-1 | ● 4-1 (·) |
+| I | Norway vs France | 2 | 25/28/45 | 1-1 | ● 1-4 (✓) |
 | I | Senegal vs Iraq | 1 | 61/24/13 | 2-0 | ● 5-0 (✓) |
 | I | Norway vs Senegal | 1 | 40/29/30 | 1-1 | ● 3-2 (✓) |
 | I | Iraq vs Norway | 2 | 10/22/66 | 0-2 | ● 1-4 (✓) |
