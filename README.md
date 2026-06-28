@@ -20,18 +20,18 @@ The point of the case study isn't "beating the World Cup": it's showing, with da
 <!-- PRED:START -->
 _Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
 
-**🏆 Projected champion (most-likely bracket): Argentina.** Projected final: **Argentina 1-0 England**.
+**🏆 Projected champion (most-likely bracket): Argentina.** Projected final: **Spain 1-2 Argentina**.
 
-**Most likely finalists (Monte Carlo):** England vs France (7.2% of simulations).
+**Most likely finalists (Monte Carlo):** Argentina vs Spain (15.4% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| France | 29.0% | 19.8% |
-| Argentina | 26.6% | 19.0% |
-| England | 25.3% | 10.8% |
-| Colombia | 23.7% | 9.2% |
-| Spain | 21.6% | 15.2% |
-| Brazil | 14.1% | 5.6% |
+| Argentina | 45.6% | 27.6% |
+| Spain | 34.0% | 20.5% |
+| France | 33.0% | 18.9% |
+| England | 15.2% | 7.0% |
+| Colombia | 12.1% | 5.0% |
+| Brazil | 9.2% | 3.9% |
 
 Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
