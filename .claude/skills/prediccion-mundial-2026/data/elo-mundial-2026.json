@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-06-29",
+    "elo_live_actualizado": "2026-06-30",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -194,7 +194,7 @@
         "2026": 5
       },
       "in_index": true,
-      "elo_live": 2009,
+      "elo_live": 2031,
       "rank_live": 5,
       "en_name": "Brazil"
     },
@@ -299,7 +299,7 @@
         "2026": 8
       },
       "in_index": true,
-      "elo_live": 1980,
+      "elo_live": 1971,
       "rank_live": 8,
       "en_name": "Netherlands"
     },
@@ -335,7 +335,7 @@
       },
       "in_index": true,
       "elo_live": 1902,
-      "rank_live": 15,
+      "rank_live": 14,
       "en_name": "Ecuador"
     },
     {
@@ -369,8 +369,8 @@
         "2026": 10
       },
       "in_index": true,
-      "elo_live": 1916,
-      "rank_live": 10,
+      "elo_live": 1908,
+      "rank_live": 12,
       "en_name": "Germany"
     },
     {
@@ -475,7 +475,7 @@
       },
       "in_index": true,
       "elo_live": 1905,
-      "rank_live": 14,
+      "rank_live": 13,
       "en_name": "Croatia"
     },
     {
@@ -509,8 +509,8 @@
         "2026": 14
       },
       "in_index": true,
-      "elo_live": 1910,
-      "rank_live": 13,
+      "elo_live": 1888,
+      "rank_live": 15,
       "en_name": "Japan"
     },
     {
@@ -545,7 +545,7 @@
       },
       "in_index": true,
       "elo_live": 1884,
-      "rank_live": 16,
+      "rank_live": 17,
       "en_name": "Belgium"
     },
     {
@@ -615,7 +615,7 @@
       },
       "in_index": true,
       "elo_live": 1914,
-      "rank_live": 11,
+      "rank_live": 10,
       "en_name": "Switzerland"
     },
     {
@@ -650,7 +650,7 @@
       },
       "in_index": true,
       "elo_live": 1912,
-      "rank_live": 12,
+      "rank_live": 11,
       "en_name": "Mexico"
     },
     {
@@ -719,7 +719,7 @@
         "2026": 22
       },
       "in_index": true,
-      "elo_live": 1815,
+      "elo_live": 1823,
       "rank_live": 24,
       "en_name": "Paraguay"
     },
@@ -789,8 +789,8 @@
         "2026": 24
       },
       "in_index": true,
-      "elo_live": 1877,
-      "rank_live": 17,
+      "elo_live": 1886,
+      "rank_live": 16,
       "en_name": "Morocco"
     },
     {
