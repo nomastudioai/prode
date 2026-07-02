@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-07-01",
+    "elo_live_actualizado": "2026-07-02",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -124,7 +124,7 @@
         "2026": 3
       },
       "in_index": true,
-      "elo_live": 2123,
+      "elo_live": 2134,
       "rank_live": 3,
       "en_name": "France"
     },
@@ -159,7 +159,7 @@
         "2026": 4
       },
       "in_index": true,
-      "elo_live": 2038,
+      "elo_live": 2046,
       "rank_live": 4,
       "en_name": "England"
     },
@@ -334,8 +334,8 @@
         "2026": 9
       },
       "in_index": true,
-      "elo_live": 1902,
-      "rank_live": 14,
+      "elo_live": 1871,
+      "rank_live": 17,
       "en_name": "Ecuador"
     },
     {
@@ -370,7 +370,7 @@
       },
       "in_index": true,
       "elo_live": 1908,
-      "rank_live": 12,
+      "rank_live": 13,
       "en_name": "Germany"
     },
     {
@@ -404,8 +404,8 @@
         "2026": 11
       },
       "in_index": true,
-      "elo_live": 1918,
-      "rank_live": 9,
+      "elo_live": 1934,
+      "rank_live": 10,
       "en_name": "Norway"
     },
     {
@@ -475,7 +475,7 @@
       },
       "in_index": true,
       "elo_live": 1905,
-      "rank_live": 13,
+      "rank_live": 14,
       "en_name": "Croatia"
     },
     {
@@ -544,8 +544,8 @@
         "2026": 15
       },
       "in_index": true,
-      "elo_live": 1884,
-      "rank_live": 17,
+      "elo_live": 1910,
+      "rank_live": 12,
       "en_name": "Belgium"
     },
     {
@@ -580,7 +580,7 @@
       },
       "in_index": true,
       "elo_live": 1841,
-      "rank_live": 22,
+      "rank_live": 21,
       "en_name": "Uruguay"
     },
     {
@@ -615,7 +615,7 @@
       },
       "in_index": true,
       "elo_live": 1914,
-      "rank_live": 10,
+      "rank_live": 11,
       "en_name": "Switzerland"
     },
     {
@@ -649,8 +649,8 @@
         "2026": 18
       },
       "in_index": true,
-      "elo_live": 1912,
-      "rank_live": 11,
+      "elo_live": 1943,
+      "rank_live": 9,
       "en_name": "Mexico"
     },
     {
@@ -684,8 +684,8 @@
         "2026": 19
       },
       "in_index": true,
-      "elo_live": 1842,
-      "rank_live": 21,
+      "elo_live": 1816,
+      "rank_live": 24,
       "en_name": "Senegal"
     },
     {
@@ -720,7 +720,7 @@
       },
       "in_index": true,
       "elo_live": 1823,
-      "rank_live": 24,
+      "rank_live": 23,
       "en_name": "Paraguay"
     },
     {
@@ -755,7 +755,7 @@
       },
       "in_index": true,
       "elo_live": 1836,
-      "rank_live": 23,
+      "rank_live": 22,
       "en_name": "Austria"
     },
     {
@@ -930,7 +930,7 @@
       },
       "in_index": true,
       "elo_live": 1785,
-      "rank_live": 26,
+      "rank_live": 27,
       "en_name": "Algeria"
     },
     {
@@ -1085,8 +1085,8 @@
         "2026": 38
       },
       "in_index": true,
-      "elo_live": 1781,
-      "rank_live": 27,
+      "elo_live": 1798,
+      "rank_live": 26,
       "en_name": "United States"
     },
     {
@@ -1155,8 +1155,8 @@
         "2026": 42
       },
       "in_index": true,
-      "elo_live": 1742,
-      "rank_live": 36,
+      "elo_live": 1731,
+      "rank_live": 38,
       "en_name": "Sweden"
     },
     {
@@ -1191,7 +1191,7 @@
       },
       "in_index": true,
       "elo_live": 1742,
-      "rank_live": 36,
+      "rank_live": 35,
       "en_name": "Egypt"
     },
     {
@@ -1225,8 +1225,8 @@
         "2026": 49
       },
       "in_index": true,
-      "elo_live": 1743,
-      "rank_live": 35,
+      "elo_live": 1727,
+      "rank_live": 39,
       "en_name": "Ivory Coast"
     },
     {
@@ -1295,8 +1295,8 @@
         "2026": 54
       },
       "in_index": true,
-      "elo_live": 1712,
-      "rank_live": 43,
+      "elo_live": 1704,
+      "rank_live": 45,
       "en_name": "DR Congo"
     },
     {
@@ -1400,8 +1400,8 @@
         "2026": 65
       },
       "in_index": true,
-      "elo_live": 1622,
-      "rank_live": 58,
+      "elo_live": 1605,
+      "rank_live": 63,
       "en_name": "Bosnia and Herzegovina"
     },
     {
