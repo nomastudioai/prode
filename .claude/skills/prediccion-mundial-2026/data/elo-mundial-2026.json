@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-07-02",
+    "elo_live_actualizado": "2026-07-03",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -54,8 +54,8 @@
         "2026": 1
       },
       "in_index": true,
-      "elo_live": 2144,
-      "rank_live": 2,
+      "elo_live": 2159,
+      "rank_live": 1,
       "en_name": "Spain"
     },
     {
@@ -90,7 +90,7 @@
       },
       "in_index": true,
       "elo_live": 2148,
-      "rank_live": 1,
+      "rank_live": 2,
       "en_name": "Argentina"
     },
     {
@@ -229,8 +229,8 @@
         "2026": 6
       },
       "in_index": true,
-      "elo_live": 1990,
-      "rank_live": 7,
+      "elo_live": 2013,
+      "rank_live": 6,
       "en_name": "Portugal"
     },
     {
@@ -265,7 +265,7 @@
       },
       "in_index": true,
       "elo_live": 2004,
-      "rank_live": 6,
+      "rank_live": 7,
       "en_name": "Colombia"
     },
     {
@@ -405,7 +405,7 @@
       },
       "in_index": true,
       "elo_live": 1934,
-      "rank_live": 10,
+      "rank_live": 11,
       "en_name": "Norway"
     },
     {
@@ -474,8 +474,8 @@
         "2026": 13
       },
       "in_index": true,
-      "elo_live": 1905,
-      "rank_live": 14,
+      "elo_live": 1882,
+      "rank_live": 16,
       "en_name": "Croatia"
     },
     {
@@ -510,7 +510,7 @@
       },
       "in_index": true,
       "elo_live": 1888,
-      "rank_live": 15,
+      "rank_live": 14,
       "en_name": "Japan"
     },
     {
@@ -614,8 +614,8 @@
         "2026": 17
       },
       "in_index": true,
-      "elo_live": 1914,
-      "rank_live": 11,
+      "elo_live": 1943,
+      "rank_live": 9,
       "en_name": "Switzerland"
     },
     {
@@ -720,7 +720,7 @@
       },
       "in_index": true,
       "elo_live": 1823,
-      "rank_live": 23,
+      "rank_live": 22,
       "en_name": "Paraguay"
     },
     {
@@ -754,8 +754,8 @@
         "2026": 23
       },
       "in_index": true,
-      "elo_live": 1836,
-      "rank_live": 22,
+      "elo_live": 1821,
+      "rank_live": 23,
       "en_name": "Austria"
     },
     {
@@ -790,7 +790,7 @@
       },
       "in_index": true,
       "elo_live": 1886,
-      "rank_live": 16,
+      "rank_live": 15,
       "en_name": "Morocco"
     },
     {
@@ -825,7 +825,7 @@
       },
       "in_index": true,
       "elo_live": 1764,
-      "rank_live": 31,
+      "rank_live": 30,
       "en_name": "Canada"
     },
     {
@@ -895,7 +895,7 @@
       },
       "in_index": true,
       "elo_live": 1764,
-      "rank_live": 31,
+      "rank_live": 30,
       "en_name": "Iran"
     },
     {
@@ -929,8 +929,8 @@
         "2026": 32
       },
       "in_index": true,
-      "elo_live": 1785,
-      "rank_live": 27,
+      "elo_live": 1756,
+      "rank_live": 32,
       "en_name": "Algeria"
     },
     {
