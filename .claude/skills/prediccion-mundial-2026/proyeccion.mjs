@@ -18,6 +18,8 @@ export function proyectar() {
   const elo = loadData();
   const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
   const bracket = JSON.parse(readFileSync(join(__dir, "data", "knockout-2026.json"), "utf8"));
+  const ko = JSON.parse(readFileSync(join(__dir, "data", "knockout-resultados-2026.json"), "utf8"));
+  const koReal = Object.fromEntries(ko.matches.map((m) => [m.id, m]));
   const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
   const HOSTS = new Set(["MEX", "CAN", "USA"]);
   const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
@@ -111,6 +113,20 @@ export function proyectar() {
   const ties = [];
   bracket.rounds.forEach((round, ri) => {
     for (const m of round) {
+      const real = koReal[m.id]; // resultado real: la llave ya se jugó
+      if (real) {
+        winners[m.id] = real.winner;
+        const extras = [];
+        if (real.aet) extras.push("a.e.t.");
+        if (real.pens) extras.push(`${real.pens} pens`);
+        ties.push({
+          round: roundNames[ri], id: m.id,
+          home: name(real.home), away: name(real.away),
+          score: `${real.home_goals}-${real.away_goals}${extras.length ? ` (${extras.join(", ")})` : ""}`,
+          tight: false, winner: name(real.winner), real: true,
+        });
+        continue;
+      }
       const home = /^M\d+$/.test(m.home) ? winners[m.home] : resolveSlot(m.home);
       const away = /^M\d+$/.test(m.away) ? winners[m.away] : resolveSlot(m.away);
       if (home == null || away == null) { winners[m.id] = home || away; continue; }

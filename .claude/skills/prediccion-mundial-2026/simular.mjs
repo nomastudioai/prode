@@ -22,6 +22,8 @@ const ROOT = join(__dir, "..", "..", "..");
 const elo = loadData();
 const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
 const bracket = JSON.parse(readFileSync(join(__dir, "data", "knockout-2026.json"), "utf8"));
+const ko = JSON.parse(readFileSync(join(__dir, "data", "knockout-resultados-2026.json"), "utf8"));
+const koReal = Object.fromEntries(ko.matches.map((m) => [m.id, m])); // matchId -> resultado real
 const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
 const HOSTS = new Set(["MEX", "CAN", "USA"]);
 const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
@@ -159,6 +161,12 @@ function simulate(rnd) {
   let finalists = null;
   for (const round of bracket.rounds) {
     for (const m of round) {
+      const real = koReal[m.id]; // partido eliminatorio ya jugado: resultado fijo
+      if (real) {
+        alive[m.id] = real.winner;
+        if (m.id === bracket.final_id) finalists = [real.home, real.away];
+        continue;
+      }
       const a = winnerOf(m.home, rnd), b = winnerOf(m.away, rnd);
       if (a == null || b == null) { alive[m.id] = a || b; continue; }
       alive[m.id] = knockoutWinner(a, b, rnd);
@@ -200,7 +208,8 @@ const rows = elo.equipos.map((t) => ({
 // ─── Salida consola ───────────────────────────────────────────────────
 const fp = (x) => x.toFixed(1).padStart(5) + "%";
 console.log(`\n══════ Monte Carlo simulation · ${N.toLocaleString("en")} runs ══════`);
-console.log(`Elo: live from eloratings.net · real results through ${fix.meta.generado}\n`);
+const RESULTS_THROUGH = ko.meta.actualizado > fix.meta.generado ? ko.meta.actualizado : fix.meta.generado;
+console.log(`Elo: live from eloratings.net · real results through ${RESULTS_THROUGH}\n`);
 
 console.log("PROBABILITY OF REACHING THE ROUND OF 32 (top teams):");
 console.log("  team                   advance  1st    2nd");
@@ -241,7 +250,7 @@ if (process.argv.includes("--json")) {
     gruposDetalle[g] = { completo: fix.meta.grupos_completos.includes(g), equipos: teamsOut };
   }
   const out = {
-    meta: { simulaciones: N, generado: fix.meta.generado, elo: "eloratings.net en vivo",
+    meta: { simulaciones: N, generado: RESULTS_THROUGH, elo: "eloratings.net en vivo",
       modelo: "Elo + Poisson (Dixon-Coles)", acierto_1x2_backtest: 0.614 },
     grupos: gruposDetalle, avance: rows.sort((a, b) => b.advance - a.advance),
     finalistas: [...rows].sort((a, b) => b.final - a.final).slice(0, 12),

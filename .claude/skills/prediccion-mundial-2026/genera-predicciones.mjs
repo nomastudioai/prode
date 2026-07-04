@@ -22,6 +22,7 @@ const ROOT = join(__dir, "..", "..", "..");
 const elo = loadData();
 const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
 const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
+const ko = JSON.parse(readFileSync(join(__dir, "data", "knockout-resultados-2026.json"), "utf8"));
 const bt = JSON.parse(readFileSync(join(__dir, "data", "backtest-stats.json"), "utf8"));
 const sim = JSON.parse(readFileSync(join(ROOT, "predicciones", "simulacion.json"), "utf8"));
 const proj = proyectar();
@@ -30,7 +31,19 @@ const eloOf = (iso) => byIso[iso].elo_live ?? byIso[iso].elo_2026;
 const en = (iso) => byIso[iso].en_name ?? byIso[iso].name;
 
 const pct = (x) => x.toFixed(1) + "%";
-const date = fix.meta.generado;
+const date = ko.meta.actualizado > fix.meta.generado ? ko.meta.actualizado : fix.meta.generado;
+
+// Partidos eliminatorios jugados, con su predicción congelada pre-ronda.
+const KO_ROUND_NAMES = { R32: "Round of 32", R16: "Round of 16", QF: "Quarter-finals", SF: "Semi-finals", F: "Final" };
+const koPlayed = ko.matches.filter((m) => m.pred);
+const koHit = (m) => m.pred.winner === m.winner;
+const koExact = (m) => m.pred.score === `${m.home_goals}-${m.away_goals}` && !m.pens;
+const koScore = (m) => {
+  const extras = [];
+  if (m.aet) extras.push("a.e.t.");
+  if (m.pens) extras.push(`${m.pens} pens`);
+  return `${m.home_goals}-${m.away_goals}${extras.length ? ` (${extras.join(", ")})` : ""}`;
+};
 
 // Predicted scoreline + pick for an upcoming match (live Elo).
 function predRow(homeIso, awayIso) {
@@ -89,23 +102,41 @@ if (fix.remaining_fixtures.length === 0 && existsSync(btMatchesPath)) {
   }
 }
 
-// 2) Projected knockout bracket (match by match)
-md += `## 2) Projected knockout bracket (match by match)\n\n`;
+// 2) Knockout stage: predictions vs results (rounds already played)
+if (koPlayed.length) {
+  const hits = koPlayed.filter(koHit).length;
+  const exacts = koPlayed.filter(koExact).length;
+  md += `## 2) Knockout stage: our predictions vs the results\n\n`;
+  md += `Each tie was predicted **before the round started** (pick + most-likely score published with `;
+  md += `the live Elo of that day and frozen in git history). **Hit** = we picked the team that actually advanced. `;
+  md += `In knockouts there is no draw: ties level after extra time go to penalties.\n\n`;
+  md += `**Scoreboard: we called ${hits} of ${koPlayed.length} knockout ties right `;
+  md += `(${((100 * hits) / koPlayed.length).toFixed(1)}%)**, with ${exacts} exact scorelines.\n\n`;
+  md += `| Date | Round | Match | Result | Advanced | Our pick | Pred. score | Hit |\n|---|---|---|---|---|---|---|---|\n`;
+  for (const m of koPlayed) {
+    md += `| ${m.date} | ${KO_ROUND_NAMES[m.round] ?? m.round} | ${en(m.home)} vs ${en(m.away)} | **${koScore(m)}** | ${en(m.winner)} | ${en(m.pred.winner)} | ${m.pred.score} | ${koHit(m) ? "✓" : "✗"} |\n`;
+  }
+  md += `\n`;
+}
+
+// 3) Projected knockout bracket (match by match)
+md += `## 3) Projected knockout bracket (match by match)\n\n`;
 const groupsDone = fix.remaining_fixtures.length === 0;
 md += `Single most-likely path: ${groupsDone ? "the **final** group standings" : "real group results + the most-likely score for the remaining group games"} `;
 md += `${groupsDone ? "set the bracket" : "decide the standings"}; then every knockout tie is predicted with a decisive `;
 md += `score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the `;
-md += `near coin-flips).\n\n`;
+md += `near coin-flips). Ties already played show the **real result**, marked ✓.\n\n`;
 let curRound = "";
 for (const t of proj.ties) {
   if (t.round !== curRound) { md += `\n### ${t.round}\n\n`; curRound = t.round; }
-  md += `- **${t.home} ${t.score} ${t.away}** → advances **${t.winner}**${t.tight ? " _(tight)_" : ""}\n`;
+  if (t.real) md += `- ✓ **${t.home} ${t.score} ${t.away}** → advanced **${t.winner}** _(played)_\n`;
+  else md += `- **${t.home} ${t.score} ${t.away}** → advances **${t.winner}**${t.tight ? " _(tight)_" : ""}\n`;
 }
 md += `\n### 🏆 Projected champion: **${proj.champion}**\n\n`;
 md += `Projected final: ${proj.final.home} ${proj.final.score} ${proj.final.away} (winner ${proj.final.winner}, without the actual result).\n\n`;
 
 // 3) Who advances (Monte Carlo probabilities)
-md += `## 3) Who advances? Group probabilities\n\n`;
+md += `## 4) Who advances? Group probabilities\n\n`;
 md += `Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed teams), `;
 md += `from ${sim.meta.simulaciones.toLocaleString("en")} Monte Carlo runs. ✓ = group already decided.\n\n`;
 for (const g of Object.keys(sim.grupos)) {
@@ -119,8 +150,9 @@ for (const g of Object.keys(sim.grupos)) {
 }
 
 // 4) Finalist probabilities
-md += `## 4) Finalist probabilities (Monte Carlo)\n\n`;
-md += `From ${sim.meta.simulaciones.toLocaleString("en")} simulations of the whole tournament (official bracket, live Elo).\n\n`;
+md += `## 5) Finalist probabilities (Monte Carlo)\n\n`;
+md += `From ${sim.meta.simulaciones.toLocaleString("en")} simulations of the whole tournament `;
+md += `(official bracket, live Elo${koPlayed.length ? ", knockout ties already played fixed to their real result" : ""}).\n\n`;
 md += `**Most likely final: ${sim.prediccion_finalistas}** `;
 md += `(occurs in ${pct(sim.final_mas_probable[0].prob)} of simulations).\n\n`;
 md += `| Team | Reaches final | Champion |\n|---|---|---|\n`;
@@ -136,14 +168,19 @@ console.log("→ predicciones/PREDICCIONES.md");
 // ─── README summary block (between markers) ───────────────────────────
 let resumen = `<!-- PRED:START -->\n`;
 resumen += `_Last auto-update: **${date}**. Backtest: the model gets the 1X2 right in `;
-resumen += `**${(bt.acc * 100).toFixed(1)}%** of ${bt.n} matches played (random ≈ 33%)._\n\n`;
+resumen += `**${(bt.acc * 100).toFixed(1)}%** of ${bt.n} group-stage matches (random ≈ 33%)._\n\n`;
+if (koPlayed.length) {
+  const hits = koPlayed.filter(koHit).length;
+  resumen += `**Knockout scoreboard so far: ${hits} of ${koPlayed.length} ties called right `;
+  resumen += `(${((100 * hits) / koPlayed.length).toFixed(1)}%)**, ${koPlayed.filter(koExact).length} exact scorelines.\n\n`;
+}
 resumen += `**🏆 Projected champion (most-likely bracket): ${proj.champion}.** `;
 resumen += `Projected final: **${proj.final.home} ${proj.final.score} ${proj.final.away}**.\n\n`;
 resumen += `**Most likely finalists (Monte Carlo):** ${sim.prediccion_finalistas} `;
 resumen += `(${pct(sim.final_mas_probable[0].prob)} of simulations).\n\n`;
 resumen += `| Team | Reaches final | Champion |\n|---|---|---|\n`;
 for (const r of sim.finalistas.slice(0, 6)) resumen += `| ${r.name} | ${pct(r.final)} | ${pct(r.champ)} |\n`;
-resumen += `\nFull detail (${groupsDone ? "our group-stage predictions vs the results" : "every group, every upcoming match"}, the match-by-match bracket) in `;
+resumen += `\nFull detail (${groupsDone ? `our predictions vs the results${koPlayed.length ? " (groups + knockout)" : ""}` : "every group, every upcoming match"}, the match-by-match bracket) in `;
 resumen += `[**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).\n`;
 resumen += `<!-- PRED:END -->`;
 

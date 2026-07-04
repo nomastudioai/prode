@@ -89,7 +89,7 @@
         "2026": 2
       },
       "in_index": true,
-      "elo_live": 2148,
+      "elo_live": 2151,
       "rank_live": 2,
       "en_name": "Argentina"
     },
@@ -264,7 +264,7 @@
         "2026": 7
       },
       "in_index": true,
-      "elo_live": 2004,
+      "elo_live": 2009,
       "rank_live": 7,
       "en_name": "Colombia"
     },
@@ -859,8 +859,8 @@
         "2026": 28
       },
       "in_index": true,
-      "elo_live": 1800,
-      "rank_live": 25,
+      "elo_live": 1795,
+      "rank_live": 26,
       "en_name": "Australia"
     },
     {
@@ -981,7 +981,7 @@
       "in_index": false,
       "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)",
       "elo_live": 1745,
-      "rank_live": 33,
+      "rank_live": 34,
       "en_name": "Scotland"
     },
     {
@@ -1086,7 +1086,7 @@
       },
       "in_index": true,
       "elo_live": 1798,
-      "rank_live": 26,
+      "rank_live": 25,
       "en_name": "United States"
     },
     {
@@ -1190,8 +1190,8 @@
         "2026": 48
       },
       "in_index": true,
-      "elo_live": 1742,
-      "rank_live": 35,
+      "elo_live": 1747,
+      "rank_live": 33,
       "en_name": "Egypt"
     },
     {
@@ -1435,8 +1435,8 @@
         "2026": 68
       },
       "in_index": true,
-      "elo_live": 1622,
-      "rank_live": 58,
+      "elo_live": 1619,
+      "rank_live": 59,
       "en_name": "Cape Verde"
     },
     {
@@ -1610,7 +1610,7 @@
         "2026": 81
       },
       "in_index": true,
-      "elo_live": 1575,
+      "elo_live": 1570,
       "rank_live": 68,
       "en_name": "Ghana"
     },

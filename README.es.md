@@ -21,9 +21,14 @@ La gracia del caso de estudio no es "ganarle al Mundial": es mostrar, con datos,
 El documento de predicciones (en inglés, autogenerado y actualizado a diario) está en
 👉 [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md). Incluye:
 
-- Próximos partidos con su **marcador más probable**.
-- **Cuadro proyectado partido a partido**, de 16avos hasta la final, con marcador.
-- Probabilidades de avance por grupo y de finalistas (Monte Carlo, 50.000 corridas).
+- **Predicciones vs resultados reales**: fase de grupos (44/72 aciertos 1X2, 61,1%)
+  y eliminatorias. En 16avos acertamos **13 de 16 llaves (81,3%)**, con 3 marcadores
+  exactos; los 3 errores (Alemania, Países Bajos, Australia) fueron llaves que
+  terminaron empatadas y se definieron por penales (al 04/07/2026).
+- **Cuadro proyectado partido a partido** hasta la final: los partidos ya jugados
+  muestran el resultado real y el resto se predice con el Elo en vivo.
+- Probabilidades de finalistas y campeón (Monte Carlo, 50.000 corridas, con las
+  llaves ya jugadas fijadas a su resultado real).
 
 ---
 
@@ -83,7 +88,9 @@ bash scripts/actualizar.sh
 
 Baja el Elo en vivo de eloratings.net, refresca todo y regenera las predicciones.
 Un **GitHub Action** lo corre **todos los días**. Los resultados de partidos nuevos
-se agregan a `data/grupos-resultados-2026.json` (único paso manual).
+se agregan a mano (único paso manual): fase de grupos en
+`data/grupos-resultados-2026.json` y eliminatorias en
+`data/knockout-resultados-2026.json`.
 
 ---
 

@@ -17,6 +17,9 @@ World Cup, using the **Elo rating** of each team plus a **recent-form** adjustme
 - `data/grupos-resultados-2026.json` — the 12 groups, played results and the
   remaining fixtures.
 - `data/knockout-2026.json` — official Round-of-32 to Final bracket structure.
+- `data/knockout-resultados-2026.json` — real knockout results by bracket match id
+  (score, a.e.t./penalties, winner) plus the frozen pre-round prediction per tie.
+  Played ties are fixed (not sampled) in the simulation and the projection.
 - `data/elo-series-completo-1901-2026.js` — full historical series (195 teams).
 
 **Source:** World Football Elo Ratings (eloratings.net), via the El Atlas chart.

@@ -1,6 +1,6 @@
 # Predictions · 2026 FIFA World Cup
 
-> Auto-generated on 2026-06-28. **This is an experiment, do NOT bet.** See [DISCLAIMER](../DISCLAIMER.md).
+> Auto-generated on 2026-07-04. **This is an experiment, do NOT bet.** See [DISCLAIMER](../DISCLAIMER.md).
 
 **Model reliability (backtest over 72 matches already played):** the model gets the 1X2 result right **61.1%** of the time (random ≈ 33%, "higher-Elo team wins" ≈ 61.1%). Exact scoreline 13.9%. Everything below inherits that margin of error, which **grows every round** (the finalist predictions are low-confidence). The most likely scoreline is shown for every match: useful as an "expected result", not a certainty.
 
@@ -85,44 +85,69 @@ The group stage is over: all **72 matches** have been played. Each one was predi
 | 2026-06-27 | L | Panama vs England | **0-2** | England | 0-2 | ✓ |
 | 2026-06-27 | L | Croatia vs Ghana | **2-1** | Croatia | 2-0 | ✓ |
 
-## 2) Projected knockout bracket (match by match)
+## 2) Knockout stage: our predictions vs the results
 
-Single most-likely path: the **final** group standings set the bracket; then every knockout tie is predicted with a decisive score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the near coin-flips).
+Each tie was predicted **before the round started** (pick + most-likely score published with the live Elo of that day and frozen in git history). **Hit** = we picked the team that actually advanced. In knockouts there is no draw: ties level after extra time go to penalties.
+
+**Scoreboard: we called 13 of 16 knockout ties right (81.3%)**, with 3 exact scorelines.
+
+| Date | Round | Match | Result | Advanced | Our pick | Pred. score | Hit |
+|---|---|---|---|---|---|---|---|
+| 2026-06-28 | Round of 32 | South Africa vs Canada | **0-1** | Canada | Canada | 0-2 | ✓ |
+| 2026-06-29 | Round of 32 | Germany vs Paraguay | **1-1 (a.e.t., 3-4 pens)** | Paraguay | Germany | 2-1 | ✗ |
+| 2026-06-29 | Round of 32 | Netherlands vs Morocco | **1-1 (a.e.t., 2-3 pens)** | Morocco | Netherlands | 2-1 | ✗ |
+| 2026-06-29 | Round of 32 | Brazil vs Japan | **2-1** | Brazil | Brazil | 2-1 | ✓ |
+| 2026-06-30 | Round of 32 | France vs Sweden | **3-0** | France | France | 2-0 | ✓ |
+| 2026-06-30 | Round of 32 | Ivory Coast vs Norway | **1-2** | Norway | Norway | 0-1 | ✓ |
+| 2026-06-30 | Round of 32 | Mexico vs Ecuador | **2-0** | Mexico | Mexico | 2-1 | ✓ |
+| 2026-07-01 | Round of 32 | England vs DR Congo | **2-1** | England | England | 2-0 | ✓ |
+| 2026-07-01 | Round of 32 | United States vs Bosnia and Herzegovina | **2-0** | United States | United States | 2-0 | ✓ |
+| 2026-07-01 | Round of 32 | Belgium vs Senegal | **3-2 (a.e.t.)** | Belgium | Belgium | 2-1 | ✓ |
+| 2026-07-02 | Round of 32 | Portugal vs Croatia | **2-1** | Portugal | Portugal | 2-1 | ✓ |
+| 2026-07-02 | Round of 32 | Spain vs Austria | **3-0** | Spain | Spain | 2-0 | ✓ |
+| 2026-07-02 | Round of 32 | Switzerland vs Algeria | **2-0** | Switzerland | Switzerland | 1-0 | ✓ |
+| 2026-07-03 | Round of 32 | Argentina vs Cape Verde | **3-2 (a.e.t.)** | Argentina | Argentina | 2-0 | ✓ |
+| 2026-07-03 | Round of 32 | Colombia vs Ghana | **1-0** | Colombia | Colombia | 2-0 | ✓ |
+| 2026-07-03 | Round of 32 | Australia vs Egypt | **1-1 (a.e.t., 2-4 pens)** | Egypt | Australia | 2-1 | ✗ |
+
+## 3) Projected knockout bracket (match by match)
+
+Single most-likely path: the **final** group standings set the bracket; then every knockout tie is predicted with a decisive score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the near coin-flips). Ties already played show the **real result**, marked ✓.
 
 
 ### Round of 32
 
-- **South Africa 0-2 Canada** → advances **Canada**
-- **Germany 2-1 Paraguay** → advances **Germany**
-- **Netherlands 2-1 Morocco** → advances **Netherlands**
-- **Brazil 1-0 Japan** → advances **Brazil**
-- **France 2-0 Sweden** → advances **France**
-- **Ivory Coast 0-1 Norway** → advances **Norway**
-- **Mexico 1-0 Ecuador** → advances **Mexico**
-- **England 2-0 DR Congo** → advances **England**
-- **United States 2-0 Bosnia and Herzegovina** → advances **United States**
-- **Belgium 2-1 Senegal** → advances **Belgium**
-- **Portugal 1-0 Croatia** → advances **Portugal**
-- **Spain 2-0 Austria** → advances **Spain**
-- **Switzerland 1-0 Algeria** → advances **Switzerland**
-- **Argentina 2-0 Cape Verde** → advances **Argentina**
-- **Colombia 2-0 Ghana** → advances **Colombia**
-- **Australia 2-1 Egypt** → advances **Australia**
+- ✓ **South Africa 0-1 Canada** → advanced **Canada** _(played)_
+- ✓ **Germany 1-1 (a.e.t., 3-4 pens) Paraguay** → advanced **Paraguay** _(played)_
+- ✓ **Netherlands 1-1 (a.e.t., 2-3 pens) Morocco** → advanced **Morocco** _(played)_
+- ✓ **Brazil 2-1 Japan** → advanced **Brazil** _(played)_
+- ✓ **France 3-0 Sweden** → advanced **France** _(played)_
+- ✓ **Ivory Coast 1-2 Norway** → advanced **Norway** _(played)_
+- ✓ **Mexico 2-0 Ecuador** → advanced **Mexico** _(played)_
+- ✓ **England 2-1 DR Congo** → advanced **England** _(played)_
+- ✓ **United States 2-0 Bosnia and Herzegovina** → advanced **United States** _(played)_
+- ✓ **Belgium 3-2 (a.e.t.) Senegal** → advanced **Belgium** _(played)_
+- ✓ **Portugal 2-1 Croatia** → advanced **Portugal** _(played)_
+- ✓ **Spain 3-0 Austria** → advanced **Spain** _(played)_
+- ✓ **Switzerland 2-0 Algeria** → advanced **Switzerland** _(played)_
+- ✓ **Argentina 3-2 (a.e.t.) Cape Verde** → advanced **Argentina** _(played)_
+- ✓ **Colombia 1-0 Ghana** → advanced **Colombia** _(played)_
+- ✓ **Australia 1-1 (a.e.t., 2-4 pens) Egypt** → advanced **Egypt** _(played)_
 
 ### Round of 16
 
-- **Germany 0-2 France** → advances **France**
-- **Canada 0-1 Netherlands** → advances **Netherlands**
+- **Paraguay 0-2 France** → advances **France**
+- **Canada 1-2 Morocco** → advances **Morocco**
 - **Brazil 2-1 Norway** → advances **Brazil**
 - **Mexico 1-2 England** → advances **England**
 - **Portugal 0-1 Spain** → advances **Spain**
 - **United States 1-2 Belgium** → advances **Belgium**
-- **Argentina 2-0 Australia** → advances **Argentina**
+- **Argentina 2-0 Egypt** → advances **Argentina**
 - **Switzerland 1-2 Colombia** → advances **Colombia**
 
 ### Quarter-finals
 
-- **France 1-0 Netherlands** → advances **France**
+- **France 2-0 Morocco** → advances **France**
 - **Spain 2-0 Belgium** → advances **Spain**
 - **Brazil 1-2 England** → advances **England** _(tight)_
 - **Argentina 1-0 Colombia** → advances **Argentina**
@@ -140,7 +165,7 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 
 Projected final: Spain 2-1 Argentina (winner Spain, without the actual result).
 
-## 3) Who advances? Group probabilities
+## 4) Who advances? Group probabilities
 
 Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed teams), from 50,000 Monte Carlo runs. ✓ = group already decided.
 
@@ -252,32 +277,32 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 | 3 | Ghana | 3 | 4 | +0 | 100.0% | 0.0% | 0.0% |
 | 4 | Panama | 3 | 0 | -4 | 0.0% | 0.0% | 0.0% |
 
-## 4) Finalist probabilities (Monte Carlo)
+## 5) Finalist probabilities (Monte Carlo)
 
-From 50,000 simulations of the whole tournament (official bracket, live Elo).
+From 50,000 simulations of the whole tournament (official bracket, live Elo, knockout ties already played fixed to their real result).
 
-**Most likely final: Argentina vs France** (occurs in 15.2% of simulations).
+**Most likely final: Argentina vs France** (occurs in 18.1% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 43.9% | 25.5% |
-| Spain | 34.5% | 21.3% |
-| France | 34.4% | 20.2% |
-| England | 14.9% | 6.8% |
-| Colombia | 11.2% | 4.4% |
-| Brazil | 10.9% | 4.8% |
-| Portugal | 8.0% | 3.5% |
-| Netherlands | 7.2% | 2.7% |
-| Mexico | 6.6% | 2.6% |
-| Switzerland | 4.6% | 1.5% |
+| Argentina | 44.1% | 25.1% |
+| France | 40.8% | 23.6% |
+| Spain | 35.4% | 21.7% |
+| England | 14.2% | 6.2% |
+| Brazil | 13.7% | 5.7% |
+| Colombia | 10.5% | 4.1% |
+| Portugal | 9.2% | 3.9% |
+| Mexico | 8.0% | 3.0% |
+| Belgium | 4.8% | 1.5% |
+| Switzerland | 4.7% | 1.5% |
 
 **Most likely finals:**
 
-- Argentina vs France — 15.2%
-- Argentina vs Spain — 15.1%
-- England vs Spain — 5.3%
-- England vs France — 5.1%
-- Colombia vs Spain — 3.9%
-- Colombia vs France — 3.9%
+- Argentina vs France — 18.1%
+- Argentina vs Spain — 15.6%
+- England vs France — 5.8%
+- Brazil vs France — 5.5%
+- England vs Spain — 5.1%
+- Brazil vs Spain — 4.8%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.

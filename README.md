@@ -18,22 +18,24 @@ The point of the case study isn't "beating the World Cup": it's showing, with da
 ## 🔮 Current predictions
 
 <!-- PRED:START -->
-_Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
+_Last auto-update: **2026-07-04**. Backtest: the model gets the 1X2 right in **61.1%** of 72 group-stage matches (random ≈ 33%)._
+
+**Knockout scoreboard so far: 13 of 16 ties called right (81.3%)**, 3 exact scorelines.
 
 **🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 2-1 Argentina**.
 
-**Most likely finalists (Monte Carlo):** Argentina vs France (15.2% of simulations).
+**Most likely finalists (Monte Carlo):** Argentina vs France (18.1% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 43.9% | 25.5% |
-| Spain | 34.5% | 21.3% |
-| France | 34.4% | 20.2% |
-| England | 14.9% | 6.8% |
-| Colombia | 11.2% | 4.4% |
-| Brazil | 10.9% | 4.8% |
+| Argentina | 44.1% | 25.1% |
+| France | 40.8% | 23.6% |
+| Spain | 35.4% | 21.7% |
+| England | 14.2% | 6.2% |
+| Brazil | 13.7% | 5.7% |
+| Colombia | 10.5% | 4.1% |
 
-Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
+Full detail (our predictions vs the results (groups + knockout), the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
 
 ---
@@ -131,10 +133,12 @@ the predictions and this README. A **GitHub Action**
 ([`.github/workflows/actualizar.yml`](.github/workflows/actualizar.yml)) runs it
 **every day** during the World Cup and commits the changes.
 
-**New match results:** add them to
+**New match results:** group-stage results go into
 [`data/grupos-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/grupos-resultados-2026.json)
-(`played_matches` field), moving them out of `remaining_fixtures`. That's the only
-manual step; the rest is automatic.
+(`played_matches` field); knockout results go into
+[`data/knockout-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/knockout-resultados-2026.json)
+(score, extra time/penalties, winner, plus the frozen pre-round prediction).
+That's the only manual step; the rest is automatic.
 
 ---
 
@@ -169,7 +173,7 @@ predicciones/PREDICCIONES.md  · full predictions (auto-generated)
   ├── experiment-forma.mjs    · in-tournament form experiment
   ├── actualizar-elo.mjs      · live Elo refresh
   ├── genera-predicciones.mjs · generates the public documents
-  └── data/                   · Elo index, groups, results, bracket
+  └── data/                   · Elo index, groups, results, bracket, knockout results
 ```
 
 ---
