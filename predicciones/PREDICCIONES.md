@@ -256,28 +256,28 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 
 From 50,000 simulations of the whole tournament (official bracket, live Elo).
 
-**Most likely final: Argentina vs France** (occurs in 15.2% of simulations).
+**Most likely final: Argentina vs France** (occurs in 15.8% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 43.9% | 25.5% |
-| Spain | 34.5% | 21.3% |
-| France | 34.4% | 20.2% |
-| England | 14.9% | 6.8% |
-| Colombia | 11.2% | 4.4% |
-| Brazil | 10.9% | 4.8% |
-| Portugal | 8.0% | 3.5% |
-| Netherlands | 7.2% | 2.7% |
-| Mexico | 6.6% | 2.6% |
-| Switzerland | 4.6% | 1.5% |
+| Argentina | 43.9% | 25.2% |
+| France | 35.6% | 21.3% |
+| Spain | 34.3% | 21.1% |
+| England | 15.1% | 6.8% |
+| Colombia | 11.5% | 4.7% |
+| Brazil | 10.7% | 4.7% |
+| Portugal | 7.8% | 3.3% |
+| Mexico | 6.6% | 2.5% |
+| Netherlands | 6.4% | 2.5% |
+| Norway | 4.3% | 1.3% |
 
 **Most likely finals:**
 
-- Argentina vs France — 15.2%
-- Argentina vs Spain — 15.1%
+- Argentina vs France — 15.8%
+- Argentina vs Spain — 14.9%
 - England vs Spain — 5.3%
-- England vs France — 5.1%
-- Colombia vs Spain — 3.9%
-- Colombia vs France — 3.9%
+- England vs France — 5.3%
+- Colombia vs Spain — 4.1%
+- Colombia vs France — 4.1%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.
