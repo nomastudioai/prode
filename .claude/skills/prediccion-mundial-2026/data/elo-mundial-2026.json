@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-07-06",
+    "elo_live_actualizado": "2026-07-07",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -54,7 +54,7 @@
         "2026": 1
       },
       "in_index": true,
-      "elo_live": 2159,
+      "elo_live": 2177,
       "rank_live": 1,
       "en_name": "Spain"
     },
@@ -229,8 +229,8 @@
         "2026": 6
       },
       "in_index": true,
-      "elo_live": 2013,
-      "rank_live": 5,
+      "elo_live": 1995,
+      "rank_live": 6,
       "en_name": "Portugal"
     },
     {
@@ -265,7 +265,7 @@
       },
       "in_index": true,
       "elo_live": 2009,
-      "rank_live": 6,
+      "rank_live": 5,
       "en_name": "Colombia"
     },
     {
@@ -544,8 +544,8 @@
         "2026": 15
       },
       "in_index": true,
-      "elo_live": 1910,
-      "rank_live": 13,
+      "elo_live": 1961,
+      "rank_live": 10,
       "en_name": "Belgium"
     },
     {
@@ -615,7 +615,7 @@
       },
       "in_index": true,
       "elo_live": 1943,
-      "rank_live": 10,
+      "rank_live": 11,
       "en_name": "Switzerland"
     },
     {
@@ -650,7 +650,7 @@
       },
       "in_index": true,
       "elo_live": 1913,
-      "rank_live": 12,
+      "rank_live": 13,
       "en_name": "Mexico"
     },
     {
@@ -790,7 +790,7 @@
       },
       "in_index": true,
       "elo_live": 1921,
-      "rank_live": 11,
+      "rank_live": 12,
       "en_name": "Morocco"
     },
     {
@@ -860,7 +860,7 @@
       },
       "in_index": true,
       "elo_live": 1795,
-      "rank_live": 26,
+      "rank_live": 25,
       "en_name": "Australia"
     },
     {
@@ -895,7 +895,7 @@
       },
       "in_index": true,
       "elo_live": 1764,
-      "rank_live": 30,
+      "rank_live": 29,
       "en_name": "Iran"
     },
     {
@@ -930,7 +930,7 @@
       },
       "in_index": true,
       "elo_live": 1756,
-      "rank_live": 31,
+      "rank_live": 30,
       "en_name": "Algeria"
     },
     {
@@ -1085,8 +1085,8 @@
         "2026": 38
       },
       "in_index": true,
-      "elo_live": 1798,
-      "rank_live": 25,
+      "elo_live": 1747,
+      "rank_live": 31,
       "en_name": "United States"
     },
     {
@@ -1191,7 +1191,7 @@
       },
       "in_index": true,
       "elo_live": 1747,
-      "rank_live": 32,
+      "rank_live": 31,
       "en_name": "Egypt"
     },
     {
