@@ -12,7 +12,7 @@
  *
  * Usa elo_live (eloratings.net) para los partidos futuros. Heurística orientativa.
  */
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { loadData, predictFromEff, autoForm, PARAMS } from "./model.mjs";
@@ -22,6 +22,15 @@ const ROOT = join(__dir, "..", "..", "..");
 const elo = loadData();
 const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
 const bracket = JSON.parse(readFileSync(join(__dir, "data", "knockout-2026.json"), "utf8"));
+// Resultados REALES de eliminatorias ya jugadas: si existen, la simulacion se
+// condiciona a ellos (los ganadores reales avanzan; solo se muestrean las rondas
+// aun no jugadas), de modo que las probabilidades reflejen el bracket verdadero.
+const KO_RESULTS = (() => {
+  const p = join(__dir, "data", "knockout-resultados-2026.json");
+  if (!existsSync(p)) return {};
+  const ko = JSON.parse(readFileSync(p, "utf8"));
+  return Object.fromEntries((ko.played || []).map((r) => [r.id, r.winner]));
+})();
 const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
 const HOSTS = new Set(["MEX", "CAN", "USA"]);
 const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
@@ -161,8 +170,10 @@ function simulate(rnd) {
     for (const m of round) {
       const a = winnerOf(m.home, rnd), b = winnerOf(m.away, rnd);
       if (a == null || b == null) { alive[m.id] = a || b; continue; }
-      alive[m.id] = knockoutWinner(a, b, rnd);
       if (m.id === bracket.final_id) finalists = [a, b];
+      // Ronda ya jugada: el ganador real avanza (no se muestrea).
+      if (KO_RESULTS[m.id]) { alive[m.id] = KO_RESULTS[m.id]; continue; }
+      alive[m.id] = knockoutWinner(a, b, rnd);
     }
   }
   return { tables, thirds, bestThirdGroups, finalists, champion: alive[bracket.final_id] };

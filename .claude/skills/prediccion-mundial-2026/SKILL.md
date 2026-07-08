@@ -17,6 +17,10 @@ World Cup, using the **Elo rating** of each team plus a **recent-form** adjustme
 - `data/grupos-resultados-2026.json` — the 12 groups, played results and the
   remaining fixtures.
 - `data/knockout-2026.json` — official Round-of-32 to Final bracket structure.
+- `data/knockout-resultados-2026.json` — real results of the knockout rounds already
+  played (Round of 32, Round of 16, …). When present, the projection and the Monte
+  Carlo condition on them: the real winners advance and only the unplayed rounds are
+  predicted/simulated. Add new results here as each round finishes.
 - `data/elo-series-completo-1901-2026.js` — full historical series (195 teams).
 
 **Source:** World Football Elo Ratings (eloratings.net), via the El Atlas chart.
@@ -95,4 +99,6 @@ recent results via `--formA/--formB`. Tested: it does not improve accuracy.
 ## Updating the data
 
 `bash scripts/actualizar.sh` (from repo root) refreshes the live Elo and regenerates
-everything. New match results go into `data/grupos-resultados-2026.json`.
+everything. New group-stage results go into `data/grupos-resultados-2026.json`; new
+knockout results go into `data/knockout-resultados-2026.json` (keyed by bracket match
+id, e.g. `M97`).

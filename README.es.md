@@ -82,8 +82,11 @@ bash scripts/actualizar.sh
 ```
 
 Baja el Elo en vivo de eloratings.net, refresca todo y regenera las predicciones.
-Un **GitHub Action** lo corre **todos los días**. Los resultados de partidos nuevos
-se agregan a `data/grupos-resultados-2026.json` (único paso manual).
+Un **GitHub Action** lo corre **todos los días**. Los resultados nuevos se agregan
+a mano: los de fase de grupos en `data/grupos-resultados-2026.json` y los de
+eliminatorias en `data/knockout-resultados-2026.json` (por id de llave del cuadro).
+Cuando hay resultados de eliminatorias, la proyección y el Monte Carlo se condicionan
+a ellos y solo predicen las rondas que faltan jugar.
 
 ---
 

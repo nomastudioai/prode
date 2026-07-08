@@ -18,20 +18,20 @@ The point of the case study isn't "beating the World Cup": it's showing, with da
 ## 🔮 Current predictions
 
 <!-- PRED:START -->
-_Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
+_Last auto-update: **2026-07-08**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
 
 **🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 2-1 Argentina**.
 
-**Most likely finalists (Monte Carlo):** Argentina vs Spain (16.4% of simulations).
+**Most likely finalists (Monte Carlo):** Argentina vs Spain (23.4% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 44.4% | 25.5% |
-| Spain | 37.1% | 23.4% |
-| France | 34.2% | 20.4% |
-| England | 19.7% | 9.3% |
-| Colombia | 10.4% | 3.8% |
-| Belgium | 6.6% | 2.3% |
+| Argentina | 49.9% | 26.3% |
+| Spain | 46.5% | 28.4% |
+| France | 39.8% | 22.4% |
+| England | 29.3% | 12.4% |
+| Norway | 11.7% | 3.5% |
+| Switzerland | 9.2% | 2.6% |
 
 Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
@@ -131,10 +131,13 @@ the predictions and this README. A **GitHub Action**
 ([`.github/workflows/actualizar.yml`](.github/workflows/actualizar.yml)) runs it
 **every day** during the World Cup and commits the changes.
 
-**New match results:** add them to
+**New match results:** group-stage games go in
 [`data/grupos-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/grupos-resultados-2026.json)
-(`played_matches` field), moving them out of `remaining_fixtures`. That's the only
-manual step; the rest is automatic.
+(`played_matches` field, moving them out of `remaining_fixtures`); knockout games go in
+[`data/knockout-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/knockout-resultados-2026.json)
+(`played` field, keyed by bracket match id). When knockout results are present, the
+projection and the Monte Carlo condition on them, predicting only the rounds not yet
+played. That's the only manual step; the rest is automatic.
 
 ---
 
