@@ -7,7 +7,7 @@
  * This is the "predicted bracket" (one concrete path). For probabilities
  * (who is LIKELY to reach the final), see simular.mjs (Monte Carlo).
  */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { loadData, predictFromEff, PARAMS } from "./model.mjs";
@@ -18,6 +18,16 @@ export function proyectar() {
   const elo = loadData();
   const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
   const bracket = JSON.parse(readFileSync(join(__dir, "data", "knockout-2026.json"), "utf8"));
+  // Resultados REALES de eliminatorias ya jugadas (opcional). Si existen, se usan
+  // para avanzar de ronda (la proyeccion continua desde los equipos verdaderos).
+  const koPath = join(__dir, "data", "knockout-resultados-2026.json");
+  const koResults = {};
+  let koMeta = null;
+  if (existsSync(koPath)) {
+    const ko = JSON.parse(readFileSync(koPath, "utf8"));
+    koMeta = ko.meta || null;
+    for (const r of ko.played || []) koResults[r.id] = r;
+  }
   const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
   const HOSTS = new Set(["MEX", "CAN", "USA"]);
   const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
@@ -114,10 +124,32 @@ export function proyectar() {
       const home = /^M\d+$/.test(m.home) ? winners[m.home] : resolveSlot(m.home);
       const away = /^M\d+$/.test(m.away) ? winners[m.away] : resolveSlot(m.away);
       if (home == null || away == null) { winners[m.id] = home || away; continue; }
+
+      // Partido ya jugado: usar resultado REAL y comparar con lo que el modelo
+      // habria predicho (pick pre-partido con Elo en vivo).
+      const res = koResults[m.id];
+      if (res) {
+        const real = new Set([res.home, res.away]);
+        if (!real.has(home) || !real.has(away)) {
+          throw new Error(`Resultado real de ${m.id} (${res.home} vs ${res.away}) no coincide con el bracket (${home} vs ${away}).`);
+        }
+        winners[m.id] = res.winner;
+        const pick = predKO(res.home, res.away).winner; // favorito del modelo
+        ties.push({
+          round: roundNames[ri], id: m.id, real: true,
+          home: name(res.home), away: name(res.away),
+          score: `${res.home_goals}-${res.away_goals}`,
+          pens: res.pens ? `${res.pens[0]}-${res.pens[1]}` : null,
+          winner: name(res.winner),
+          pick: name(pick), hit: pick === res.winner,
+        });
+        continue;
+      }
+
       const r = predKO(home, away);
       winners[m.id] = r.winner;
       ties.push({
-        round: roundNames[ri], id: m.id,
+        round: roundNames[ri], id: m.id, real: false,
         home: name(home), away: name(away),
         score: `${r.a}-${r.b}`, tight: r.tight,
         winner: name(r.winner),
@@ -133,5 +165,5 @@ export function proyectar() {
     equipos: tables[g].map((t, i) => ({ pos: i + 1, name: t.name, pts: t.pts, gd: t.gd })),
   };
 
-  return { standings, projectedGroupMatches, ties, roundNames, final: finalTie, champion };
+  return { standings, projectedGroupMatches, ties, roundNames, final: finalTie, champion, koMeta };
 }

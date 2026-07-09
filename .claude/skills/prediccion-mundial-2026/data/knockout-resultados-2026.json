@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "descripcion": "Resultados REALES de la fase eliminatoria del Mundial 2026 (32avos y octavos jugados).",
+    "fuente": "Recopilado y cruzado multi-fuente (Yahoo Sports, Al Jazeera, Olympics.com, Wikipedia). Verificado contra la topologia oficial del bracket (knockout-2026.json) y las tablas finales de grupos.",
+    "as_of": "2026-07-08",
+    "generado": "2026-07-08",
+    "nota": "home/away = orientacion real del partido; 'pens' = tanda de penales [local, visitante] cuando hubo empate en el tiempo reglamentario; 'winner' = ISO3 del equipo que avanzo. Cuartos, semis y final todavia no se jugaron.",
+    "rondas_jugadas": ["Round of 32", "Round of 16"]
+  },
+  "played": [
+    { "id": "M73", "round": "Round of 32", "home": "CAN", "away": "ZAF", "home_goals": 1, "away_goals": 0, "winner": "CAN" },
+    { "id": "M74", "round": "Round of 32", "home": "PRY", "away": "DEU", "home_goals": 1, "away_goals": 1, "pens": [4, 3], "winner": "PRY" },
+    { "id": "M75", "round": "Round of 32", "home": "MAR", "away": "NLD", "home_goals": 1, "away_goals": 1, "pens": [3, 2], "winner": "MAR" },
+    { "id": "M76", "round": "Round of 32", "home": "BRA", "away": "JPN", "home_goals": 2, "away_goals": 1, "winner": "BRA" },
+    { "id": "M77", "round": "Round of 32", "home": "FRA", "away": "SWE", "home_goals": 3, "away_goals": 0, "winner": "FRA" },
+    { "id": "M78", "round": "Round of 32", "home": "NOR", "away": "CIV", "home_goals": 2, "away_goals": 1, "winner": "NOR" },
+    { "id": "M79", "round": "Round of 32", "home": "MEX", "away": "ECU", "home_goals": 2, "away_goals": 0, "winner": "MEX" },
+    { "id": "M80", "round": "Round of 32", "home": "GBR", "away": "COD", "home_goals": 2, "away_goals": 1, "winner": "GBR" },
+    { "id": "M81", "round": "Round of 32", "home": "USA", "away": "BIH", "home_goals": 2, "away_goals": 0, "winner": "USA" },
+    { "id": "M82", "round": "Round of 32", "home": "BEL", "away": "SEN", "home_goals": 3, "away_goals": 2, "winner": "BEL" },
+    { "id": "M83", "round": "Round of 32", "home": "PRT", "away": "HRV", "home_goals": 2, "away_goals": 1, "winner": "PRT" },
+    { "id": "M84", "round": "Round of 32", "home": "ESP", "away": "AUT", "home_goals": 3, "away_goals": 0, "winner": "ESP" },
+    { "id": "M85", "round": "Round of 32", "home": "CHE", "away": "DZA", "home_goals": 2, "away_goals": 0, "winner": "CHE" },
+    { "id": "M86", "round": "Round of 32", "home": "ARG", "away": "CPV", "home_goals": 3, "away_goals": 2, "winner": "ARG" },
+    { "id": "M87", "round": "Round of 32", "home": "COL", "away": "GHA", "home_goals": 1, "away_goals": 0, "winner": "COL" },
+    { "id": "M88", "round": "Round of 32", "home": "EGY", "away": "AUS", "home_goals": 1, "away_goals": 1, "pens": [4, 2], "winner": "EGY" },
+
+    { "id": "M89", "round": "Round of 16", "home": "FRA", "away": "PRY", "home_goals": 1, "away_goals": 0, "winner": "FRA" },
+    { "id": "M90", "round": "Round of 16", "home": "MAR", "away": "CAN", "home_goals": 3, "away_goals": 0, "winner": "MAR" },
+    { "id": "M91", "round": "Round of 16", "home": "NOR", "away": "BRA", "home_goals": 2, "away_goals": 1, "winner": "NOR" },
+    { "id": "M92", "round": "Round of 16", "home": "GBR", "away": "MEX", "home_goals": 3, "away_goals": 2, "winner": "GBR" },
+    { "id": "M93", "round": "Round of 16", "home": "ESP", "away": "PRT", "home_goals": 1, "away_goals": 0, "winner": "ESP" },
+    { "id": "M94", "round": "Round of 16", "home": "BEL", "away": "USA", "home_goals": 4, "away_goals": 1, "winner": "BEL" },
+    { "id": "M95", "round": "Round of 16", "home": "ARG", "away": "EGY", "home_goals": 3, "away_goals": 2, "winner": "ARG" },
+    { "id": "M96", "round": "Round of 16", "home": "CHE", "away": "COL", "home_goals": 0, "away_goals": 0, "pens": [4, 3], "winner": "CHE" }
+  ]
+}
