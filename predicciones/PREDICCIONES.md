@@ -123,18 +123,18 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 ### Quarter-finals
 
 - **France 1-0 Netherlands** → advances **France**
-- **Spain 1-0 Belgium** → advances **Spain**
+- **Spain 2-0 Belgium** → advances **Spain**
 - **Brazil 1-2 England** → advances **England**
 - **Argentina 1-0 Colombia** → advances **Argentina**
 
 ### Semi-finals
 
-- **France 1-2 Spain** → advances **Spain**
+- **France 1-2 Spain** → advances **Spain** _(tight)_
 - **England 1-2 Argentina** → advances **Argentina**
 
 ### Final
 
-- **Spain 2-1 Argentina** → advances **Spain** _(tight)_
+- **Spain 2-1 Argentina** → advances **Spain**
 
 ### 🏆 Projected champion: **Spain**
 
@@ -256,28 +256,28 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 
 From 50,000 simulations of the whole tournament (official bracket, live Elo).
 
-**Most likely final: Argentina vs Spain** (occurs in 16.4% of simulations).
+**Most likely final: Argentina vs Spain** (occurs in 16.8% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 44.4% | 25.5% |
-| Spain | 37.1% | 23.4% |
-| France | 34.2% | 20.4% |
-| England | 19.7% | 9.3% |
-| Colombia | 10.4% | 3.8% |
-| Belgium | 6.6% | 2.3% |
-| Brazil | 6.5% | 2.3% |
-| Norway | 6.5% | 2.3% |
-| Netherlands | 6.1% | 2.2% |
-| Portugal | 5.9% | 2.3% |
+| Argentina | 44.5% | 24.2% |
+| Spain | 38.2% | 24.7% |
+| France | 37.5% | 23.0% |
+| England | 19.7% | 8.8% |
+| Colombia | 10.5% | 3.7% |
+| Brazil | 6.6% | 2.3% |
+| Norway | 6.4% | 2.0% |
+| Netherlands | 5.7% | 2.0% |
+| Belgium | 5.2% | 1.8% |
+| Portugal | 5.1% | 2.0% |
 
 **Most likely finals:**
 
-- Argentina vs Spain — 16.4%
-- Argentina vs France — 15.2%
-- England vs Spain — 7.3%
-- England vs France — 6.8%
-- Colombia vs Spain — 3.9%
-- Colombia vs France — 3.5%
+- Argentina vs Spain — 16.8%
+- Argentina vs France — 16.8%
+- England vs Spain — 7.6%
+- England vs France — 7.3%
+- Colombia vs Spain — 4.1%
+- Colombia vs France — 3.9%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.
