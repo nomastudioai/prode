@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-07-11",
+    "elo_live_actualizado": "2026-07-12",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -89,8 +89,8 @@
         "2026": 2
       },
       "in_index": true,
-      "elo_live": 2156,
-      "rank_live": 3,
+      "elo_live": 2177,
+      "rank_live": 2,
       "en_name": "Argentina"
     },
     {
@@ -125,7 +125,7 @@
       },
       "in_index": true,
       "elo_live": 2163,
-      "rank_live": 2,
+      "rank_live": 3,
       "en_name": "France"
     },
     {
@@ -159,7 +159,7 @@
         "2026": 4
       },
       "in_index": true,
-      "elo_live": 2076,
+      "elo_live": 2097,
       "rank_live": 4,
       "en_name": "England"
     },
@@ -300,7 +300,7 @@
       },
       "in_index": true,
       "elo_live": 1971,
-      "rank_live": 9,
+      "rank_live": 8,
       "en_name": "Netherlands"
     },
     {
@@ -369,7 +369,7 @@
         "2026": 10
       },
       "in_index": true,
-      "elo_live": 1907,
+      "elo_live": 1908,
       "rank_live": 13,
       "en_name": "Germany"
     },
@@ -404,8 +404,8 @@
         "2026": 11
       },
       "in_index": true,
-      "elo_live": 1972,
-      "rank_live": 8,
+      "elo_live": 1951,
+      "rank_live": 9,
       "en_name": "Norway"
     },
     {
@@ -474,7 +474,7 @@
         "2026": 13
       },
       "in_index": true,
-      "elo_live": 1881,
+      "elo_live": 1882,
       "rank_live": 16,
       "en_name": "Croatia"
     },
@@ -545,7 +545,7 @@
       },
       "in_index": true,
       "elo_live": 1948,
-      "rank_live": 11,
+      "rank_live": 10,
       "en_name": "Belgium"
     },
     {
@@ -614,8 +614,8 @@
         "2026": 17
       },
       "in_index": true,
-      "elo_live": 1949,
-      "rank_live": 10,
+      "elo_live": 1928,
+      "rank_live": 11,
       "en_name": "Switzerland"
     },
     {
@@ -1575,7 +1575,7 @@
         "2026": 77
       },
       "in_index": true,
-      "elo_live": 1560,
+      "elo_live": 1559,
       "rank_live": 73,
       "en_name": "South Africa"
     },
