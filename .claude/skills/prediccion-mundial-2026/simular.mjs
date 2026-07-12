@@ -16,12 +16,14 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { loadData, predictFromEff, autoForm, PARAMS } from "./model.mjs";
+import { cargarEliminatorias } from "./proyeccion.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dir, "..", "..", "..");
 const elo = loadData();
 const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
 const bracket = JSON.parse(readFileSync(join(__dir, "data", "knockout-2026.json"), "utf8"));
+const koReal = cargarEliminatorias(); // resultados reales de eliminatorias ya jugadas
 const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
 const HOSTS = new Set(["MEX", "CAN", "USA"]);
 const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
@@ -161,7 +163,8 @@ function simulate(rnd) {
     for (const m of round) {
       const a = winnerOf(m.home, rnd), b = winnerOf(m.away, rnd);
       if (a == null || b == null) { alive[m.id] = a || b; continue; }
-      alive[m.id] = knockoutWinner(a, b, rnd);
+      const real = koReal.byId.get(m.id);
+      alive[m.id] = real ? real.winner : knockoutWinner(a, b, rnd);
       if (m.id === bracket.final_id) finalists = [a, b];
     }
   }

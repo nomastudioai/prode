@@ -18,20 +18,20 @@ The point of the case study isn't "beating the World Cup": it's showing, with da
 ## 🔮 Current predictions
 
 <!-- PRED:START -->
-_Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
+_Last auto-update: **2026-07-12**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
 
 **🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 2-1 Argentina**.
 
-**Most likely finalists (Monte Carlo):** Argentina vs Spain (16.8% of simulations).
+**Next up, Semi-finals:** France vs Spain (2026-07-14): pick **Spain** 1-2 · England vs Argentina (2026-07-15): pick **Argentina** 1-2.
+
+**Most likely finalists (Monte Carlo):** Argentina vs Spain (32.9% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Argentina | 44.5% | 24.2% |
-| Spain | 38.2% | 24.7% |
-| France | 37.5% | 23.0% |
-| England | 19.7% | 8.8% |
-| Colombia | 10.5% | 3.7% |
-| Brazil | 6.6% | 2.3% |
+| Argentina | 60.7% | 28.7% |
+| Spain | 53.8% | 31.4% |
+| France | 46.2% | 25.6% |
+| England | 39.3% | 14.4% |
 
 Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->

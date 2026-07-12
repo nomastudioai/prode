@@ -15,7 +15,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { loadData, predictMatch, pick1x2, PARAMS } from "./model.mjs";
-import { proyectar } from "./proyeccion.mjs";
+import { proyectar, cargarEliminatorias } from "./proyeccion.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dir, "..", "..", "..");
@@ -25,12 +25,19 @@ const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.
 const bt = JSON.parse(readFileSync(join(__dir, "data", "backtest-stats.json"), "utf8"));
 const sim = JSON.parse(readFileSync(join(ROOT, "predicciones", "simulacion.json"), "utf8"));
 const proj = proyectar();
+const ko = cargarEliminatorias();
 const HOSTS = new Set(["MEX", "CAN", "USA"]);
 const eloOf = (iso) => byIso[iso].elo_live ?? byIso[iso].elo_2026;
 const en = (iso) => byIso[iso].en_name ?? byIso[iso].name;
 
 const pct = (x) => x.toFixed(1) + "%";
-const date = fix.meta.generado;
+const date = [fix.meta.generado, ko.meta?.actualizado].filter(Boolean).sort().pop();
+const upcomingById = Object.fromEntries(ko.upcoming.map((u) => [u.id, u]));
+// Next unplayed knockout round (if any): the matches to predict now.
+const nextTies = (() => {
+  const t = proj.ties.find((x) => !x.real);
+  return t ? proj.ties.filter((x) => x.round === t.round && !x.real) : [];
+})();
 
 // Predicted scoreline + pick for an upcoming match (live Elo).
 function predRow(homeIso, awayIso) {
@@ -89,23 +96,51 @@ if (fix.remaining_fixtures.length === 0 && existsSync(btMatchesPath)) {
   }
 }
 
-// 2) Projected knockout bracket (match by match)
-md += `## 2) Projected knockout bracket (match by match)\n\n`;
+// 2) Next round to be played (predictions with full probabilities)
+let sec = 2;
+if (nextTies.length > 0) {
+  md += `## ${sec}) Coming up: ${nextTies[0].round} (our predictions)\n\n`;
+  md += `The bracket below is **real** up to the last round played; these are the next matches, `;
+  md += `predicted with live Elo. 1 = first team wins, X = draw (in 90'), 2 = second team wins. `;
+  md += `The pick is the model's winner of the tie (a 90' draw goes to extra time/penalties).\n\n`;
+  md += `| Date | Match | Pick | Pred. score | p(1/X/2) |\n|---|---|---|---|---|\n`;
+  for (const t of nextTies) {
+    const r = predRow(t.isoHome, t.isoAway);
+    const u = upcomingById[t.id];
+    md += `| ${u?.date ?? "TBD"} | ${t.home} vs ${t.away} | **${t.winner}** | ${t.score} | ${(r.p1*100).toFixed(0)}/${(r.pX*100).toFixed(0)}/${(r.p2*100).toFixed(0)} |\n`;
+  }
+  md += `\n`;
+  sec++;
+}
+
+// 3) Knockout bracket: real results + projected remainder (match by match)
+md += `## ${sec}) Knockout bracket: results and projection (match by match)\n\n`;
+sec++;
 const groupsDone = fix.remaining_fixtures.length === 0;
+const anyReal = proj.ties.some((t) => t.real);
 md += `Single most-likely path: ${groupsDone ? "the **final** group standings" : "real group results + the most-likely score for the remaining group games"} `;
-md += `${groupsDone ? "set the bracket" : "decide the standings"}; then every knockout tie is predicted with a decisive `;
+md += `${groupsDone ? "set the bracket" : "decide the standings"}; `;
+md += anyReal
+  ? `ties already played show the **real result** (marked ✓, with a.e.t./penalties where it applied); the rest are predicted with a decisive `
+  : `then every knockout tie is predicted with a decisive `;
 md += `score and a winner (in reality many ties go to extra time/penalties; "(tight)" marks the `;
 md += `near coin-flips).\n\n`;
 let curRound = "";
 for (const t of proj.ties) {
   if (t.round !== curRound) { md += `\n### ${t.round}\n\n`; curRound = t.round; }
-  md += `- **${t.home} ${t.score} ${t.away}** → advances **${t.winner}**${t.tight ? " _(tight)_" : ""}\n`;
+  if (t.real) {
+    const extra = t.pens ? ` (a.e.t., ${t.pens} on penalties)` : t.aet ? ` (a.e.t.)` : "";
+    md += `- ✓ **${t.home} ${t.score} ${t.away}**${extra} → advanced **${t.winner}** _(played)_\n`;
+  } else {
+    md += `- **${t.home} ${t.score} ${t.away}** → advances **${t.winner}**${t.tight ? " _(tight)_" : ""}\n`;
+  }
 }
 md += `\n### 🏆 Projected champion: **${proj.champion}**\n\n`;
 md += `Projected final: ${proj.final.home} ${proj.final.score} ${proj.final.away} (winner ${proj.final.winner}, without the actual result).\n\n`;
 
-// 3) Who advances (Monte Carlo probabilities)
-md += `## 3) Who advances? Group probabilities\n\n`;
+// Who advances (Monte Carlo probabilities)
+md += `## ${sec}) Who advances? Group probabilities\n\n`;
+sec++;
 md += `Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed teams), `;
 md += `from ${sim.meta.simulaciones.toLocaleString("en")} Monte Carlo runs. ✓ = group already decided.\n\n`;
 for (const g of Object.keys(sim.grupos)) {
@@ -118,17 +153,20 @@ for (const g of Object.keys(sim.grupos)) {
   md += `\n`;
 }
 
-// 4) Finalist probabilities
-md += `## 4) Finalist probabilities (Monte Carlo)\n\n`;
-md += `From ${sim.meta.simulaciones.toLocaleString("en")} simulations of the whole tournament (official bracket, live Elo).\n\n`;
+// Finalist probabilities
+md += `## ${sec}) Finalist probabilities (Monte Carlo)\n\n`;
+md += `From ${sim.meta.simulaciones.toLocaleString("en")} simulations of the whole tournament (official bracket, live Elo`;
+md += anyReal ? `; knockout ties already played are fixed to their real result).\n\n` : `).\n\n`;
 md += `**Most likely final: ${sim.prediccion_finalistas}** `;
 md += `(occurs in ${pct(sim.final_mas_probable[0].prob)} of simulations).\n\n`;
 md += `| Team | Reaches final | Champion |\n|---|---|---|\n`;
-for (const r of sim.finalistas.slice(0, 10)) md += `| ${r.name} | ${pct(r.final)} | ${pct(r.champ)} |\n`;
+for (const r of sim.finalistas.filter((x) => x.final > 0).slice(0, 10)) md += `| ${r.name} | ${pct(r.final)} | ${pct(r.champ)} |\n`;
 md += `\n**Most likely finals:**\n\n`;
 for (const p of sim.final_mas_probable) md += `- ${p.final} — ${pct(p.prob)}\n`;
-md += `\n> Finalist probabilities are low and tightly bunched: the model has NO strong favorite, `;
-md += `and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.\n`;
+md += anyReal
+  ? `\n> Probabilities are conditioned on the real bracket so far: only the teams still alive can reach the final. Treat as indicative.\n`
+  : `\n> Finalist probabilities are low and tightly bunched: the model has NO strong favorite, ` +
+    `and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.\n`;
 
 writeFileSync(join(ROOT, "predicciones", "PREDICCIONES.md"), md);
 console.log("→ predicciones/PREDICCIONES.md");
@@ -139,10 +177,17 @@ resumen += `_Last auto-update: **${date}**. Backtest: the model gets the 1X2 rig
 resumen += `**${(bt.acc * 100).toFixed(1)}%** of ${bt.n} matches played (random ≈ 33%)._\n\n`;
 resumen += `**🏆 Projected champion (most-likely bracket): ${proj.champion}.** `;
 resumen += `Projected final: **${proj.final.home} ${proj.final.score} ${proj.final.away}**.\n\n`;
+if (nextTies.length > 0) {
+  resumen += `**Next up, ${nextTies[0].round}:** `;
+  resumen += nextTies.map((t) => {
+    const u = upcomingById[t.id];
+    return `${t.home} vs ${t.away}${u ? ` (${u.date})` : ""}: pick **${t.winner}** ${t.score}`;
+  }).join(" · ") + `.\n\n`;
+}
 resumen += `**Most likely finalists (Monte Carlo):** ${sim.prediccion_finalistas} `;
 resumen += `(${pct(sim.final_mas_probable[0].prob)} of simulations).\n\n`;
 resumen += `| Team | Reaches final | Champion |\n|---|---|---|\n`;
-for (const r of sim.finalistas.slice(0, 6)) resumen += `| ${r.name} | ${pct(r.final)} | ${pct(r.champ)} |\n`;
+for (const r of sim.finalistas.filter((x) => x.final > 0).slice(0, 6)) resumen += `| ${r.name} | ${pct(r.final)} | ${pct(r.champ)} |\n`;
 resumen += `\nFull detail (${groupsDone ? "our group-stage predictions vs the results" : "every group, every upcoming match"}, the match-by-match bracket) in `;
 resumen += `[**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).\n`;
 resumen += `<!-- PRED:END -->`;

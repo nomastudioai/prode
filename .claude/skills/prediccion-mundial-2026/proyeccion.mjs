@@ -7,17 +7,25 @@
  * This is the "predicted bracket" (one concrete path). For probabilities
  * (who is LIKELY to reach the final), see simular.mjs (Monte Carlo).
  */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { loadData, predictFromEff, PARAMS } from "./model.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 
+export function cargarEliminatorias() {
+  const p = join(__dir, "data", "eliminatorias-resultados-2026.json");
+  if (!existsSync(p)) return { byId: new Map(), meta: null, upcoming: [] };
+  const ko = JSON.parse(readFileSync(p, "utf8"));
+  return { byId: new Map(ko.matches.map((m) => [m.id, m])), meta: ko.meta, upcoming: ko.upcoming ?? [] };
+}
+
 export function proyectar() {
   const elo = loadData();
   const fix = JSON.parse(readFileSync(join(__dir, "data", "grupos-resultados-2026.json"), "utf8"));
   const bracket = JSON.parse(readFileSync(join(__dir, "data", "knockout-2026.json"), "utf8"));
+  const koReal = cargarEliminatorias().byId;
   const byIso = Object.fromEntries(elo.equipos.map((t) => [t.iso3, t]));
   const HOSTS = new Set(["MEX", "CAN", "USA"]);
   const ha = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
@@ -114,13 +122,26 @@ export function proyectar() {
       const home = /^M\d+$/.test(m.home) ? winners[m.home] : resolveSlot(m.home);
       const away = /^M\d+$/.test(m.away) ? winners[m.away] : resolveSlot(m.away);
       if (home == null || away == null) { winners[m.id] = home || away; continue; }
+      const real = koReal.get(m.id);
+      if (real) {
+        if ([real.home, real.away].sort().join() !== [home, away].sort().join())
+          throw new Error(`Resultado real de ${m.id} (${real.home}-${real.away}) no coincide con el bracket (${home}-${away})`);
+        winners[m.id] = real.winner;
+        ties.push({
+          round: roundNames[ri], id: m.id, isoHome: real.home, isoAway: real.away,
+          home: name(real.home), away: name(real.away),
+          score: `${real.home_goals}-${real.away_goals}`, tight: false,
+          winner: name(real.winner), real: true, aet: real.aet, pens: real.pens,
+        });
+        continue;
+      }
       const r = predKO(home, away);
       winners[m.id] = r.winner;
       ties.push({
-        round: roundNames[ri], id: m.id,
+        round: roundNames[ri], id: m.id, isoHome: home, isoAway: away,
         home: name(home), away: name(away),
         score: `${r.a}-${r.b}`, tight: r.tight,
-        winner: name(r.winner),
+        winner: name(r.winner), real: false,
       });
     }
   });
