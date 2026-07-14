@@ -22,13 +22,13 @@ _Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **6
 
 **🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 2-1 Argentina**.
 
-**Most likely finalists (Monte Carlo):** Argentina vs France (18.0% of simulations).
+**Most likely finalists (Monte Carlo):** Argentina vs France (18.1% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
 | Argentina | 47.7% | 27.2% |
 | Spain | 38.3% | 23.9% |
-| France | 37.3% | 21.7% |
+| France | 37.3% | 21.8% |
 | England | 22.0% | 10.3% |
 | Colombia | 9.8% | 3.6% |
 | Brazil | 6.1% | 2.1% |
