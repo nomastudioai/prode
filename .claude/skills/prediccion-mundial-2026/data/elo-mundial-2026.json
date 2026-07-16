@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-07-15",
+    "elo_live_actualizado": "2026-07-16",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -89,7 +89,7 @@
         "2026": 2
       },
       "in_index": true,
-      "elo_live": 2177,
+      "elo_live": 2200,
       "rank_live": 2,
       "en_name": "Argentina"
     },
@@ -159,7 +159,7 @@
         "2026": 4
       },
       "in_index": true,
-      "elo_live": 2097,
+      "elo_live": 2074,
       "rank_live": 4,
       "en_name": "England"
     },
