@@ -30,7 +30,7 @@ _Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **6
 | Spain | 49.5% | 32.3% |
 | France | 26.8% | 13.7% |
 | England | 17.0% | 7.2% |
-| Colombia | 9.5% | 3.2% |
+| Colombia | 9.4% | 3.2% |
 | Brazil | 5.8% | 1.9% |
 
 Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).

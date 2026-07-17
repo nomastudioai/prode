@@ -264,7 +264,7 @@ From 50,000 simulations of the whole tournament (official bracket, live Elo).
 | Spain | 49.5% | 32.3% |
 | France | 26.8% | 13.7% |
 | England | 17.0% | 7.2% |
-| Colombia | 9.5% | 3.2% |
+| Colombia | 9.4% | 3.2% |
 | Brazil | 5.8% | 1.9% |
 | Netherlands | 5.7% | 1.9% |
 | Belgium | 4.8% | 1.5% |
@@ -278,6 +278,6 @@ From 50,000 simulations of the whole tournament (official bracket, live Elo).
 - England vs Spain — 8.3%
 - Colombia vs Spain — 4.7%
 - England vs France — 4.6%
-- Brazil vs Spain — 2.9%
+- Brazil vs Spain — 3.0%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.
