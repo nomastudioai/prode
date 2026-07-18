@@ -38,6 +38,112 @@ Full detail (our group-stage predictions vs the results, the match-by-match brac
 
 ---
 
+## 📉 Post-mortem: how well did we do?
+
+<!-- POSTMORTEM:START -->
+_Post-mortem generated on **2026-07-18**. Every match was predicted with the same model (Elo pre-tournament + momentum, host advantage only). The group figure is the backtest; the knockout figure applies the identical model to each real tie._
+
+### 🎯 Headline
+
+| Stage | Matches | We got right | Accuracy | Reference |
+|---|---|---|---|---|
+| Group stage (1X2) | 72 | 44 | **61.1%** | random ≈ 33% · "higher Elo wins" ≈ 61% |
+| Knockouts (who advances) | 30 | 24 | **80.0%** | coin-flip = 50% |
+| **Whole tournament so far** | **102** | **68** | **66.7%** | |
+
+> The two metrics are **not** the same thing. In the group stage a match has three outcomes (win / draw / loss), so 33% is the random baseline. In the knockouts there are no draws: someone always advances, so the honest baseline is a 50/50 coin-flip. The knockout number is measured as "did we call the team that advanced", running the same Elo model on each **real** tie.
+
+**The model called the final right.** Its most-likely projected final was **Spain vs Argentina**, and that is exactly the real final (19/07). It also had both eventual finalists as the two most likely champions in the Monte Carlo (Spain 32.3%, Argentina 30.9%).
+
+### 🟦 Group stage: accuracy by group (44/72 = 61.1%)
+
+1X2 pick before kick-off vs the real result. Full match-by-match table (72 games) in [predicciones/PREDICCIONES.md](predicciones/PREDICCIONES.md).
+
+| Group | Right | Matches | Exact score |
+|---|---|---|---|
+| A | 4 | 6 | 2 |
+| B | 4 | 6 | 1 |
+| C | 5 | 6 | 1 |
+| D | 1 | 6 | 0 |
+| E | 4 | 6 | 1 |
+| F | 4 | 6 | 1 |
+| G | 2 | 6 | 2 |
+| H | 2 | 6 | 0 |
+| I | 6 | 6 | 0 |
+| J | 5 | 6 | 1 |
+| K | 3 | 6 | 0 |
+| L | 4 | 6 | 1 |
+| **Total** | **44** | **72** | **10** |
+
+### 🟥 Knockouts: accuracy by round (24/30 = 80.0%)
+
+| Round | Right | Matches |
+|---|---|---|
+| Round of 32 | 13 | 16 |
+| Round of 16 | 5 | 8 |
+| Quarter-finals | 4 | 4 |
+| Semi-finals | 2 | 2 |
+| **Total** | **24** | **30** |
+
+### 🔁 Knockouts: our prediction vs the real result (match by match)
+
+Our pick = the team the model made favourite. Pred. score = the model's most-likely decisive scoreline. ✓ = we called who advanced, ✗ = miss. `(a.e.t.)` extra time, `(pens)` penalties.
+
+| Round | Match | Real result | Advanced | Our pick | Pred. score | Hit |
+|---|---|---|---|---|---|---|
+| Round of 32 | South Africa vs Canada | **0-1** | Canada | Canada | 0-2 | ✓ |
+| Round of 32 | Germany vs Paraguay | **1-1 (pens 3-4)** | Paraguay | Germany | 2-1 | ✗ |
+| Round of 32 | Netherlands vs Morocco | **1-1 (pens 2-3)** | Morocco | Netherlands | 1-0 | ✗ |
+| Round of 32 | Brazil vs Japan | **2-1** | Brazil | Brazil | 2-1 | ✓ |
+| Round of 32 | France vs Sweden | **3-0** | France | France | 2-0 | ✓ |
+| Round of 32 | Ivory Coast vs Norway | **1-2** | Norway | Norway | 0-1 | ✓ |
+| Round of 32 | Mexico vs Ecuador | **2-0** | Mexico | Mexico | 2-1 | ✓ |
+| Round of 32 | England vs DR Congo | **2-1** | England | England | 2-0 | ✓ |
+| Round of 32 | United States vs Bosnia and Herzegovina | **2-0** | United States | United States | 1-0 | ✓ |
+| Round of 32 | Belgium vs Senegal | **3-2 (a.e.t.)** | Belgium | Belgium | 2-1 | ✓ |
+| Round of 32 | Portugal vs Croatia | **2-1** | Portugal | Portugal | 2-1 | ✓ |
+| Round of 32 | Spain vs Austria | **3-0** | Spain | Spain | 2-0 | ✓ |
+| Round of 32 | Switzerland vs Algeria | **2-0** | Switzerland | Switzerland | 1-0 | ✓ |
+| Round of 32 | Argentina vs Cape Verde | **3-2 (a.e.t.)** | Argentina | Argentina | 2-0 | ✓ |
+| Round of 32 | Colombia vs Ghana | **1-0** | Colombia | Colombia | 2-0 | ✓ |
+| Round of 32 | Australia vs Egypt | **1-1 (pens 2-4)** | Egypt | Australia | 2-1 | ✗ |
+| Round of 16 | Paraguay vs France | **0-1** | France | France | 0-1 | ✓ |
+| Round of 16 | Canada vs Morocco | **0-3** | Morocco | Canada | 2-1 | ✗ |
+| Round of 16 | Brazil vs Norway | **1-2** | Norway | Brazil | 2-1 | ✗ |
+| Round of 16 | Mexico vs England | **2-3** | England | England | 1-2 | ✓ |
+| Round of 16 | Portugal vs Spain | **0-1** | Spain | Spain | 0-1 | ✓ |
+| Round of 16 | United States vs Belgium | **1-4** | Belgium | Belgium | 0-1 | ✓ |
+| Round of 16 | Argentina vs Egypt | **3-2 (a.e.t.)** | Argentina | Argentina | 2-0 | ✓ |
+| Round of 16 | Switzerland vs Colombia | **0-0 (pens 4-3)** | Switzerland | Colombia | 1-2 | ✗ |
+| Quarter-finals | France vs Morocco | **2-0** | France | France | 2-0 | ✓ |
+| Quarter-finals | Spain vs Belgium | **2-1** | Spain | Spain | 2-0 | ✓ |
+| Quarter-finals | Norway vs England | **1-2** | England | England | 1-2 | ✓ |
+| Quarter-finals | Argentina vs Switzerland | **3-1** | Argentina | Argentina | 1-0 | ✓ |
+| Semi-finals | France vs Spain | **0-2** | Spain | Spain | 1-2 | ✓ |
+| Semi-finals | England vs Argentina | **1-2** | Argentina | Argentina | 1-2 | ✓ |
+
+**Where the model missed in the knockouts (6):** Germany was favoured but Paraguay advanced (Germany vs Paraguay); Netherlands was favoured but Morocco advanced (Netherlands vs Morocco); Australia was favoured but Egypt advanced (Australia vs Egypt); Canada was favoured but Morocco advanced (Canada vs Morocco); Brazil was favoured but Norway advanced (Brazil vs Norway); Colombia was favoured but Switzerland advanced (Switzerland vs Colombia).
+
+### ⏳ Still to play: the model's prediction
+
+These two matches had **not been played** when this post-mortem was generated (third place 2026-07-18, final 2026-07-19). No real result yet, here is only the model's forecast, to be checked afterwards.
+
+| Match | Round | Date | Model favourite | Pred. score | p(1/X/2) |
+|---|---|---|---|---|---|
+| France vs England | Third place play-off | 2026-07-18 | **France** (38.8%) | 2-1 | 38/29/31 |
+| Spain vs Argentina | Final | 2026-07-19 | **Spain** (37.8%) | 2-1 | 37/29/32 |
+
+### 🧠 What the post-mortem says about the model
+
+1. **Consistent, not clairvoyant.** ~61.1% in groups and 80.0% in knockouts is roughly "the higher-Elo team wins": solid, but it lives or dies with the favourites. It cannot see an upset coming (Paraguay over Germany, Morocco over the Netherlands, Norway over Brazil), which is exactly where a pure-Elo index hits its ceiling.
+2. **Penalties are a coin-flip the model doesn't model.** Several ties it "lost" were 90-minute draws decided from the spot, and the Elo index has nothing to say about a shootout.
+3. **It nailed the big picture.** The projected bracket's final (Spain vs Argentina) is the real final, and the two finalists were the model's top-2 title favourites. The signal is strongest exactly where there is the most data (elite teams, large Elo gaps) and weakest in the close, one-off games.
+<!-- POSTMORTEM:END -->
+
+Full detail in [**predicciones/POSTMORTEM.md**](predicciones/POSTMORTEM.md).
+
+---
+
 ## 🧪 What we tried (and what we learned)
 
 We started from a base model (Elo → expected goals → Poisson) and evaluated it with
@@ -131,10 +237,13 @@ the predictions and this README. A **GitHub Action**
 ([`.github/workflows/actualizar.yml`](.github/workflows/actualizar.yml)) runs it
 **every day** during the World Cup and commits the changes.
 
-**New match results:** add them to
+**New match results:** add group games to
 [`data/grupos-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/grupos-resultados-2026.json)
-(`played_matches` field), moving them out of `remaining_fixtures`. That's the only
-manual step; the rest is automatic.
+(`played_matches` field), moving them out of `remaining_fixtures`; add knockout
+games to
+[`data/knockout-resultados-2026.json`](.claude/skills/prediccion-mundial-2026/data/knockout-resultados-2026.json)
+(move a tie from `pending` to `played` with its score and who advanced). That's the
+only manual step; the rest is automatic.
 
 ---
 
@@ -143,8 +252,10 @@ manual step; the rest is automatic.
 - **Elo:** eloratings.net (via El Atlas). 46 of 48 teams come from the Atlas
   extract; **Scotland and Curacao** are filled in with the live Elo from eloratings.
 - **Results and fixtures:** collected and cross-checked across multiple public
-  sources (Wikipedia, ESPN, FIFA, Yahoo, FOX, CBS, NBC). Nothing is invented:
-  results not confirmed by two sources are kept as "pending".
+  sources (FIFA match centre, Wikipedia, ESPN, Sky Sports, Yahoo, FOX, CBS, Al
+  Jazeera). Nothing is invented: results not confirmed by two sources are kept as
+  "pending" (the third-place match and the final had not been played when the
+  post-mortem was written, so they carry only the model's forecast, not a result).
 - **Knockout bracket:** official FIFA structure; the fine pairings after the Round
   of 32 are the least certain part (see notes in the data).
 
@@ -160,6 +271,7 @@ LICENSE                       · MIT (code) + data note
 scripts/actualizar.sh         · automatic update
 .github/workflows/            · daily Action
 predicciones/PREDICCIONES.md  · full predictions (auto-generated)
+predicciones/POSTMORTEM.md    · tournament post-mortem (auto-generated)
 .claude/skills/prediccion-mundial-2026/
   ├── model.mjs               · the model (Elo + Poisson + Dixon-Coles)
   ├── predict.mjs             · predict one match
@@ -169,6 +281,7 @@ predicciones/PREDICCIONES.md  · full predictions (auto-generated)
   ├── experiment-forma.mjs    · in-tournament form experiment
   ├── actualizar-elo.mjs      · live Elo refresh
   ├── genera-predicciones.mjs · generates the public documents
+  ├── postmortem.mjs          · groups + knockouts prediction vs reality
   └── data/                   · Elo index, groups, results, bracket
 ```
 
