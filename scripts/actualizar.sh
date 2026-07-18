@@ -25,7 +25,10 @@ node "$SKILL/backtest.mjs" --md > /dev/null
 echo "4/5 - Monte Carlo tournament simulation ..."
 node "$SKILL/simular.mjs" 50000 --json > /dev/null
 
-echo "5/5 - Regenerating predictions and README ..."
+echo "5/6 - Regenerating predictions and README ..."
 node "$SKILL/genera-predicciones.mjs"
+
+echo "6/6 - Regenerating tournament post-mortem ..."
+node "$SKILL/postmortem.mjs"
 
 echo "Done. Review the changes with: git diff"

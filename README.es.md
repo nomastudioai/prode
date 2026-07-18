@@ -27,6 +27,43 @@ El documento de predicciones (en inglés, autogenerado y actualizado a diario) e
 
 ---
 
+## 📉 Post-mortem: ¿cuánto acertamos?
+
+Con el Mundial en su recta final, medimos el modelo contra los resultados reales de
+todo el torneo. Misma metodología que el backtest (Elo pre-torneo + momentum, sin
+fuga de datos). En grupos la métrica es 1X2 (gana local / empate / gana visitante,
+azar ≈ 33%); en eliminatorias no hay empate, así que la métrica es "acertamos quién
+avanza" (moneda al aire = 50%).
+
+| Fase | Partidos | Acertados | Acierto |
+|---|---|---|---|
+| Fase de grupos (1X2) | 72 | 44 | **61,1%** |
+| Eliminatorias (quién avanza) | 30 | 24 | **80,0%** |
+| **Torneo hasta ahora** | **102** | **68** | **66,7%** |
+
+**El modelo clavó la final.** Su final proyectada más probable era **España vs
+Argentina**, que es exactamente la final real (19/07), y tenía a los dos finalistas
+como sus dos máximos candidatos al título (España 32,3%, Argentina 30,9%). Donde falló
+fue en los batacazos que el Elo no puede anticipar (Paraguay a Alemania, Marruecos a
+Países Bajos, Noruega a Brasil) y en las definiciones por penales, que son otra moneda
+al aire. El detalle partido a partido, con las tablas de predicción vs realidad, está en
+👉 [**predicciones/POSTMORTEM.md**](predicciones/POSTMORTEM.md).
+
+**Pronóstico de los dos que faltan** (Elo en vivo de eloratings + Monte Carlo de
+50.000 corridas, mismo método que el cuadro proyectado; el ganador incluye alargue y
+penales):
+
+| Partido | Ronda | Favorito | Marcador | p(1/X/2) 90' | Gana la llave (MC) |
+|---|---|---|---|---|---|
+| Francia vs Inglaterra | Tercer puesto | Francia | 2-1 | 39/29/31 | Francia 56,6% |
+| España vs Argentina | Final | España | 2-1 | 38/29/32 | España 54,0% |
+
+> Nota: el partido por el tercer puesto (18/07) y la final (19/07) todavía no se
+> jugaron cuando se escribió este post-mortem, así que llevan solo el pronóstico del
+> modelo, no un resultado real.
+
+---
+
 ## 🧪 Qué probamos (y qué aprendimos)
 
 Partimos de un modelo base (Elo → goles esperados → Poisson) y lo evaluamos con un

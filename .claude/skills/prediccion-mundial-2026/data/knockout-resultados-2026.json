@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "descripcion": "Resultados REALES de la fase eliminatoria del Mundial 2026 (R32 -> Final).",
+    "fuente": "Recopilado y cruzado multi-fuente (FIFA match centre, ESPN, Sky Sports, Yahoo Sports, Al Jazeera, olympics.com, CBS/FOX Sports).",
+    "generado": "2026-07-18",
+    "nota": "Marcadores al final del tiempo reglamentario salvo indicacion. 'aet' = definido en tiempo suplementario; 'pens' = definido por penales (se guarda el marcador con el que se llego a la definicion y el resultado de la tanda). El partido por el tercer puesto (18/07) y la final (19/07) todavia no se jugaron: played=false.",
+    "metodo_prediccion": "Cada llave real se predice con el MISMO modelo que el backtest de grupos: Elo PRE-torneo (elo_2026 del Atlas) + momentum del indice, localia solo para anfitriones (MEX/CAN/USA). Metrica de eliminatorias = acerto quien AVANZA (en eliminatoria no hay empate).",
+    "pendientes": ["third_place", "final"]
+  },
+  "played": [
+    { "round": "Round of 32", "id": "M73", "date": "2026-06-28", "home": "ZAF", "away": "CAN", "home_goals": 0, "away_goals": 1, "decision": "reg", "advancer": "CAN" },
+    { "round": "Round of 32", "id": "M74", "date": "2026-06-28", "home": "DEU", "away": "PRY", "home_goals": 1, "away_goals": 1, "decision": "pens", "pens": { "home": 3, "away": 4 }, "advancer": "PRY" },
+    { "round": "Round of 32", "id": "M75", "date": "2026-06-29", "home": "NLD", "away": "MAR", "home_goals": 1, "away_goals": 1, "decision": "pens", "pens": { "home": 2, "away": 3 }, "advancer": "MAR" },
+    { "round": "Round of 32", "id": "M76", "date": "2026-06-29", "home": "BRA", "away": "JPN", "home_goals": 2, "away_goals": 1, "decision": "reg", "advancer": "BRA" },
+    { "round": "Round of 32", "id": "M77", "date": "2026-06-30", "home": "FRA", "away": "SWE", "home_goals": 3, "away_goals": 0, "decision": "reg", "advancer": "FRA" },
+    { "round": "Round of 32", "id": "M78", "date": "2026-06-30", "home": "CIV", "away": "NOR", "home_goals": 1, "away_goals": 2, "decision": "reg", "advancer": "NOR" },
+    { "round": "Round of 32", "id": "M79", "date": "2026-06-30", "home": "MEX", "away": "ECU", "home_goals": 2, "away_goals": 0, "decision": "reg", "advancer": "MEX" },
+    { "round": "Round of 32", "id": "M80", "date": "2026-07-01", "home": "GBR", "away": "COD", "home_goals": 2, "away_goals": 1, "decision": "reg", "advancer": "GBR" },
+    { "round": "Round of 32", "id": "M81", "date": "2026-07-01", "home": "USA", "away": "BIH", "home_goals": 2, "away_goals": 0, "decision": "reg", "advancer": "USA" },
+    { "round": "Round of 32", "id": "M82", "date": "2026-07-02", "home": "BEL", "away": "SEN", "home_goals": 3, "away_goals": 2, "decision": "aet", "advancer": "BEL" },
+    { "round": "Round of 32", "id": "M83", "date": "2026-07-02", "home": "PRT", "away": "HRV", "home_goals": 2, "away_goals": 1, "decision": "reg", "advancer": "PRT" },
+    { "round": "Round of 32", "id": "M84", "date": "2026-07-02", "home": "ESP", "away": "AUT", "home_goals": 3, "away_goals": 0, "decision": "reg", "advancer": "ESP" },
+    { "round": "Round of 32", "id": "M85", "date": "2026-07-01", "home": "CHE", "away": "DZA", "home_goals": 2, "away_goals": 0, "decision": "reg", "advancer": "CHE" },
+    { "round": "Round of 32", "id": "M86", "date": "2026-07-03", "home": "ARG", "away": "CPV", "home_goals": 3, "away_goals": 2, "decision": "aet", "advancer": "ARG" },
+    { "round": "Round of 32", "id": "M87", "date": "2026-07-03", "home": "COL", "away": "GHA", "home_goals": 1, "away_goals": 0, "decision": "reg", "advancer": "COL" },
+    { "round": "Round of 32", "id": "M88", "date": "2026-07-03", "home": "AUS", "away": "EGY", "home_goals": 1, "away_goals": 1, "decision": "pens", "pens": { "home": 2, "away": 4 }, "advancer": "EGY" },
+
+    { "round": "Round of 16", "id": "M89", "date": "2026-07-04", "home": "PRY", "away": "FRA", "home_goals": 0, "away_goals": 1, "decision": "reg", "advancer": "FRA" },
+    { "round": "Round of 16", "id": "M90", "date": "2026-07-04", "home": "CAN", "away": "MAR", "home_goals": 0, "away_goals": 3, "decision": "reg", "advancer": "MAR" },
+    { "round": "Round of 16", "id": "M91", "date": "2026-07-05", "home": "BRA", "away": "NOR", "home_goals": 1, "away_goals": 2, "decision": "reg", "advancer": "NOR" },
+    { "round": "Round of 16", "id": "M92", "date": "2026-07-05", "home": "MEX", "away": "GBR", "home_goals": 2, "away_goals": 3, "decision": "reg", "advancer": "GBR" },
+    { "round": "Round of 16", "id": "M93", "date": "2026-07-06", "home": "PRT", "away": "ESP", "home_goals": 0, "away_goals": 1, "decision": "reg", "advancer": "ESP" },
+    { "round": "Round of 16", "id": "M94", "date": "2026-07-06", "home": "USA", "away": "BEL", "home_goals": 1, "away_goals": 4, "decision": "reg", "advancer": "BEL" },
+    { "round": "Round of 16", "id": "M95", "date": "2026-07-07", "home": "ARG", "away": "EGY", "home_goals": 3, "away_goals": 2, "decision": "aet", "advancer": "ARG" },
+    { "round": "Round of 16", "id": "M96", "date": "2026-07-07", "home": "CHE", "away": "COL", "home_goals": 0, "away_goals": 0, "decision": "pens", "pens": { "home": 4, "away": 3 }, "advancer": "CHE" },
+
+    { "round": "Quarter-finals", "id": "M97", "date": "2026-07-09", "home": "FRA", "away": "MAR", "home_goals": 2, "away_goals": 0, "decision": "reg", "advancer": "FRA" },
+    { "round": "Quarter-finals", "id": "M98", "date": "2026-07-10", "home": "ESP", "away": "BEL", "home_goals": 2, "away_goals": 1, "decision": "reg", "advancer": "ESP" },
+    { "round": "Quarter-finals", "id": "M99", "date": "2026-07-10", "home": "NOR", "away": "GBR", "home_goals": 1, "away_goals": 2, "decision": "reg", "advancer": "GBR" },
+    { "round": "Quarter-finals", "id": "M100", "date": "2026-07-11", "home": "ARG", "away": "CHE", "home_goals": 3, "away_goals": 1, "decision": "reg", "advancer": "ARG" },
+
+    { "round": "Semi-finals", "id": "M101", "date": "2026-07-14", "home": "FRA", "away": "ESP", "home_goals": 0, "away_goals": 2, "decision": "reg", "advancer": "ESP" },
+    { "round": "Semi-finals", "id": "M102", "date": "2026-07-15", "home": "GBR", "away": "ARG", "home_goals": 1, "away_goals": 2, "decision": "reg", "advancer": "ARG" }
+  ],
+  "pending": [
+    { "round": "Third place play-off", "id": "M103", "date": "2026-07-18", "home": "FRA", "away": "GBR", "played": false },
+    { "round": "Final", "id": "M104", "date": "2026-07-19", "home": "ESP", "away": "ARG", "played": false }
+  ]
+}
