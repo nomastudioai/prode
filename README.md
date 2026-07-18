@@ -126,12 +126,12 @@ Our pick = the team the model made favourite. Pred. score = the model's most-lik
 
 ### ⏳ Still to play: the model's prediction
 
-These two matches had **not been played** when this post-mortem was generated (third place 2026-07-18, final 2026-07-19). No real result yet, here is only the model's forecast, to be checked afterwards.
+These two matches had **not been played** when this post-mortem was generated (third place 2026-07-18, final 2026-07-19). No real result yet, here is only the model's forecast, to be checked afterwards. Forecast made the **forward** way (live eloratings.net Elo, same as the projected bracket), with a **50,000-run Monte Carlo** resolving draws by penalties: "1/X/2" is the 90-minute result, "Wins the tie" includes extra time and shoot-outs.
 
-| Match | Round | Date | Model favourite | Pred. score | p(1/X/2) |
-|---|---|---|---|---|---|
-| France vs England | Third place play-off | 2026-07-18 | **France** (38.8%) | 2-1 | 38/29/31 |
-| Spain vs Argentina | Final | 2026-07-19 | **Spain** (37.8%) | 2-1 | 37/29/32 |
+| Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |
+|---|---|---|---|---|---|---|
+| France vs England | Third place play-off | 2026-07-18 | **France** | 2-1 | 39/29/31 | France 56.6% |
+| Spain vs Argentina | Final | 2026-07-19 | **Spain** | 2-1 | 38/29/32 | Spain 54.0% |
 
 ### 🧠 What the post-mortem says about the model
 

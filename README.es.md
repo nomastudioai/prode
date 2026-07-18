@@ -49,6 +49,15 @@ Países Bajos, Noruega a Brasil) y en las definiciones por penales, que son otra
 al aire. El detalle partido a partido, con las tablas de predicción vs realidad, está en
 👉 [**predicciones/POSTMORTEM.md**](predicciones/POSTMORTEM.md).
 
+**Pronóstico de los dos que faltan** (Elo en vivo de eloratings + Monte Carlo de
+50.000 corridas, mismo método que el cuadro proyectado; el ganador incluye alargue y
+penales):
+
+| Partido | Ronda | Favorito | Marcador | p(1/X/2) 90' | Gana la llave (MC) |
+|---|---|---|---|---|---|
+| Francia vs Inglaterra | Tercer puesto | Francia | 2-1 | 39/29/31 | Francia 56,6% |
+| España vs Argentina | Final | España | 2-1 | 38/29/32 | España 54,0% |
+
 > Nota: el partido por el tercer puesto (18/07) y la final (19/07) todavía no se
 > jugaron cuando se escribió este post-mortem, así que llevan solo el pronóstico del
 > modelo, no un resultado real.

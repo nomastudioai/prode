@@ -18,7 +18,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { loadData, predictMatch, pick1x2, PARAMS } from "./model.mjs";
+import { loadData, predictMatch, predictFromEff, pick1x2, PARAMS } from "./model.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dir, "..", "..", "..");
@@ -86,13 +86,51 @@ for (const r of koRows) {
 const kHits = koRows.filter((r) => r.hit).length;
 const kN = koRows.length;
 
-// ─── 3) Partidos pendientes: prediccion del modelo ─────────────────────
+// ─── 3) Partidos pendientes: prediccion FORWARD (Elo EN VIVO + Monte Carlo) ─
+// Mismo metodo que proyeccion.mjs / simular.mjs: Elo en vivo (eloratings) + localia
+// de anfitrion, SIN el momentum del backtest; el ganador incluye alargue/penales
+// por Monte Carlo (empate resuelto con una logistica sobre la diferencia de Elo).
+const MC_N = 50000;
+const eloLive = (iso) => byIso[iso].elo_live ?? byIso[iso].elo_2026;
+const haOf = (iso) => (HOSTS.has(iso) ? PARAMS.HOME_ADV : 0);
+// PRNG determinista (mulberry32), igual que simular.mjs (sin Math.random global).
+function makeRng(seed) {
+  let t = seed >>> 0;
+  return function () {
+    t += 0x6d2b79f5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function predictForward(homeIso, awayIso) {
+  const r = predictFromEff(eloLive(homeIso) + haOf(homeIso), eloLive(awayIso) + haOf(awayIso));
+  const homeWins90 = r.pWin >= r.pLose;
+  const dec = r.scores.find((s) => (homeWins90 ? s.a > s.b : s.b > s.a)) || r.scores[0];
+  // Monte Carlo: muestreo de marcador; si hay empate, penales ~ logistica de Elo.
+  let acc = 0;
+  const cdf = r.scores.map((s) => { acc += s.p; return { a: s.a, b: s.b, c: acc }; });
+  const pe = 1 / (1 + Math.pow(10, -(eloLive(homeIso) - eloLive(awayIso)) / 400)); // p(local gana penales)
+  const rng = makeRng(20260719);
+  let winH = 0;
+  for (let i = 0; i < MC_N; i++) {
+    const x = rng() * acc;
+    let a = cdf[cdf.length - 1].a, b = cdf[cdf.length - 1].b;
+    for (const s of cdf) { if (x <= s.c) { a = s.a; b = s.b; break; } }
+    if (a > b) winH++;
+    else if (a === b) { if (rng() < pe) winH++; }
+  }
+  return { probs: { "1": r.pWin, "X": r.pDraw, "2": r.pLose }, decScore: `${dec.a}-${dec.b}`,
+           winner: homeWins90 ? homeIso : awayIso, mcHome: winH / MC_N };
+}
 const pendRows = (ko.pending || []).map((m) => {
-  const p = predict(m.home, m.away);
-  const favIso = p.winner;
-  const favProb = favIso === m.home ? p.probs["1"] : p.probs["2"];
-  return { ...m, predWinner: favIso, predScore: p.decScore,
-           p1: p.probs["1"], pX: p.probs["X"], p2: p.probs["2"], favProb };
+  const p = predictForward(m.home, m.away);
+  const mcWinnerIso = p.mcHome >= 0.5 ? m.home : m.away;
+  const mcWinnerProb = p.mcHome >= 0.5 ? p.mcHome : 1 - p.mcHome;
+  return { ...m, predWinner: p.winner, predScore: p.decScore,
+           p1: p.probs["1"], pX: p.probs["X"], p2: p.probs["2"],
+           favProb: p.winner === m.home ? p.probs["1"] : p.probs["2"],
+           mcWinnerIso, mcWinnerProb };
 });
 
 // ─── 4) Totales ────────────────────────────────────────────────────────
@@ -164,10 +202,14 @@ if (pendRows.length) {
   b += `### ⏳ Still to play: the model's prediction\n\n`;
   b += `These two matches had **not been played** when this post-mortem was generated `;
   b += `(third place ${ko.pending[0].date}, final ${ko.pending[1].date}). No real result yet, `;
-  b += `here is only the model's forecast, to be checked afterwards.\n\n`;
-  b += `| Match | Round | Date | Model favourite | Pred. score | p(1/X/2) |\n|---|---|---|---|---|---|\n`;
+  b += `here is only the model's forecast, to be checked afterwards. Forecast made the **forward** `;
+  b += `way (live eloratings.net Elo, same as the projected bracket), with a **${MC_N.toLocaleString("en")}-run `;
+  b += `Monte Carlo** resolving draws by penalties: "1/X/2" is the 90-minute result, "Wins the tie" `;
+  b += `includes extra time and shoot-outs.\n\n`;
+  b += `| Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |\n`;
+  b += `|---|---|---|---|---|---|---|\n`;
   for (const r of pendRows) {
-    b += `| ${en(r.home)} vs ${en(r.away)} | ${r.round} | ${r.date} | **${en(r.predWinner)}** (${pc(r.favProb)}) | ${r.predScore} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} |\n`;
+    b += `| ${en(r.home)} vs ${en(r.away)} | ${r.round} | ${r.date} | **${en(r.predWinner)}** | ${r.predScore} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} | ${en(r.mcWinnerIso)} ${pc(r.mcWinnerProb)} |\n`;
   }
   b += `\n`;
 }
@@ -221,9 +263,12 @@ md += `| Group | Right | Matches | Exact score |\n|---|---|---|---|\n`;
 for (const g of Object.keys(groups).sort()) md += `| ${g} | ${groups[g].hits} | ${groups[g].n} | ${groups[g].exact} |\n`;
 md += `| Total | ${gHits} | ${gN} | ${gExact} |\n\n`;
 if (pendRows.length) {
-  md += `## Still to play (model forecast, no real result yet)\n\n`;
-  md += `| Match | Round | Date | Model favourite | Pred. score | p(1/X/2) |\n|---|---|---|---|---|---|\n`;
-  for (const r of pendRows) md += `| ${en(r.home)} vs ${en(r.away)} | ${r.round} | ${r.date} | ${en(r.predWinner)} (${pc(r.favProb)}) | ${r.predScore} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} |\n`;
+  md += `## Still to play (forward forecast: live Elo + Monte Carlo, no real result yet)\n\n`;
+  md += `Live eloratings.net Elo (same method as the projected bracket) + a ${MC_N.toLocaleString("en")}-run `;
+  md += `Monte Carlo resolving draws by penalties. "1/X/2" = 90-minute result; "Wins the tie" = incl. extra time / shoot-out.\n\n`;
+  md += `| Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |\n`;
+  md += `|---|---|---|---|---|---|---|\n`;
+  for (const r of pendRows) md += `| ${en(r.home)} vs ${en(r.away)} | ${r.round} | ${r.date} | ${en(r.predWinner)} | ${r.predScore} | ${(r.p1 * 100) | 0}/${(r.pX * 100) | 0}/${(r.p2 * 100) | 0} | ${en(r.mcWinnerIso)} ${pc(r.mcWinnerProb)} |\n`;
   md += `\n`;
 }
 writeFileSync(join(ROOT, "predicciones", "POSTMORTEM.md"), md);

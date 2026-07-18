@@ -65,10 +65,12 @@ Group-stage exact scorelines: 10/72 (13.9%).
 | L | 4 | 6 | 1 |
 | Total | 44 | 72 | 10 |
 
-## Still to play (model forecast, no real result yet)
+## Still to play (forward forecast: live Elo + Monte Carlo, no real result yet)
 
-| Match | Round | Date | Model favourite | Pred. score | p(1/X/2) |
-|---|---|---|---|---|---|
-| France vs England | Third place play-off | 2026-07-18 | France (38.8%) | 2-1 | 38/29/31 |
-| Spain vs Argentina | Final | 2026-07-19 | Spain (37.8%) | 2-1 | 37/29/32 |
+Live eloratings.net Elo (same method as the projected bracket) + a 50,000-run Monte Carlo resolving draws by penalties. "1/X/2" = 90-minute result; "Wins the tie" = incl. extra time / shoot-out.
+
+| Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |
+|---|---|---|---|---|---|---|
+| France vs England | Third place play-off | 2026-07-18 | France | 2-1 | 39/29/31 | France 56.6% |
+| Spain vs Argentina | Final | 2026-07-19 | Spain | 2-1 | 38/29/32 | Spain 54.0% |
 
