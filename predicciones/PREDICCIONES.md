@@ -97,7 +97,7 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 - **Netherlands 2-1 Morocco** → advances **Netherlands**
 - **Brazil 2-1 Japan** → advances **Brazil**
 - **France 2-0 Sweden** → advances **France**
-- **Ivory Coast 0-2 Norway** → advances **Norway**
+- **Ivory Coast 0-1 Norway** → advances **Norway**
 - **Mexico 1-0 Ecuador** → advances **Mexico**
 - **England 2-0 DR Congo** → advances **England**
 - **United States 1-0 Bosnia and Herzegovina** → advances **United States**
@@ -262,14 +262,14 @@ From 50,000 simulations of the whole tournament (official bracket, live Elo).
 |---|---|---|
 | Spain | 57.5% | 39.9% |
 | Argentina | 45.2% | 24.0% |
-| England | 26.4% | 12.4% |
-| France | 18.1% | 8.2% |
-| Colombia | 9.2% | 3.1% |
+| England | 26.4% | 12.3% |
+| France | 18.0% | 8.2% |
+| Colombia | 9.2% | 3.2% |
 | Netherlands | 6.0% | 2.0% |
-| Brazil | 5.8% | 1.8% |
+| Brazil | 5.8% | 1.9% |
 | Belgium | 5.0% | 1.5% |
 | Portugal | 4.8% | 1.7% |
-| Norway | 4.2% | 1.2% |
+| Norway | 4.2% | 1.1% |
 
 **Most likely finals:**
 
