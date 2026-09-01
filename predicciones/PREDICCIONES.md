@@ -266,7 +266,7 @@ From 50,000 simulations of the whole tournament (official bracket, live Elo).
 | France | 18.0% | 8.1% |
 | Colombia | 9.1% | 3.1% |
 | Netherlands | 6.0% | 2.0% |
-| Brazil | 5.7% | 1.9% |
+| Brazil | 5.8% | 1.9% |
 | Belgium | 5.0% | 1.5% |
 | Portugal | 4.8% | 1.7% |
 | Norway | 4.2% | 1.2% |
