@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-09-01",
+    "elo_live_actualizado": "2026-09-02",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
