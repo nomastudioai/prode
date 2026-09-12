@@ -19,7 +19,7 @@
       }
     ],
     "nota_fallback": "Escocia y Curaçao no están en el extracto del Atlas; su Elo proviene de eloratings.net en vivo (misma metodología, distinta fecha de corte).",
-    "elo_live_actualizado": "2026-09-11",
+    "elo_live_actualizado": "2026-09-12",
     "nota_elo_live": "elo_live = eloratings.net en vivo (predicciones a futuro). elo_2026 = snapshot pre-torneo del Atlas (backtest)."
   },
   "equipos": [
@@ -299,7 +299,7 @@
         "2026": 8
       },
       "in_index": true,
-      "elo_live": 1971,
+      "elo_live": 1970,
       "rank_live": 8,
       "en_name": "Netherlands"
     },
@@ -859,7 +859,7 @@
         "2026": 28
       },
       "in_index": true,
-      "elo_live": 1795,
+      "elo_live": 1794,
       "rank_live": 25,
       "en_name": "Australia"
     },
@@ -980,8 +980,8 @@
       "rank_recent": {},
       "in_index": false,
       "elo_source": "eloratings.net en vivo 2026-06-25 (fallback; puede reflejar partidos ya jugados)",
-      "elo_live": 1746,
-      "rank_live": 31,
+      "elo_live": 1745,
+      "rank_live": 32,
       "en_name": "Scotland"
     },
     {
@@ -1120,7 +1120,7 @@
         "2026": 40
       },
       "in_index": true,
-      "elo_live": 1630,
+      "elo_live": 1631,
       "rank_live": 56,
       "en_name": "Uzbekistan"
     },
