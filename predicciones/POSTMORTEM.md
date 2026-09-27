@@ -71,6 +71,6 @@ Live eloratings.net Elo (same method as the projected bracket) + a 50,000-run Mo
 
 | Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |
 |---|---|---|---|---|---|---|
-| France vs England | Third place play-off | 2026-07-18 | England | 1-2 | 30/29/40 | England 57.5% |
-| Spain vs Argentina | Final | 2026-07-19 | Spain | 2-1 | 43/28/27 | Spain 61.8% |
+| France vs England | Third place play-off | 2026-07-18 | England | 1-2 | 33/29/37 | England 52.9% |
+| Spain vs Argentina | Final | 2026-07-19 | Spain | 2-1 | 45/28/26 | Spain 63.9% |
 

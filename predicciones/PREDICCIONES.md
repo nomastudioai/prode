@@ -102,7 +102,7 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 - **England 2-0 DR Congo** → advances **England**
 - **United States 1-0 Bosnia and Herzegovina** → advances **United States**
 - **Belgium 1-0 Senegal** → advances **Belgium**
-- **Portugal 1-0 Croatia** → advances **Portugal**
+- **Portugal 2-1 Croatia** → advances **Portugal**
 - **Spain 2-0 Austria** → advances **Spain**
 - **Switzerland 1-0 Algeria** → advances **Switzerland**
 - **Argentina 2-0 Cape Verde** → advances **Argentina**
@@ -256,28 +256,28 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 
 From 50,000 simulations of the whole tournament (official bracket, live Elo).
 
-**Most likely final: Argentina vs Spain** (occurs in 25.7% of simulations).
+**Most likely final: Argentina vs Spain** (occurs in 27.2% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Spain | 57.1% | 39.6% |
-| Argentina | 45.1% | 24.2% |
-| England | 26.0% | 12.4% |
-| France | 18.0% | 8.2% |
-| Colombia | 9.2% | 3.0% |
-| Brazil | 5.6% | 1.7% |
-| Netherlands | 5.6% | 1.8% |
-| Belgium | 5.2% | 1.6% |
-| Portugal | 4.9% | 1.8% |
-| Norway | 4.7% | 1.3% |
+| Spain | 58.5% | 42.0% |
+| Argentina | 46.5% | 23.5% |
+| England | 23.1% | 9.9% |
+| France | 18.0% | 8.8% |
+| Colombia | 9.2% | 2.9% |
+| Belgium | 6.1% | 2.2% |
+| Brazil | 5.6% | 1.6% |
+| Norway | 5.1% | 1.3% |
+| Netherlands | 4.8% | 1.7% |
+| Portugal | 4.2% | 1.6% |
 
 **Most likely finals:**
 
-- Argentina vs Spain — 25.7%
-- England vs Spain — 14.8%
-- Argentina vs France — 8.2%
-- Colombia vs Spain — 5.3%
-- England vs France — 4.6%
-- Brazil vs Spain — 3.2%
+- Argentina vs Spain — 27.2%
+- England vs Spain — 13.4%
+- Argentina vs France — 8.4%
+- Colombia vs Spain — 5.4%
+- England vs France — 4.1%
+- Brazil vs Spain — 3.3%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.
