@@ -20,18 +20,18 @@ The point of the case study isn't "beating the World Cup": it's showing, with da
 <!-- PRED:START -->
 _Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **61.1%** of 72 matches played (random ≈ 33%)._
 
-**🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 2-1 Argentina**.
+**🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 1-0 Argentina**.
 
-**Most likely finalists (Monte Carlo):** Argentina vs Spain (26.5% of simulations).
+**Most likely finalists (Monte Carlo):** Argentina vs Spain (26.3% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Spain | 56.4% | 40.5% |
-| Argentina | 46.9% | 23.7% |
-| England | 23.0% | 9.7% |
-| France | 20.9% | 10.7% |
-| Colombia | 9.2% | 2.9% |
-| Brazil | 6.7% | 2.1% |
+| Spain | 57.2% | 41.2% |
+| Argentina | 45.8% | 22.8% |
+| England | 24.2% | 10.4% |
+| France | 20.5% | 10.4% |
+| Colombia | 8.8% | 2.6% |
+| Brazil | 6.4% | 1.9% |
 
 Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
@@ -130,8 +130,8 @@ These two matches had **not been played** when this post-mortem was generated (t
 
 | Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |
 |---|---|---|---|---|---|---|
-| France vs England | Third place play-off | 2026-07-18 | **England** | 1-2 | 34/29/35 | England 50.7% |
-| Spain vs Argentina | Final | 2026-07-19 | **Spain** | 2-1 | 45/28/26 | Spain 63.9% |
+| France vs England | Third place play-off | 2026-07-18 | **England** | 1-2 | 34/29/36 | England 51.6% |
+| Spain vs Argentina | Final | 2026-07-19 | **Spain** | 1-0 | 45/28/25 | Spain 64.4% |
 
 ### 🧠 What the post-mortem says about the model
 
