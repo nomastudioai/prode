@@ -92,13 +92,13 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 
 ### Round of 32
 
-- **South Africa 0-2 Canada** → advances **Canada**
+- **South Africa 0-1 Canada** → advances **Canada**
 - **Germany 2-1 Paraguay** → advances **Germany**
 - **Netherlands 2-1 Morocco** → advances **Netherlands**
 - **Brazil 2-1 Japan** → advances **Brazil**
 - **France 2-0 Sweden** → advances **France**
 - **Ivory Coast 0-1 Norway** → advances **Norway**
-- **Mexico 2-1 Ecuador** → advances **Mexico**
+- **Mexico 1-0 Ecuador** → advances **Mexico**
 - **England 2-0 DR Congo** → advances **England**
 - **United States 1-0 Bosnia and Herzegovina** → advances **United States**
 - **Belgium 1-0 Senegal** → advances **Belgium**
@@ -116,7 +116,7 @@ Single most-likely path: the **final** group standings set the bracket; then eve
 - **Brazil 2-1 Norway** → advances **Brazil**
 - **Mexico 0-1 England** → advances **England**
 - **Portugal 0-2 Spain** → advances **Spain**
-- **United States 0-1 Belgium** → advances **Belgium**
+- **United States 1-2 Belgium** → advances **Belgium**
 - **Argentina 2-0 Australia** → advances **Argentina**
 - **Switzerland 1-2 Colombia** → advances **Colombia** _(tight)_
 
@@ -256,28 +256,28 @@ Probability of reaching the Round of 32 (top 2 per group + 8 best third-placed t
 
 From 50,000 simulations of the whole tournament (official bracket, live Elo).
 
-**Most likely final: Argentina vs Spain** (occurs in 25.0% of simulations).
+**Most likely final: Argentina vs Spain** (occurs in 24.9% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Spain | 56.3% | 39.9% |
-| Argentina | 44.5% | 22.6% |
-| England | 29.9% | 14.0% |
-| France | 18.5% | 8.7% |
-| Portugal | 7.3% | 3.0% |
-| Colombia | 6.9% | 2.1% |
-| Brazil | 6.2% | 1.9% |
-| Belgium | 5.3% | 1.7% |
-| Netherlands | 5.1% | 1.5% |
-| Switzerland | 4.8% | 1.4% |
+| Spain | 55.8% | 39.7% |
+| Argentina | 44.6% | 22.4% |
+| England | 30.2% | 14.0% |
+| France | 19.9% | 9.7% |
+| Portugal | 7.6% | 3.3% |
+| Colombia | 7.0% | 2.0% |
+| Brazil | 6.2% | 1.8% |
+| Netherlands | 5.4% | 1.8% |
+| Switzerland | 4.7% | 1.3% |
+| Belgium | 4.4% | 1.3% |
 
 **Most likely finals:**
 
-- Argentina vs Spain — 25.0%
-- England vs Spain — 16.9%
-- Argentina vs France — 8.3%
-- England vs France — 5.5%
+- Argentina vs Spain — 24.9%
+- England vs Spain — 16.8%
+- Argentina vs France — 8.8%
+- England vs France — 6.0%
 - Colombia vs Spain — 3.9%
-- Brazil vs Spain — 3.4%
+- Argentina vs Portugal — 3.4%
 
 > Finalist probabilities are low and tightly bunched: the model has NO strong favorite, and the exact bracket pairings after the Round of 32 are the least certain part. Treat as indicative.
