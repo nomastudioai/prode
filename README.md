@@ -22,16 +22,16 @@ _Last auto-update: **2026-06-28**. Backtest: the model gets the 1X2 right in **6
 
 **🏆 Projected champion (most-likely bracket): Spain.** Projected final: **Spain 1-0 Argentina**.
 
-**Most likely finalists (Monte Carlo):** Argentina vs Spain (24.9% of simulations).
+**Most likely finalists (Monte Carlo):** Argentina vs Spain (25.0% of simulations).
 
 | Team | Reaches final | Champion |
 |---|---|---|
-| Spain | 55.8% | 39.7% |
-| Argentina | 44.6% | 22.4% |
-| England | 30.2% | 14.0% |
-| France | 19.9% | 9.7% |
-| Portugal | 7.6% | 3.3% |
-| Colombia | 7.0% | 2.0% |
+| Spain | 56.6% | 40.3% |
+| Argentina | 43.9% | 21.7% |
+| England | 31.3% | 14.5% |
+| France | 19.6% | 9.6% |
+| Portugal | 7.7% | 3.3% |
+| Colombia | 7.3% | 2.1% |
 
 Full detail (our group-stage predictions vs the results, the match-by-match bracket) in [**predicciones/PREDICCIONES.md**](predicciones/PREDICCIONES.md).
 <!-- PRED:END -->
@@ -130,8 +130,8 @@ These two matches had **not been played** when this post-mortem was generated (t
 
 | Match | Round | Date | Favourite | Pred. score | p(1/X/2) at 90' | Wins the tie (MC) |
 |---|---|---|---|---|---|---|
-| France vs England | Third place play-off | 2026-07-18 | **England** | 1-2 | 31/29/39 | England 55.1% |
-| Spain vs Argentina | Final | 2026-07-19 | **Spain** | 1-0 | 45/28/25 | Spain 64.2% |
+| France vs England | Third place play-off | 2026-07-18 | **England** | 1-2 | 31/29/39 | England 55.4% |
+| Spain vs Argentina | Final | 2026-07-19 | **Spain** | 1-0 | 46/28/25 | Spain 64.8% |
 
 ### 🧠 What the post-mortem says about the model
 
